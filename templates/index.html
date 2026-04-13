@@ -425,7 +425,4 @@ function renderStores(){document.getElementById('storesGrid').innerHTML=stores.m
 function toggleAddStore(){addingStore=!addingStore;document.getElementById('addStoreForm').classList.toggle('open',addingStore);document.getElementById('addStoreBtn').classList.toggle('active',addingStore);document.getElementById('addStoreBtn').textContent=addingStore?'✕ Cancel':'+ Add Store';}
 function addStore(){const name=document.getElementById('sName').value.trim();if(!name)return;let url=document.getElementById('sUrl').value;if(url&&!url.startsWith('http'))url='https://'+url;stores.push({id:Date.now(),name,url,newArrivals:document.getElementById('sNew').value,color:document.getElementById('sColor').value});['sName','sUrl','sNew'].forEach(id=>document.getElementById(id).value='');toggleAddStore();renderStores();toast('Store added ✓');}
 function renderAll(){renderSourceLinks();renderTrends();renderPieces();renderCollections();renderStores();renderTrendPicker();renderCreatePicker();}
-renderAll();
-</script>
-</body>
-</html>
+  
