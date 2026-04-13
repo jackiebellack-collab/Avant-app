@@ -17,44 +17,15 @@ header{background:#fff;border-bottom:1px solid #e8e0d8;padding:0 28px;position:s
 .nav-btn{background:transparent;color:#c8b8a8;border:none;border-bottom:2px solid transparent;padding:0 20px;font-size:0.62rem;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.15em;text-transform:uppercase;transition:all 0.2s}
 .nav-btn.active{color:#1a1410;border-bottom-color:#c8a882}
 .header-right{display:flex;align-items:center;gap:12px;padding:14px 0}
-.prefs-btn{background:transparent;color:#c8b8a8;border:none;font-size:0.58rem;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.08em;text-transform:uppercase}
 .main{max-width:1040px;margin:0 auto;padding:28px 20px}
 .section-label{font-size:0.5rem;letter-spacing:0.2em;color:#c8b8a8;text-transform:uppercase;font-family:'DM Sans',sans-serif;margin-bottom:6px}
 .section-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:#1a1410;margin-bottom:20px}
 .section-title em{color:#c8a882;font-style:italic}
 .panel{display:none}.panel.active{display:block}
 .toast{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#1a1410;color:#f8f6f3;padding:10px 24px;border-radius:2px;font-size:0.78rem;font-family:'DM Sans',sans-serif;z-index:9999;box-shadow:0 4px 24px rgba(0,0,0,0.15);display:none;white-space:nowrap;letter-spacing:0.05em}
-
-/* Onboarding */
-.onboarding{position:fixed;inset:0;background:#f8f6f3;z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px}
-.onboarding-inner{max-width:480px;width:100%}
-.onboarding-logo{text-align:center;margin-bottom:48px}
-.onboarding-logo .logo{font-size:1.6rem}
-.progress-bar{display:flex;gap:4px;margin-bottom:32px}
-.progress-step{flex:1;height:2px;background:#e8e0d8;border-radius:1px;transition:background 0.3s}
-.progress-step.done{background:#c8a882}
-.step-label{font-size:0.55rem;letter-spacing:0.2em;color:#c8b8a8;text-transform:uppercase;font-family:'DM Sans',sans-serif;margin-bottom:8px}
-.step-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;margin-bottom:6px}
-.step-subtitle{font-size:0.78rem;color:#8a7a6a;font-family:'DM Sans',sans-serif;margin-bottom:24px;line-height:1.6}
-.option-btn{width:100%;background:#fff;color:#8a7a6a;border:1px solid #e8e0d8;border-radius:2px;padding:12px 18px;font-size:0.75rem;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.08em;text-transform:uppercase;text-align:left;transition:all 0.15s;margin-bottom:8px;display:block}
-.option-btn.selected{background:#1a1410;color:#f8f6f3;border-color:#1a1410}
-.niche-btn{background:#fff;color:#8a7a6a;border:1px solid #e8e0d8;border-radius:2px;padding:10px 18px;font-size:0.72rem;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.08em;text-transform:uppercase;transition:all 0.15s;margin:0 6px 6px 0;display:inline-block}
-.niche-btn.selected{background:#1a1410;color:#f8f6f3;border-color:#1a1410}
-.form-input{width:100%;padding:10px 12px;border:1px solid #e8e0d8;border-radius:2px;font-size:0.85rem;font-family:'DM Sans',sans-serif;background:#fff;color:#1a1410;box-sizing:border-box}
-.form-input:focus{outline:none;border-color:#c8a882}
-.form-label{font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:#8a7a6a;margin-bottom:5px;display:block;font-family:'DM Sans',sans-serif}
-.ob-nav{display:flex;gap:10px;margin-top:24px}
-.ob-back{background:transparent;color:#c8b8a8;border:1px solid #e8e0d8;border-radius:2px;padding:12px 20px;font-size:0.65rem;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.1em;text-transform:uppercase}
-.ob-next{flex:1;background:#1a1410;color:#f8f6f3;border:none;border-radius:2px;padding:14px;font-size:0.7rem;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.15em;text-transform:uppercase}
-.ob-next:disabled{background:#e8e0d8;color:#c8b8a8;cursor:default}
-.ob-skip{width:100%;background:transparent;color:#c8b8a8;border:none;padding:10px;font-size:0.6rem;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.08em;text-transform:uppercase;margin-top:8px}
-
-/* Source links */
 .source-links{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:28px}
 .source-link{display:inline-flex;align-items:center;gap:5px;background:#fff;color:#8a7a6a;border:1px solid #e8e0d8;border-radius:2px;padding:6px 12px;font-size:0.62rem;font-family:'DM Sans',sans-serif;text-decoration:none;letter-spacing:0.06em;transition:all 0.15s}
 .source-link:hover{color:#1a1410;border-color:#c8a882}
-
-/* Trend cards */
 .trend-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin-bottom:40px}
 .trend-card{background:#fff;border:1px solid #e8e0d8;border-radius:2px;overflow:hidden;transition:border-color 0.2s}
 .trend-card:hover{border-color:#c8a882}
@@ -72,15 +43,13 @@ header{background:#fff;border-bottom:1px solid #e8e0d8;padding:0 28px;position:s
 .trend-actions{display:flex;gap:6px}
 .trend-btn{background:transparent;color:#c8a882;border:1px solid #e8e0d8;border-radius:1px;padding:5px 10px;font-size:0.58rem;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.08em;text-transform:uppercase}
 .trend-btn.dark{background:#1a1410;color:#f8f6f3;border-color:#1a1410}
-
-/* Pieces */
 .pieces-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
 .piece-card{background:#fff;border:1px solid #e8e0d8;border-radius:2px;overflow:hidden;transition:border-color 0.15s}
 .piece-card:hover{border-color:#c8a882}
 .piece-img{height:180px;background:#f8f6f3;overflow:hidden;position:relative}
 .piece-img img{width:100%;height:100%;object-fit:cover}
 .piece-img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#c8b8a8;font-size:0.7rem;font-family:'DM Sans',sans-serif}
-.piece-tag-badge{position:absolute;top:8px;left:8px;background:rgba(255,255,255,0.9);color:#8a7a6a;padding:2px 7px;border-radius:1px;font-size:0.52rem;font-family:'DM Sans',sans-serif;letter-spacing:0.06em;backdrop-filter:blur(4px)}
+.piece-tag-badge{position:absolute;top:8px;left:8px;background:rgba(255,255,255,0.9);color:#8a7a6a;padding:2px 7px;border-radius:1px;font-size:0.52rem;font-family:'DM Sans',sans-serif;letter-spacing:0.06em}
 .piece-linked{position:absolute;top:8px;right:8px;width:7px;height:7px;border-radius:50%;background:#6a9a7a}
 .piece-info{padding:10px 12px}
 .piece-name{font-size:0.78rem;font-weight:600;color:#1a1410;margin-bottom:2px;line-height:1.3}
@@ -92,22 +61,19 @@ header{background:#fff;border-bottom:1px solid #e8e0d8;padding:0 28px;position:s
 .edit-panel.open{display:flex}
 .edit-input{width:100%;padding:6px 8px;border:1px solid #e8e0d8;border-radius:1px;font-size:0.72rem;font-family:'DM Sans',sans-serif;background:#f8f6f3;color:#1a1410;box-sizing:border-box}
 .remove-btn{background:transparent;color:#c07070;border:1px solid #f0d0d0;border-radius:1px;padding:5px;font-size:0.6rem;cursor:pointer;font-family:'DM Sans',sans-serif}
-
-/* Add form */
 .add-form{background:#fff;border:1px solid #e8e0d8;border-radius:2px;padding:20px;margin-bottom:20px;display:none}
 .add-form.open{display:block}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
 .form-field{margin-bottom:10px}
-.img-preview{height:80px;width:80px;object-fit:cover;border-radius:2px;border:1px solid #e8e0d8;display:none}
+.form-input{width:100%;padding:9px 12px;border:1px solid #e8e0d8;border-radius:2px;font-size:0.82rem;font-family:'DM Sans',sans-serif;background:#fff;color:#1a1410;box-sizing:border-box}
+.form-input:focus{outline:none;border-color:#c8a882}
+.form-label{font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:#8a7a6a;margin-bottom:5px;display:block;font-family:'DM Sans',sans-serif}
+.img-preview{height:80px;width:80px;object-fit:cover;border-radius:2px;border:1px solid #e8e0d8;display:none;margin-top:8px}
 .submit-btn{background:#1a1410;color:#f8f6f3;border:none;border-radius:2px;padding:10px 24px;font-size:0.7rem;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.1em;text-transform:uppercase}
 .cancel-btn{background:transparent;color:#1a1410;border:1px solid #e8e0d8;border-radius:2px;padding:10px 24px;font-size:0.7rem;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.1em;text-transform:uppercase}
-
-/* Filter pills */
 .filter-row{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px}
-.filter-pill{background:transparent;color:#8a7a6a;border:1px solid #e8e0d8;border-radius:1px;padding:4px 10px;font-size:0.58rem;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.06em;text-transform:uppercase;transition:all 0.15s}
+.filter-pill{background:transparent;color:#8a7a6a;border:1px solid #e8e0d8;border-radius:1px;padding:4px 10px;font-size:0.58rem;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.06em;text-transform:uppercase}
 .filter-pill.active{background:#1a1410;color:#f8f6f3;border-color:#1a1410}
-
-/* Collections */
 .collections-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
 .collection-card{background:#fff;border:1px solid #e8e0d8;border-radius:2px;overflow:hidden;cursor:pointer;transition:border-color 0.2s}
 .collection-card:hover{border-color:#c8a882}
@@ -119,10 +85,7 @@ header{background:#fff;border-bottom:1px solid #e8e0d8;padding:0 28px;position:s
 .col-info{padding:14px 16px}
 .col-name{font-family:'Cormorant Garamond',serif;font-size:0.92rem;font-weight:600;color:#1a1410;margin-bottom:4px}
 .col-meta{font-size:0.65rem;color:#8a7a6a;font-family:'DM Sans',sans-serif}
-
-/* Builder */
 .builder-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:24px}
-.builder-left{display:flex;flex-direction:column;gap:12px}
 .builder-panel{background:#fff;border:1px solid #e8e0d8;border-radius:2px;padding:18px}
 .builder-title-input{width:100%;border:none;border-bottom:1px solid #e8e0d8;padding:6px 0;font-size:1rem;font-family:'Cormorant Garamond',serif;color:#1a1410;background:transparent;margin-bottom:12px;outline:none;box-sizing:border-box}
 .selected-piece{display:flex;align-items:center;gap:8px;padding:6px 10px;background:#f8f6f3;border-radius:1px;margin-bottom:5px}
@@ -144,8 +107,6 @@ header{background:#fff;border-bottom:1px solid #e8e0d8;padding:0 28px;position:s
 .total-row{padding:8px 12px;background:#f8f6f3;border:1px solid #e8e0d8;border-radius:2px;display:flex;justify-content:space-between;align-items:center}
 .total-label{font-size:0.58rem;color:#8a7a6a;font-family:'DM Sans',sans-serif;text-transform:uppercase;letter-spacing:0.08em}
 .total-val{font-size:0.9rem;color:#c8a882;font-family:'Cormorant Garamond',serif}
-
-/* Modal */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:500;display:none;align-items:center;justify-content:center;padding:20px}
 .modal-overlay.open{display:flex}
 .modal{background:#fff;border-radius:2px;max-width:580px;width:100%;overflow:hidden;max-height:90vh;overflow-y:auto}
@@ -165,16 +126,13 @@ header{background:#fff;border-bottom:1px solid #e8e0d8;padding:0 28px;position:s
 .modal-btn{flex:1;background:#1a1410;color:#f8f6f3;border:none;border-radius:1px;padding:10px;font-size:0.62rem;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.08em;text-transform:uppercase}
 .modal-btn.outline{background:transparent;color:#c07070;border:1px solid #f0d0d0}
 .modal-btn.ghost{background:#f8f6f3;color:#1a1410;flex:0;padding:10px 14px}
-
-/* Create tab */
 .create-toggle{display:flex;background:#f8f6f3;border:1px solid #e8e0d8;border-radius:2px;overflow:hidden;margin-bottom:20px;width:fit-content}
-.create-toggle-btn{background:transparent;color:#8a7a6a;border:none;padding:8px 18px;font-size:0.62rem;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.08em;text-transform:uppercase;transition:all 0.2s}
+.create-toggle-btn{background:transparent;color:#8a7a6a;border:none;padding:8px 18px;font-size:0.62rem;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.08em;text-transform:uppercase}
 .create-toggle-btn.active{background:#1a1410;color:#f8f6f3}
 .content-section{background:#fff;border:1px solid #e8e0d8;border-radius:2px;padding:16px;margin-bottom:10px}
 .content-sec-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
 .content-sec-label{font-size:0.58rem;letter-spacing:0.12em;color:#8a7a6a;text-transform:uppercase;font-family:'DM Sans',sans-serif}
 .copy-btn{background:#f8f6f3;color:#8a7a6a;border:none;border-radius:1px;padding:4px 10px;font-size:0.58rem;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.06em;text-transform:uppercase}
-.copy-btn.done{background:#eaf5ea;color:#4a8a5a}
 .content-textarea{width:100%;padding:10px;background:#f8f6f3;border:1px solid #e8e0d8;border-radius:1px;font-size:0.8rem;font-family:'DM Sans',sans-serif;resize:vertical;color:#1a1410;line-height:1.6;box-sizing:border-box}
 .pin-row{display:flex;gap:8px;margin-bottom:6px}
 .pin-num{min-width:16px;height:16px;background:#f0ece8;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.5rem;color:#c8a882;font-family:'DM Sans',sans-serif;margin-top:8px;flex-shrink:0}
@@ -184,26 +142,16 @@ header{background:#fff;border-bottom:1px solid #e8e0d8;padding:0 28px;position:s
 .story-box{background:#f8f6f3;border:1px solid #e8e0d8;border-radius:1px;padding:12px 16px;font-size:0.78rem;color:#1a1410;min-width:130px;text-align:center;font-style:italic;font-family:'Cormorant Garamond',serif}
 .gen-btn{width:100%;background:#1a1410;color:#f8f6f3;border:none;border-radius:2px;padding:16px;font-size:0.68rem;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.15em;text-transform:uppercase}
 .gen-btn:disabled{background:#e8e0d8;color:#c8b8a8;cursor:default}
-
-/* Templates */
 .template-tabs{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
 .tmpl-tab{background:#fff;color:#8a7a6a;border:1px solid #e8e0d8;border-radius:2px;padding:8px 16px;font-size:0.62rem;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.08em;text-transform:uppercase}
 .tmpl-tab.active{background:#1a1410;color:#f8f6f3;border-color:#1a1410}
 .template-layout{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
 .tmpl-preview-wrap{border:1px solid #e8e0d8;border-radius:2px;overflow:hidden;max-width:360px}
 .tmpl-hint{margin-top:10px;font-size:0.6rem;color:#c8b8a8;font-family:'DM Sans',sans-serif;line-height:1.5}
-
-/* Template styles */
 .tmpl{background:#f8f6f3}
 .tmpl-grid2{display:grid;grid-template-columns:1fr 1fr;gap:2px;aspect-ratio:1}
 .tmpl-grid3{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:2px;aspect-ratio:1}
-.tmpl-grid3 .hero{grid-row:1/3}
 .tmpl-editorial{display:flex;flex-direction:column;gap:2px;aspect-ratio:4/5}
-.tmpl-editorial .hero{flex:2;position:relative;overflow:hidden}
-.tmpl-editorial .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,0.6));display:flex;flex-direction:column;justify-content:flex-end;padding:16px}
-.tmpl-editorial .hero-trend{font-size:0.5rem;letter-spacing:0.2em;color:rgba(255,255,255,0.6);text-transform:uppercase;font-family:'DM Sans',sans-serif;margin-bottom:4px}
-.tmpl-editorial .hero-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:white}
-.tmpl-editorial .bottom-row{flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
 .tmpl-mood{padding:12px;aspect-ratio:1;display:flex;flex-direction:column;gap:8px;background:#fff}
 .tmpl-mood-header{text-align:center;padding:4px 0}
 .tmpl-mood-title{font-family:'DM Sans',sans-serif;font-size:0.5rem;letter-spacing:0.2em;color:#c8b8a8;text-transform:uppercase;margin-bottom:2px}
@@ -211,16 +159,8 @@ header{background:#fff;border-bottom:1px solid #e8e0d8;padding:0 28px;position:s
 .tmpl-mood-grid{flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
 .tmpl-mood-footer{text-align:center;font-size:0.45rem;color:#e0d8d0;font-family:'DM Sans',sans-serif;letter-spacing:0.12em;text-transform:uppercase}
 .tmpl-story{aspect-ratio:9/16;max-height:400px;position:relative;overflow:hidden;background:#f8f6f3}
-.tmpl-story-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,0.7))}
-.tmpl-story-top{position:absolute;top:16px;left:16px;right:16px;display:flex;justify-content:space-between;align-items:center}
-.tmpl-story-brand{font-size:0.7rem;letter-spacing:0.2em;color:white;text-transform:uppercase;font-family:'DM Sans',sans-serif;font-weight:300}
-.tmpl-story-bottom{position:absolute;bottom:16px;left:16px;right:16px}
-.tmpl-story-trend{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:white;margin-bottom:4px}
-.tmpl-story-cta{font-size:0.65rem;color:#c8a882;font-family:'DM Sans',sans-serif;letter-spacing:0.06em}
 .tmpl-cell{overflow:hidden;background:#f0ece8}
 .tmpl-cell img{width:100%;height:100%;object-fit:cover}
-
-/* Stores */
 .stores-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
 .store-card{background:#fff;border:1px solid #e8e0d8;border-radius:2px;overflow:hidden;transition:border-color 0.15s}
 .store-card:hover{border-color:#c8a882}
@@ -230,8 +170,6 @@ header{background:#fff;border-bottom:1px solid #e8e0d8;padding:0 28px;position:s
 .store-btn{flex:1;border-radius:1px;padding:6px;font-size:0.58rem;font-family:'DM Sans',sans-serif;text-decoration:none;text-align:center;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;border:none}
 .store-visit{background:#f8f6f3;color:#8a7a6a}
 .store-new{background:transparent;color:#c8a882;border:1px solid #e8e0d8!important}
-
-/* Utility */
 .flex-between{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:20px}
 .add-btn{background:transparent;color:#1a1410;border:1px solid #c8b8a8;border-radius:2px;padding:8px 16px;font-size:0.6rem;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.1em;text-transform:uppercase}
 .add-btn.active{background:#1a1410;color:#f8f6f3}
@@ -240,26 +178,13 @@ header{background:#fff;border-bottom:1px solid #e8e0d8;padding:0 28px;position:s
 .footer{margin-top:48px;padding-top:20px;border-top:1px solid #f0ece8;display:flex;justify-content:space-between;align-items:center}
 .footer-logo{font-size:0.8rem;letter-spacing:0.2em;color:#e0d8d0;text-transform:uppercase;font-family:'DM Sans',sans-serif;font-weight:300}
 .footer-tag{font-size:0.48rem;color:#e8e4e0;font-family:'DM Sans',sans-serif;letter-spacing:0.12em;text-transform:uppercase;margin-top:2px}
-@media(max-width:600px){.builder-grid{grid-template-columns:1fr}.template-layout{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.header-inner{flex-wrap:wrap}.nav{overflow-x:auto}}
+@media(max-width:600px){.builder-grid{grid-template-columns:1fr}.template-layout{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
 <div class="toast" id="toast"></div>
 
-<!-- ONBOARDING -->
-<div class="onboarding" id="onboarding">
-  <div class="onboarding-inner">
-    <div class="onboarding-logo">
-      <div class="logo">AVANT</div>
-      <div class="tagline">Source. Curate. Influence.</div>
-    </div>
-    <div class="progress-bar" id="progressBar"></div>
-    <div id="stepContent"></div>
-  </div>
-</div>
-
-<!-- HEADER -->
 <header>
   <div class="header-inner">
     <div class="logo-wrap">
@@ -274,23 +199,18 @@ header{background:#fff;border-bottom:1px solid #e8e0d8;padding:0 28px;position:s
     </nav>
     <div class="header-right">
       <span id="userName" style="font-size:0.62rem;color:#c8b8a8;font-family:'DM Sans',sans-serif"></span>
-      <button class="prefs-btn" onclick="showOnboarding()">Prefs</button>
     </div>
   </div>
 </header>
 
-<!-- MAIN -->
 <div class="main">
 
-  <!-- SOURCE TAB -->
   <div class="panel active" id="panel-source">
     <div class="section-label" style="margin-bottom:10px">Trend Intelligence Sources</div>
     <div class="source-links" id="sourceLinks"></div>
-
     <div class="section-label">What's Moving Now</div>
     <div class="section-title">Trend <em>Intelligence</em></div>
     <div class="trend-grid" id="trendGrid"></div>
-
     <div class="flex-between">
       <div>
         <div class="section-label">Your Finds</div>
@@ -298,45 +218,33 @@ header{background:#fff;border-bottom:1px solid #e8e0d8;padding:0 28px;position:s
       </div>
       <button class="add-btn" id="addPieceBtn" onclick="toggleAddPiece()">+ Add Piece</button>
     </div>
-
     <div class="add-form" id="addPieceForm">
       <div class="form-grid">
         <div class="form-field"><label class="form-label">Item Name *</label><input class="form-input" id="pName" placeholder="e.g. Silk midi dress"></div>
         <div class="form-field"><label class="form-label">Brand</label><input class="form-input" id="pBrand" placeholder="e.g. Revolve"></div>
         <div class="form-field"><label class="form-label">Price</label><input class="form-input" id="pPrice" placeholder="e.g. $89"></div>
         <div class="form-field"><label class="form-label">Affiliate Link</label><input class="form-input" id="pAffiliate" placeholder="Paste your link"></div>
-        <div class="form-field">
-          <label class="form-label">Category</label>
-          <select class="form-input" id="pCategory"><option>Tops</option><option>Bottoms</option><option>Dresses</option><option>Outerwear</option><option>Shoes</option><option>Bags</option><option>Jewelry</option><option>Accessories</option></select>
-        </div>
-        <div class="form-field">
-          <label class="form-label">Tag</label>
-          <select class="form-input" id="pTag"><option>Want</option><option>Love</option><option>Bought</option><option>Posted</option><option>Owned</option></select>
-        </div>
-        <div class="form-field">
-          <label class="form-label">Source</label>
-          <select class="form-input" id="pSource"><option>Instagram</option><option>TikTok</option><option>Pinterest</option><option>Newsletter</option><option>Shopbop</option><option>Revolve</option><option>Nordstrom</option><option>Website</option><option>Friend</option></select>
-        </div>
-        <div class="form-field"><label class="form-label">Note</label><input class="form-input" id="pNote" placeholder="e.g. Runs small, size up"></div>
+        <div class="form-field"><label class="form-label">Category</label><select class="form-input" id="pCategory"><option>Tops</option><option>Bottoms</option><option>Dresses</option><option>Outerwear</option><option>Shoes</option><option>Bags</option><option>Jewelry</option><option>Accessories</option></select></div>
+        <div class="form-field"><label class="form-label">Tag</label><select class="form-input" id="pTag"><option>Want</option><option>Love</option><option>Bought</option><option>Posted</option><option>Owned</option></select></div>
+        <div class="form-field"><label class="form-label">Source</label><select class="form-input" id="pSource"><option>Instagram</option><option>TikTok</option><option>Pinterest</option><option>Newsletter</option><option>Shopbop</option><option>Revolve</option><option>Nordstrom</option><option>Website</option><option>Friend</option></select></div>
+        <div class="form-field"><label class="form-label">Note</label><input class="form-input" id="pNote" placeholder="e.g. Runs small"></div>
       </div>
       <div class="form-field">
         <label class="form-label">Product Image URL</label>
-        <input class="form-input" id="pImage" placeholder="Right-click product image → Open in new tab → copy URL" oninput="previewImg()">
-        <div style="font-size:0.6rem;color:#c8b8a8;font-family:'DM Sans',sans-serif;margin-top:4px">💡 Go to any store, right-click the product photo, click "Open image in new tab" and copy the URL</div>
-        <img id="imgPreview" class="img-preview" style="margin-top:8px">
+        <input class="form-input" id="pImage" placeholder="Right-click image → Open in new tab → copy URL" oninput="previewImg()">
+        <div style="font-size:0.6rem;color:#c8b8a8;font-family:'DM Sans',sans-serif;margin-top:4px">💡 Right-click any product photo → Open image in new tab → copy the URL</div>
+        <img id="imgPreview" class="img-preview">
       </div>
       <div style="display:flex;gap:8px;margin-top:4px">
         <button class="submit-btn" onclick="addPiece()">Add Piece</button>
         <button class="cancel-btn" onclick="toggleAddPiece()">Cancel</button>
       </div>
     </div>
-
     <div class="filter-row" id="catFilters"></div>
     <div class="filter-row" id="tagFilters" style="margin-bottom:20px"></div>
     <div class="pieces-grid" id="piecesGrid"></div>
   </div>
 
-  <!-- CURATE TAB -->
   <div class="panel" id="panel-curate">
     <div class="flex-between">
       <div>
@@ -345,22 +253,16 @@ header{background:#fff;border-bottom:1px solid #e8e0d8;padding:0 28px;position:s
       </div>
       <button class="add-btn" id="newColBtn" onclick="toggleBuilder()">+ New Collection</button>
     </div>
-
-    <div id="collectionGallery">
-      <div class="collections-grid" id="collectionsGrid"></div>
-    </div>
-
+    <div id="collectionGallery"><div class="collections-grid" id="collectionsGrid"></div></div>
     <div id="collectionBuilder" style="display:none">
       <button class="back-link" onclick="toggleBuilder()">← My Collections</button>
       <div class="builder-grid">
-        <div class="builder-left">
+        <div style="display:flex;flex-direction:column;gap:12px">
           <div class="builder-panel">
             <input class="builder-title-input" id="colName" placeholder="Name this collection...">
             <select class="form-input" id="colOccasion" style="font-size:0.75rem"><option>Casual</option><option>Work</option><option>Evening</option><option>Weekend</option><option>Vacation</option><option>Special Occasion</option></select>
           </div>
-          <div id="colPreview" style="display:none">
-            <div class="col-img-grid g4" id="colPreviewGrid" style="height:120px;border-radius:2px;overflow:hidden;border:1px solid #e8e0d8"></div>
-          </div>
+          <div id="colPreview" style="display:none"><div class="col-img-grid g4" id="colPreviewGrid" style="height:120px;border-radius:2px;overflow:hidden;border:1px solid #e8e0d8"></div></div>
           <div class="builder-panel">
             <div class="section-label" style="margin-bottom:8px">Selected (<span id="selCount">0</span>)</div>
             <div id="selectedList"><div style="font-size:0.72rem;color:#c8b8a8;font-family:'DM Sans',sans-serif">Tap pieces to add them →</div></div>
@@ -377,20 +279,153 @@ header{background:#fff;border-bottom:1px solid #e8e0d8;padding:0 28px;position:s
     </div>
   </div>
 
-  <!-- CREATE TAB -->
   <div class="panel" id="panel-create">
     <div class="section-label">Content Studio</div>
     <div class="section-title">Create <em>Content</em></div>
-
     <div id="createForm">
       <div class="content-section">
         <div class="section-label" style="margin-bottom:12px">1. Select a Trend</div>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px;margin-bottom:10px" id="trendPicker"></div>
-        <input class="form-input" id="customTrend" placeholder="Or type your own theme..." style="margin-top:4px">
+        <input class="form-input" id="customTrend" placeholder="Or type your own theme...">
       </div>
       <div class="content-section">
         <div class="section-label" style="margin-bottom:6px">2. Select Pieces</div>
         <div style="font-size:0.65rem;color:#c8b8a8;font-family:'DM Sans',sans-serif;margin-bottom:10px" id="selPiecesCount">Select pieces or we'll use your top items</div>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:6px" id="createPicker"></div>
       </div>
-      <button class="gen-btn" id="genBtn" onclick="generateContent(​​​​​​​​​​​​​​​​
+      <button class="gen-btn" id="genBtn" onclick="generateContent()" disabled>Generate Content</button>
+    </div>
+    <div id="contentResult" style="display:none">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+        <div class="create-toggle">
+          <button class="create-toggle-btn active" onclick="switchContentView('content')" id="cv-content">Content</button>
+          <button class="create-toggle-btn" onclick="switchContentView('template')" id="cv-template">Post Template</button>
+        </div>
+        <button class="new-content-btn" onclick="resetCreate()">← New</button>
+      </div>
+      <div id="contentView">
+        <div class="content-section"><div class="content-sec-header"><span class="content-sec-label">Pinterest Pin Descriptions</span><button class="copy-btn" onclick="copyContent('pins')">Copy All</button></div><div id="pinList"></div></div>
+        <div class="content-section"><div class="content-sec-header"><span class="content-sec-label">Instagram Caption</span><button class="copy-btn" onclick="copyContent('ig')">Copy</button></div><textarea class="content-textarea" id="igCaption" rows="4"></textarea></div>
+        <div class="content-section"><div class="content-sec-header"><span class="content-sec-label">Story Text</span><button class="copy-btn" onclick="copyContent('story')">Copy</button></div><div class="story-boxes" id="storyBoxes"></div></div>
+        <div class="content-section"><div class="content-sec-header"><span class="content-sec-label">Hashtags</span><button class="copy-btn" onclick="copyContent('tags')">Copy All</button></div><div class="hashtag-list" id="hashtagList"></div></div>
+      </div>
+      <div id="templateView" style="display:none">
+        <div class="template-tabs" id="templateTabs"></div>
+        <div class="template-layout">
+          <div>
+            <div class="section-label" style="margin-bottom:10px">Preview — Screenshot to save</div>
+            <div class="tmpl-preview-wrap" id="templatePreview"></div>
+            <div class="tmpl-hint">💡 Right-click or long-press to save the image, then post with your generated caption</div>
+          </div>
+          <div>
+            <div class="section-label" style="margin-bottom:10px">Caption Ready to Copy</div>
+            <div class="content-section"><textarea class="content-textarea" id="tmplCaption" rows="6"></textarea><button class="copy-btn" style="margin-top:8px;width:100%;padding:8px" onclick="copyContent('tmplCap')">Copy Caption</button></div>
+            <button class="copy-btn" style="width:100%;padding:10px;margin-top:6px;background:#f8f6f3;border:1px solid #e8e0d8" onclick="copyContent('tmplTags')">Copy Hashtags</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" id="panel-stores">
+    <div class="flex-between">
+      <div>
+        <div class="section-label">Your Sources</div>
+        <div class="section-title" style="margin-bottom:0">Store <em>Directory</em></div>
+      </div>
+      <button class="add-btn" id="addStoreBtn" onclick="toggleAddStore()">+ Add Store</button>
+    </div>
+    <div class="add-form" id="addStoreForm">
+      <div class="form-grid">
+        <div class="form-field"><label class="form-label">Store Name *</label><input class="form-input" id="sName" placeholder="e.g. Shopbop"></div>
+        <div class="form-field"><label class="form-label">Website URL</label><input class="form-input" id="sUrl" placeholder="e.g. shopbop.com"></div>
+        <div class="form-field"><label class="form-label">New Arrivals URL</label><input class="form-input" id="sNew" placeholder="Link to new arrivals"></div>
+        <div class="form-field"><label class="form-label">Color</label><input type="color" class="form-input" id="sColor" value="#1a1410" style="height:40px;padding:4px"></div>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:4px">
+        <button class="submit-btn" onclick="addStore()">Add Store</button>
+        <button class="cancel-btn" onclick="toggleAddStore()">Cancel</button>
+      </div>
+    </div>
+    <div class="stores-grid" id="storesGrid"></div>
+  </div>
+
+  <div class="footer">
+    <div><div class="footer-logo">AVANT</div><div class="footer-tag">Source. Curate. Influence.</div></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="colModal" onclick="closeModal()">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-img-grid" id="modalImgGrid"></div>
+    <div class="modal-body">
+      <div class="modal-occasion" id="modalOccasion"></div>
+      <div class="modal-title" id="modalTitle"></div>
+      <div id="modalPieces"></div>
+      <div class="modal-actions">
+        <button class="modal-btn" onclick="createFromCollection()">Create Content →</button>
+        <button class="modal-btn outline" onclick="deleteCollection()">Delete</button>
+        <button class="modal-btn ghost" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const TREND_SOURCES=[{name:'Vogue',url:'https://www.vogue.com/fashion/trends',sym:'◆'},{name:'Who What Wear',url:'https://www.whowhatwear.com/fashion/trends',sym:'◇'},{name:'Net-a-Porter',url:'https://www.net-a-porter.com/en-us/porter/fashion',sym:'▪'},{name:'Revolve',url:'https://www.revolve.com/content/editorial',sym:'○'},{name:'Shopbop',url:'https://www.shopbop.com/editorial',sym:'●'},{name:"Harper's Bazaar",url:'https://www.harpersbazaar.com/fashion/trends',sym:'◈'},{name:'Refinery29',url:'https://www.refinery29.com/en-us/fashion-trends',sym:'◉'}];
+const TRENDS=[{id:1,name:'Quiet Luxury',desc:'Understated neutrals, impeccable tailoring, no logos. The anti-hype aesthetic dominating spring.',source:'Vogue',sourceUrl:'https://www.vogue.com/article/quiet-luxury-fashion-trend',heat:'Hot',color:'#e8e0d4',pieces:['Cashmere crewneck','Wide leg trousers','Loafers','Minimal gold jewelry']},{id:2,name:'Ballet Core',desc:'Soft, feminine, graceful. Wrap cardigans, satin ribbons, pale pink everything.',source:'Vogue',sourceUrl:'https://www.vogue.com/article/ballet-core-fashion-trend',heat:'Trending',color:'#f0d4dc',pieces:['Wrap cardigan','Satin skirt','Ballet flats','Ribbon headband']},{id:3,name:'Sheer Layering',desc:'Transparent fabrics over slip dresses and bodysuits. Delicate but intentional.',source:'Net-a-Porter',sourceUrl:'https://www.net-a-porter.com/en-us/porter/fashion',heat:'Hot',color:'#d4dce8',pieces:['Chiffon shirt','Satin slip dress','Mules','Barely-there sandals']},{id:4,name:'Bow Everything',desc:'Oversized bows on bags, shoes, tops and skirts. The sweeter the better.',source:'Who What Wear',sourceUrl:'https://www.whowhatwear.com/fashion/trends',heat:'Rising',color:'#e8d4dc',pieces:['Bow ballet flats','Ribbon bag','Bow blouse','Mini skirt']},{id:5,name:'Coastal Grandmother',desc:'Linen, stripes, effortless seaside elegance. Nora Ephron would approve.',source:'Revolve',sourceUrl:'https://www.revolve.com/content/editorial',heat:'Rising',color:'#d4e8e0',pieces:['Linen trousers','Striped top','Espadrilles','Straw tote']},{id:6,name:'Utility Chic',desc:'Cargo pockets and functional details elevated to fashion.',source:'Who What Wear',sourceUrl:'https://www.whowhatwear.com/fashion/trends',heat:'Emerging',color:'#dce8d4',pieces:['Cargo trousers','Military jacket','Combat boots','Crossbody bag']}];
+const STORES_DATA=[{id:1,name:'Shopbop',url:'https://shopbop.com',newArrivals:'https://www.shopbop.com/whats-new/br/v=1/2534374302024891.htm',color:'#1a1410'},{id:2,name:'Revolve',url:'https://revolve.com',newArrivals:'https://www.revolve.com/new-arrivals/br/3a3c6e/',color:'#2d4a3a'},{id:3,name:'Net-a-Porter',url:'https://net-a-porter.com',newArrivals:'https://www.net-a-porter.com/en-us/shop/new-in',color:'#1c1c1c'},{id:4,name:'Nordstrom',url:'https://nordstrom.com',newArrivals:'https://www.nordstrom.com/browse/new-arrivals/women',color:'#1a2a3a'},{id:5,name:'Zara',url:'https://zara.com',newArrivals:'https://www.zara.com/us/en/new-in-woman-l1180.html',color:'#2d2d2d'},{id:6,name:'Anthropologie',url:'https://anthropologie.com',newArrivals:'https://www.anthropologie.com/new-arrivals',color:'#4a3a2a'},{id:7,name:'Amazon Fashion',url:'https://amazon.com/fashion',newArrivals:'https://www.amazon.com/s?k=new+arrivals+women+fashion',color:'#8a5a00'}];
+let pieces=[{id:1,name:'Silk Wide Leg Trousers',brand:'Revolve',price:'$148',category:'Bottoms',tag:'Want',source:'Instagram',note:'Saw on @styleinspo',affiliateLink:'',imageUrl:'https://images.unsplash.com/photo-1594938298603-c8148c4b4c7b?w=400&q=80'},{id:2,name:'Cashmere Crewneck',brand:'Vince',price:'$295',category:'Tops',tag:'Love',source:'Newsletter',note:'Perfect for quiet luxury',affiliateLink:'',imageUrl:'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&q=80'},{id:3,name:'Pointed Toe Mule',brand:'Steve Madden',price:'$89',category:'Shoes',tag:'Bought',source:'Pinterest',note:'True to size',affiliateLink:'https://amazon.com',imageUrl:'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&q=80'},{id:4,name:'Mini Shoulder Bag',brand:'Coach',price:'$295',category:'Bags',tag:'Posted',source:'Instagram',note:'Linked in April post',affiliateLink:'https://amazon.com',imageUrl:'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&q=80'},{id:5,name:'Gold Hoop Earrings',brand:'Mejuri',price:'$58',category:'Jewelry',tag:'Owned',source:'Friend',note:'',affiliateLink:'',imageUrl:'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400&q=80'},{id:6,name:'Linen Blazer',brand:'Mango',price:'$79',category:'Outerwear',tag:'Want',source:'Who What Wear',note:'Perfect for spring',affiliateLink:'',imageUrl:'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&q=80'},{id:7,name:'Bow Ballet Flats',brand:'Sam Edelman',price:'$90',category:'Shoes',tag:'Want',source:'TikTok',note:'Ballet core',affiliateLink:'',imageUrl:'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=400&q=80'},{id:8,name:'Satin Slip Dress',brand:'Shopbop',price:'$165',category:'Dresses',tag:'Love',source:'Revolve',note:'Sheer layering staple',affiliateLink:'',imageUrl:'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=400&q=80'}];
+let collections=[{id:1,name:'Spring Brunch',occasion:'Casual',pieces:[1,2,3,4],note:'Weekend energy, elevated',date:'Apr 10'},{id:2,name:'Quiet Luxury Edit',occasion:'Work',pieces:[2,6,3,5],note:'The less is more approach',date:'Apr 8'}];
+let stores=[...STORES_DATA];
+let activeCat='All',activeTag='All',addingPiece=false,addingStore=false,builderOpen=false,selectedPieces=[],activeModal=null,selectedTrend=null,createSelectedPieces=[],generatedContent=null,activeTemplate='grid2x2',contentViewMode='content';
+
+function showTab(tab){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));document.getElementById('panel-'+tab).classList.add('active');document.getElementById('tab-'+tab).classList.add('active');}
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',2500);}
+function renderSourceLinks(){document.getElementById('sourceLinks').innerHTML=TREND_SOURCES.map(s=>`<a href="${s.url}" target="_blank" class="source-link">${s.sym} ${s.name}</a>`).join('');}
+function renderTrends(){const hc={'Hot':'#c8a882','Trending':'#8a9ac8','Rising':'#8ac8a0','Emerging':'#c8c88a'};document.getElementById('trendGrid').innerHTML=TRENDS.map(t=>`<div class="trend-card"><div class="trend-bar" style="background:${t.color}"></div><div class="trend-body"><div class="trend-header"><div class="trend-name">${t.name}</div><span class="heat-badge" style="color:${hc[t.heat]||'#c8a882'}">${t.heat}</span></div><div class="trend-desc">${t.desc}</div><div class="trend-pieces">${t.pieces.map(p=>`<span class="trend-piece">${p}</span>`).join('')}</div><div class="trend-footer"><a href="${t.sourceUrl}" target="_blank" class="trend-source">↗ ${t.source}</a><div class="trend-actions"><button class="trend-btn" onclick="loadTrendCreate(${t.id})">Create</button><button class="trend-btn dark" onclick="showTab('curate');openBuilder()">Style</button></div></div></div></div>`).join('');}
+function renderPieces(){const cats=['All','Tops','Bottoms','Dresses','Outerwear','Shoes','Bags','Jewelry','Accessories'];const tags=['All','Want','Love','Bought','Posted','Owned'];document.getElementById('catFilters').innerHTML=cats.map(c=>`<button class="filter-pill ${activeCat===c?'active':''}" onclick="setCat('${c}')">${c}</button>`).join('');document.getElementById('tagFilters').innerHTML=tags.map(t=>`<button class="filter-pill ${activeTag===t?'active':''}" onclick="setTag('${t}')">${t}</button>`).join('');const filtered=pieces.filter(p=>(activeCat==='All'||p.category===activeCat)&&(activeTag==='All'||p.tag===activeTag));document.getElementById('piecesGrid').innerHTML=filtered.map(p=>`<div class="piece-card"><div class="piece-img">${p.imageUrl?`<img src="${p.imageUrl}" alt="${p.name}" onerror="this.style.display='none'">`:'<div class="piece-img-placeholder">No image</div>'}<div class="piece-tag-badge">${p.tag}</div>${p.affiliateLink?'<div class="piece-linked"></div>':''}</div><div class="piece-info"><div class="piece-name">${p.name}</div><div class="piece-brand">${p.brand}</div><div class="piece-price">${p.price}</div>${p.note?`<div class="piece-note">${p.note}</div>`:''}<button class="edit-toggle" onclick="toggleEditPanel(${p.id})">Edit</button><div class="edit-panel" id="ep-${p.id}"><input class="edit-input" value="${p.imageUrl||''}" placeholder="Image URL..." onblur="updatePiece(${p.id},'imageUrl',this.value)"><select class="edit-input" onchange="updatePiece(${p.id},'tag',this.value)">${['Want','Love','Bought','Posted','Owned'].map(t=>`<option ${p.tag===t?'selected':''}>${t}</option>`).join('')}</select><input class="edit-input" value="${p.affiliateLink||''}" placeholder="Affiliate link..." onblur="updatePiece(${p.id},'affiliateLink',this.value)"><button class="remove-btn" onclick="removePiece(${p.id})">Remove</button></div></div></div>`).join('');}
+function setCat(c){activeCat=c;renderPieces();}
+function setTag(t){activeTag=t;renderPieces();}
+function toggleEditPanel(id){document.getElementById('ep-'+id).classList.toggle('open');}
+function updatePiece(id,field,val){pieces=pieces.map(p=>p.id===id?{...p,[field]:val}:p);renderPieces();}
+function removePiece(id){pieces=pieces.filter(p=>p.id!==id);renderPieces();renderPicker();renderCreatePicker();}
+function toggleAddPiece(){addingPiece=!addingPiece;document.getElementById('addPieceForm').classList.toggle('open',addingPiece);document.getElementById('addPieceBtn').classList.toggle('active',addingPiece);document.getElementById('addPieceBtn').textContent=addingPiece?'✕ Cancel':'+ Add Piece';}
+function previewImg(){const url=document.getElementById('pImage').value;const prev=document.getElementById('imgPreview');if(url){prev.src=url;prev.style.display='block';}else prev.style.display='none';}
+function addPiece(){const name=document.getElementById('pName').value.trim();if(!name)return;pieces.unshift({id:Date.now(),name,brand:document.getElementById('pBrand').value,price:document.getElementById('pPrice').value,category:document.getElementById('pCategory').value,tag:document.getElementById('pTag').value,source:document.getElementById('pSource').value,note:document.getElementById('pNote').value,affiliateLink:document.getElementById('pAffiliate').value,imageUrl:document.getElementById('pImage').value});['pName','pBrand','pPrice','pAffiliate','pNote','pImage'].forEach(id=>document.getElementById(id).value='');document.getElementById('imgPreview').style.display='none';toggleAddPiece();renderPieces();renderPicker();renderCreatePicker();toast('Added to your sourced pieces ✓');}
+function renderCollections(){if(collections.length===0){document.getElementById('collectionsGrid').innerHTML='<div style="text-align:center;padding:60px;color:#c8b8a8;font-family:\'DM Sans\',sans-serif;font-size:0.85rem">No collections yet</div>';return;}document.getElementById('collectionsGrid').innerHTML=collections.map(col=>{const cp=col.pieces.map(id=>pieces.find(p=>p.id===id)).filter(Boolean);const gc=cp.length>=4?'g4':cp.length>=2?'g2':'';const ic=cp.slice(0,4).map(p=>`<div class="col-img-cell">${p.imageUrl?`<img src="${p.imageUrl}" alt="">`:''}</div>`).join('');return`<div class="collection-card" onclick="openModal(${col.id})"><div class="col-img-grid ${gc}">${ic}</div><div class="col-info"><div class="col-name">${col.name}</div><div class="col-meta">${col.occasion} · ${cp.length} pieces · ${totalVal(col.pieces)}</div>${col.note?`<div style="font-size:0.68rem;color:#c8b8a8;font-style:italic;margin-top:4px">"${col.note}"</div>`:''}</div></div>`;}).join('');}
+function toggleBuilder(){builderOpen=!builderOpen;document.getElementById('collectionGallery').style.display=builderOpen?'none':'block';document.getElementById('collectionBuilder').style.display=builderOpen?'block':'none';document.getElementById('newColBtn').textContent=builderOpen?'← My Collections':'+ New Collection';document.getElementById('newColBtn').classList.toggle('active',builderOpen);if(builderOpen){selectedPieces=[];renderPicker();updateBuilderUI();}}
+function openBuilder(){if(!builderOpen)toggleBuilder();}
+function renderPicker(){document.getElementById('pickerGrid').innerHTML=pieces.map(p=>{const sel=selectedPieces.includes(p.id);return`<div class="picker-item ${sel?'selected':''}" onclick="togglePickPiece(${p.id})"><div class="picker-thumb">${p.imageUrl?`<img src="${p.imageUrl}" alt="">`:''}</div><div class="picker-info"><div class="picker-name">${p.name}</div><div class="picker-price">${p.price}</div></div>${sel?'<div class="check-dot">✓</div>':''}</div>`;}).join('');}
+function togglePickPiece(id){if(selectedPieces.includes(id))selectedPieces=selectedPieces.filter(x=>x!==id);else selectedPieces.push(id);renderPicker();updateBuilderUI();}
+function updateBuilderUI(){document.getElementById('selCount').textContent=selectedPieces.length;const sp=selectedPieces.map(id=>pieces.find(p=>p.id===id)).filter(Boolean);document.getElementById('selectedList').innerHTML=sp.length===0?'<div style="font-size:0.72rem;color:#c8b8a8;font-family:\'DM Sans\',sans-serif">Tap pieces to add them →</div>':sp.map(p=>`<div class="selected-piece"><div class="sel-thumb">${p.imageUrl?`<img src="${p.imageUrl}" alt="">`:''}</div><div class="sel-name">${p.name}</div><button class="sel-remove" onclick="togglePickPiece(${p.id})">✕</button></div>`).join('');if(sp.length>0){document.getElementById('totalRow').style.display='flex';document.getElementById('totalVal').textContent=totalVal(selectedPieces);document.getElementById('colPreview').style.display='block';const grid=document.getElementById('colPreviewGrid');grid.className=`col-img-grid ${sp.length>=4?'g4':'g2'}`;grid.innerHTML=sp.slice(0,4).map(p=>`<div class="col-img-cell">${p.imageUrl?`<img src="${p.imageUrl}" alt="">`:''}</div>`).join('');}else{document.getElementById('totalRow').style.display='none';document.getElementById('colPreview').style.display='none';}document.getElementById('saveColBtn').disabled=!document.getElementById('colName').value||selectedPieces.length===0;}
+function saveCollection(){const name=document.getElementById('colName').value.trim();if(!name||selectedPieces.length===0)return;const today=new Date();const date=today.toLocaleString('default',{month:'short'})+' '+today.getDate();collections.unshift({id:Date.now(),name,occasion:document.getElementById('colOccasion').value,pieces:[...selectedPieces],note:document.getElementById('colNote').value,date});document.getElementById('colName').value='';document.getElementById('colNote').value='';selectedPieces=[];toggleBuilder();renderCollections();toast('Collection saved ✓');}
+function totalVal(ids){return'$'+ids.reduce((sum,id)=>{const p=pieces.find(x=>x.id===id);return sum+(p?parseFloat(p.price.replace('$','').replace(',',''))||0:0);},0).toLocaleString();}
+function openModal(id){const col=collections.find(c=>c.id===id);if(!col)return;activeModal=id;const cp=col.pieces.map(id=>pieces.find(p=>p.id===id)).filter(Boolean);document.getElementById('modalOccasion').textContent=col.occasion;document.getElementById('modalTitle').textContent=col.name;document.getElementById('modalImgGrid').innerHTML=cp.slice(0,4).map(p=>`<div class="modal-img-cell">${p.imageUrl?`<img src="${p.imageUrl}" alt="">`:''}</div>`).join('');document.getElementById('modalPieces').innerHTML=cp.map(p=>`<div class="modal-piece"><div class="modal-piece-thumb">${p.imageUrl?`<img src="${p.imageUrl}" alt="">`:''}</div><div style="flex:1"><div class="modal-piece-name">${p.name}</div><div class="modal-piece-meta">${p.brand} · ${p.price}</div></div>${p.affiliateLink?`<a href="${p.affiliateLink}" target="_blank" class="shop-link">Shop</a>`:''}</div>`).join('');document.getElementById('colModal').classList.add('open');}
+function closeModal(){document.getElementById('colModal').classList.remove('open');activeModal=null;}
+function deleteCollection(){if(!activeModal)return;collections=collections.filter(c=>c.id!==activeModal);closeModal();renderCollections();toast('Deleted');}
+function createFromCollection(){if(!activeModal)return;const col=collections.find(c=>c.id===activeModal);if(!col)return;createSelectedPieces=[...col.pieces];document.getElementById('customTrend').value=col.name;closeModal();showTab('create');renderCreatePicker();updateGenBtn();}
+function loadTrendCreate(id){const t=TRENDS.find(x=>x.id===id);if(!t)return;selectedTrend=t;showTab('create');renderTrendPicker();updateGenBtn();}
+function renderTrendPicker(){document.getElementById('trendPicker').innerHTML=TRENDS.map(t=>`<div onclick="selectTrend(${t.id})" style="background:${selectedTrend&&selectedTrend.id===t.id?'#f5f0eb':'#f8f6f3'};border:1px solid ${selectedTrend&&selectedTrend.id===t.id?'#c8a882':'#e8e0d8'};border-radius:1px;padding:8px 12px;cursor:pointer;display:flex;align-items:center;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:${t.color};flex-shrink:0"></div><div style="font-size:0.7rem;color:#1a1410">${t.name}</div></div>`).join('');}
+function selectTrend(id){selectedTrend=TRENDS.find(t=>t.id===id);document.getElementById('customTrend').value='';renderTrendPicker();updateGenBtn();}
+function renderCreatePicker(){document.getElementById('createPicker').innerHTML=pieces.map(p=>{const sel=createSelectedPieces.includes(p.id);return`<div onclick="toggleCreatePiece(${p.id})" style="background:${sel?'#f5f0eb':'#f8f6f3'};border:1px solid ${sel?'#c8a882':'#e8e0d8'};border-radius:1px;overflow:hidden;cursor:pointer;position:relative"><div style="height:70px;background:#f0ece8;overflow:hidden">${p.imageUrl?`<img src="${p.imageUrl}" alt="" style="width:100%;height:100%;object-fit:cover">`:''}</div><div style="padding:5px 7px"><div style="font-size:0.6rem;color:#1a1410;line-height:1.3">${p.name}</div><div style="font-size:0.55rem;color:#8a7a6a;font-family:'DM Sans',sans-serif">${p.price}</div></div>${sel?'<div style="position:absolute;top:3px;right:3px;width:12px;height:12px;background:#c8a882;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.4rem;font-family:sans-serif">✓</div>':''}</div>`;}).join('');document.getElementById('selPiecesCount').textContent=createSelectedPieces.length>0?`${createSelectedPieces.length} selected`:'Select pieces or we\'ll use your top items';}
+function toggleCreatePiece(id){if(createSelectedPieces.includes(id))createSelectedPieces=createSelectedPieces.filter(x=>x!==id);else createSelectedPieces.push(id);renderCreatePicker();updateGenBtn();}
+function updateGenBtn(){const trend=selectedTrend||document.getElementById('customTrend').value;document.getElementById('genBtn').disabled=!trend;}
+document.getElementById('customTrend').addEventListener('input',function(){if(this.value)selectedTrend=null;renderTrendPicker();updateGenBtn();});
+async function generateContent(){const btn=document.getElementById('genBtn');btn.disabled=true;btn.textContent='Generating...';const trend=document.getElementById('customTrend').value||selectedTrend?.name||'Spring Fashion Trends';const selP=createSelectedPieces.length>0?pieces.filter(p=>createSelectedPieces.includes(p.id)):pieces.slice(0,4);try{const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,messages:[{role:'user',content:`You are a fashion content creator expert. Generate content.\nTREND: ${trend}\nPIECES: ${selP.map(p=>`${p.name} by ${p.brand} (${p.price})`).join(', ')}\nRespond ONLY with raw JSON:\n{"pinDescriptions":[5 Pinterest descriptions 2-3 sentences],"igCaption":"Instagram caption with emojis","hashtags":[20 hashtags without #],"storyText":[3 story overlays max 8 words]}`}]})}));const data=await res.json();generatedContent=JSON.parse(data.content[0].text.replace(/\`\`\`json|\`\`\`/g,'').trim());}catch{generatedContent={pinDescriptions:[`${trend} is defining this season. Every item is affiliate linked.`,`The insider take on ${trend} — sourced from the best brands.`,`Your followers are asking where you get your style from. Show them.`,`The pieces that make ${trend} work without trying too hard.`,`${trend} done right — the brands, the price points, your links.`],igCaption:`The ${trend} edit is here and I am completely obsessed ✨ Every piece is linked in my bio — go shop! Which one are you adding to cart? Drop it below 👇`,hashtags:['FashionInspo','OOTD','StyleBlogger','NewArrivals','ShopMyStyle','FashionCreator','Tastemaker','StyleEdit','FashionFind','WardrobeGoals','ShopNow','FashionForward','StyleInfluencer','GetTheLook','FashionContent','CreatorStyle','AffiliateLink','FashionSource','CuratedStyle','AvantStyle'],storyText:['Shop the trend ✨','Links in bio','New drops just landed']};}
+renderContent();document.getElementById('createForm').style.display='none';document.getElementById('contentResult').style.display='block';btn.disabled=false;btn.textContent='Generate Content';}
+function renderContent(){if(!generatedContent)return;document.getElementById('pinList').innerHTML=generatedContent.pinDescriptions.map((p,i)=>`<div class="pin-row"><div class="pin-num">${i+1}</div><textarea class="content-textarea" rows="2">${p}</textarea></div>`).join('');document.getElementById('igCaption').value=generatedContent.igCaption;document.getElementById('storyBoxes').innerHTML=generatedContent.storyText.map(s=>`<div class="story-box">${s}</div>`).join('');document.getElementById('hashtagList').innerHTML=generatedContent.hashtags.map(h=>`<span class="hashtag">#${h}</span>`).join('');if(document.getElementById('tmplCaption'))document.getElementById('tmplCaption').value=generatedContent.igCaption;renderTemplates();}
+function copyContent(type){let text='';if(type==='pins')text=generatedContent.pinDescriptions.join('\n\n');else if(type==='ig')text=document.getElementById('igCaption').value;else if(type==='story')text=generatedContent.storyText.join('\n');else if(type==='tags')text=generatedContent.hashtags.map(h=>'#'+h).join(' ');else if(type==='tmplCap')text=document.getElementById('tmplCaption').value;else if(type==='tmplTags')text=generatedContent.hashtags.map(h=>'#'+h).join(' ');navigator.clipboard.writeText(text);toast('Copied ✓');}
+function switchContentView(view){contentViewMode=view;document.getElementById('contentView').style.display=view==='content'?'block':'none';document.getElementById('templateView').style.display=view==='template'?'block':'none';document.getElementById('cv-content').classList.toggle('active',view==='content');document.getElementById('cv-template').classList.toggle('active',view==='template');if(view==='template')renderTemplates();}
+function renderTemplates(){const TMPL=[{id:'grid2x2',label:'2×2 Grid'},{id:'grid3',label:'Feature Grid'},{id:'editorial',label:'Editorial'},{id:'moodboard',label:'Mood Board'},{id:'story',label:'Story'}];document.getElementById('templateTabs').innerHTML=TMPL.map(t=>`<button class="tmpl-tab ${activeTemplate===t.id?'active':''}" onclick="setTemplate('${t.id}')">${t.label}</button>`).join('');renderTemplatePreview();}
+function setTemplate(id){activeTemplate=id;renderTemplates();}
+function renderTemplatePreview(){const selP=createSelectedPieces.length>0?pieces.filter(p=>createSelectedPieces.includes(p.id)):pieces.slice(0,6);const trend=document.getElementById('customTrend').value||selectedTrend?.name||'Style Edit';const cell=(p)=>`<div class="tmpl-cell">${p?.imageUrl?`<img src="${p.imageUrl}" alt="" style="width:100%;height:100%;object-fit:cover">`:''}</div>`;let html='';if(activeTemplate==='grid2x2')html=`<div class="tmpl tmpl-grid2">${[0,1,2,3].map(i=>cell(selP[i])).join('')}</div>`;else if(activeTemplate==='grid3')html=`<div class="tmpl tmpl-grid3"><div class="tmpl-cell" style="grid-row:1/3">${selP[0]?.imageUrl?`<img src="${selP[0].imageUrl}" alt="" style="width:100%;height:100%;object-fit:cover">`:''}</div>${cell(selP[1])}${cell(selP[2])}</div>`;else if(activeTemplate==='editorial')html=`<div class="tmpl tmpl-editorial"><div style="flex:2;position:relative;overflow:hidden;background:#f0ece8">${selP[0]?.imageUrl?`<img src="${selP[0].imageUrl}" alt="" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0">`:''}  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,0.6));display:flex;flex-direction:column;justify-content:flex-end;padding:16px"><div style="font-size:0.5rem;letter-spacing:0.2em;color:rgba(255,255,255,0.6);text-transform:uppercase;font-family:'DM Sans',sans-serif;margin-bottom:4px">AVANT</div><div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:white">${trend}</div></div></div><div style="flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:2px">${[1,2,3].map(i=>cell(selP[i])).join('')}</div></div>`;else if(activeTemplate==='moodboard')html=`<div class="tmpl tmpl-mood"><div class="tmpl-mood-header"><div class="tmpl-mood-title">AVANT · THE EDIT</div><div class="tmpl-mood-trend">${trend}</div></div><div class="tmpl-mood-grid">${[0,1,2,3,4,5].map(i=>cell(selP[i])).join('')}</div><div class="tmpl-mood-footer">Source. Curate. Influence.</div></div>`;else if(activeTemplate==='story')html=`<div class="tmpl tmpl-story">${selP[0]?.imageUrl?`<img src="${selP[0].imageUrl}" alt="" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0">`:''}<div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,0.7))"></div><div style="position:absolute;top:16px;left:16px;right:16px;display:flex;justify-content:space-between"><span style="font-size:0.7rem;letter-spacing:0.2em;color:white;text-transform:uppercase;font-family:'DM Sans',sans-serif;font-weight:300">AVANT</span></div><div style="position:absolute;bottom:16px;left:16px;right:16px"><div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:white;margin-bottom:4px">${trend}</div><div style="font-size:0.65rem;color:#c8a882;font-family:'DM Sans',sans-serif;letter-spacing:0.06em">LINK IN BIO →</div></div></div>`;document.getElementById('templatePreview').innerHTML=html;}
+function resetCreate(){document.getElementById('createForm').style.display='block';document.getElementById('contentResult').style.display='none';createSelectedPieces=[];selectedTrend=null;renderTrendPicker();renderCreatePicker();updateGenBtn();}
+function renderStores(){document.getElementById('storesGrid').innerHTML=stores.map(s=>`<div class="store-card"><div class="store-header" style="background:${s.color}"><div class="store-name">${s.name}</div></div><div class="store-actions"><a href="${s.url}" target="_blank" class="store-btn store-visit">Visit</a><a href="${s.newArrivals||'https://www.google.com/search?q='+encodeURIComponent(s.name+' new arrivals women')}" target="_blank" class="store-btn store-new">New In</a></div></div>`).join('');}
+function toggleAddStore(){addingStore=!addingStore;document.getElementById('addStoreForm').classList.toggle('open',addingStore);document.getElementById('addStoreBtn').classList.toggle('active',addingStore);document.getElementById('addStoreBtn').textContent=addingStore?'✕ Cancel':'+ Add Store';}
+function addStore(){const name=document.getElementById('sName').value.trim();if(!name)return;let url=document.getElementById('sUrl').value;if(url&&!url.startsWith('http'))url='https://'+url;stores.push({id:Date.now(),name,url,newArrivals:document.getElementById('sNew').value,color:document.getElementById('sColor').value});['sName','sUrl','sNew'].forEach(id=>document.getElementById(id).value='');toggleAddStore();renderStores();toast('Store added ✓');}
+function renderAll(){renderSourceLinks();renderTrends();renderPieces();renderCollections();renderStores();renderTrendPicker();renderCreatePicker();}
+renderAll();
+</script>
+</body>
+</html>
