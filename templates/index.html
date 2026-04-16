@@ -1004,24 +1004,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
 
 <script>
 // -- NAVIGATION --
+  // -- NAVIGATION --
 function showPage(id) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.nav-link').forEach(function(l) { l.classList.remove('active'); });
   document.getElementById('page-' + id).classList.add('active');
-  const nl = document.getElementById('nl-' + id);
+  var nl = document.getElementById('nl-' + id);
   if (nl) nl.classList.add('active');
   window.scrollTo(0, 0);
 }
 
 function showPanel(id, btn) {
-  document.querySelectorAll('.studio-panel').forEach(p => p.classList.remove('on'));
-  document.querySelectorAll('.sidebar-item').forEach(s => s.classList.remove('on'));
+  document.querySelectorAll('.studio-panel').forEach(function(p) { p.classList.remove('on'); });
+  document.querySelectorAll('.sidebar-item').forEach(function(s) { s.classList.remove('on'); });
   document.getElementById('panel-' + id).classList.add('on');
   if (btn) btn.classList.add('on');
 }
 
-// -- SAMPLES --
-const samples = [
+var samples = [
   {brand:'Toteme',name:'Silk shirt',price:'$420'},
   {brand:'The Row',name:'Trousers',price:'$1,290'},
   {brand:'Lemaire',name:'Crossbody',price:'$895'},
@@ -1032,44 +1032,47 @@ const samples = [
   {brand:'Jacquemus',name:'Mini bag',price:'$560'},
 ];
 
-// -- BOARD STATE --
-const boardItems = [];
-const pickedSamples = new Set();
+var boardItems = [];
+var pickedSamples = new Set();
 
 function renderBoard() {
-  const grid = document.getElementById('boardGrid');
-  const stats = document.getElementById('boardStats');
-  const cells = [];
-  boardItems.forEach((item, i) => {
-    cells.push(`<div class="board-cell">
-      ${item.img ? `<img src="${item.img}" onerror="this.style.display='none'">` : ''}
-      <div class="board-cell-label"><span>${item.label}</span></div>
-      <button class="board-cell-remove" onclick="removeBoard(${i})">x</button>
-    </div>`);
+  var grid = document.getElementById('boardGrid');
+  var stats = document.getElementById('boardStats');
+  if (!grid) return;
+  var cells = [];
+  boardItems.forEach(function(item, i) {
+    cells.push('<div class="board-cell">' +
+      (item.img ? '<img src="' + item.img + '" onerror="this.style.display=\'none\'">' : '') +
+      '<div class="board-cell-label"><span>' + item.label + '</span></div>' +
+      '<button class="board-cell-remove" onclick="removeBoard(' + i + ')">x</button>' +
+      '</div>');
   });
-  while (cells.length < 6) cells.push(`<div class="board-cell board-add-cell" onclick="document.getElementById('importUrl').focus()"><div class="board-add-icon">+</div><div class="board-add-text">Add item</div></div>`);
+  while (cells.length < 6) {
+    cells.push('<div class="board-cell board-add-cell" onclick="document.getElementById(\'importUrl\').focus()"><div class="board-add-icon">+</div><div class="board-add-text">Add item</div></div>');
+  }
   grid.innerHTML = cells.join('');
-  const total = boardItems.reduce((s, item) => s + (item.price ? parseInt(item.price.replace(/[^0-9]/g,'')) : 0), 0);
-  stats.textContent = `${boardItems.length} items   $${total.toLocaleString()} total`;
+  var total = boardItems.reduce(function(s, item) { return s + (item.price ? parseInt(item.price.replace(/[^0-9]/g,'')) : 0); }, 0);
+  if (stats) stats.textContent = boardItems.length + ' items  $' + total.toLocaleString() + ' total';
 }
 
 function removeBoard(i) { boardItems.splice(i, 1); renderBoard(); }
 function clearBoard() { boardItems.length = 0; pickedSamples.clear(); renderSampleMini(); renderBoard(); }
 
 function renderSampleMini() {
-  const grid = document.getElementById('sampleMini');
+  var grid = document.getElementById('sampleMini');
   if (!grid) return;
-  grid.innerHTML = samples.map((s, i) => `
-    <div class="sample-card ${pickedSamples.has(i)?'picked':''}" onclick="toggleSample(${i})">
-      <div class="sample-img"><span>${s.brand}<br>${s.name}</span></div>
-      <div class="sample-info"><div class="sample-brand">${s.brand}</div><div class="sample-name">${s.name}</div><div class="sample-price">${s.price}</div></div>
-    </div>`).join('');
+  grid.innerHTML = samples.map(function(s, i) {
+    return '<div class="sample-card ' + (pickedSamples.has(i) ? 'picked' : '') + '" onclick="toggleSample(' + i + ')">' +
+      '<div class="sample-img"><span>' + s.brand + '<br>' + s.name + '</span></div>' +
+      '<div class="sample-info"><div class="sample-brand">' + s.brand + '</div><div class="sample-name">' + s.name + '</div><div class="sample-price">' + s.price + '</div></div>' +
+      '</div>';
+  }).join('');
 }
 
 function toggleSample(i) {
   if (pickedSamples.has(i)) {
     pickedSamples.delete(i);
-    const idx = boardItems.findIndex(b => b.key === 's'+i);
+    var idx = boardItems.findIndex(function(b) { return b.key === 's'+i; });
     if (idx > -1) boardItems.splice(idx, 1);
   } else {
     pickedSamples.add(i);
@@ -1079,19 +1082,18 @@ function toggleSample(i) {
   renderBoard();
 }
 
-// -- PROXY FETCH --
 async function fetchPage(url) {
-  const proxies = [
-    u => `https://api.allorigins.win/get?url=${encodeURIComponent(u)}`,
-    u => `https://corsproxy.io/?${encodeURIComponent(u)}`,
-    u => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(u)}`,
+  var proxies = [
+    function(u) { return 'https://api.allorigins.win/get?url=' + encodeURIComponent(u); },
+    function(u) { return 'https://corsproxy.io/?' + encodeURIComponent(u); },
+    function(u) { return 'https://api.codetabs.com/v1/proxy?quest=' + encodeURIComponent(u); },
   ];
-  for (const mk of proxies) {
+  for (var i = 0; i < proxies.length; i++) {
     try {
-      const r = await fetch(mk(url), {signal: AbortSignal.timeout(7000)});
+      var r = await fetch(proxies[i](url), {signal: AbortSignal.timeout(7000)});
       if (!r.ok) continue;
-      const ct = r.headers.get('content-type') || '';
-      let text = ct.includes('json') ? (await r.json()).contents || '' : await r.text();
+      var ct = r.headers.get('content-type') || '';
+      var text = ct.includes('json') ? (await r.json()).contents || '' : await r.text();
       if (text && text.length > 200) return text;
     } catch(e) { continue; }
   }
@@ -1099,108 +1101,102 @@ async function fetchPage(url) {
 }
 
 function parseMeta(html) {
-  let img = '';
-  for (const p of [
+  var img = '';
+  var patterns = [
     /<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i,
     /<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:image["']/i,
     /<meta[^>]+name=["']twitter:image["'][^>]+content=["']([^"']+)["']/i,
-  ]) {
-    const m = html.match(p);
+  ];
+  for (var i = 0; i < patterns.length; i++) {
+    var m = html.match(patterns[i]);
     if (m && m[1] && m[1].startsWith('http')) { img = m[1]; break; }
   }
-  const tm = html.match(/<meta[^>]+property=["']og:title["'][^>]+content=["']([^"']+)["']/i)
+  var tm = html.match(/<meta[^>]+property=["']og:title["'][^>]+content=["']([^"']+)["']/i)
     || html.match(/<title[^>]*>([^<]+)<\/title>/i);
-  const title = tm ? tm[1].replace(/\s*[\|\-\u2013\u2014]\s*.+$/, '').trim().substring(0, 30) : 'Saved item';
-  return { img, title };
+  var title = tm ? tm[1].replace(/\s*[\|\-\u2013\u2014]\s*.+$/, '').trim().substring(0, 30) : 'Saved item';
+  return { img: img, title: title };
 }
 
-// -- IMPORT ITEM (board) --
 async function importItem() {
-  const raw = document.getElementById('importUrl').value.trim();
+  var raw = document.getElementById('importUrl').value.trim();
   if (!raw) return;
-  const status = document.getElementById('importStatus');
-  const btn = document.querySelector('#panel-look-builder .bs-card .btn-sm');
-  if (btn) btn.disabled = true;
-
+  var status = document.getElementById('importStatus');
+  status.textContent = 'Fetching...';
   if (/\.(jpg|jpeg|png|webp|gif)(\?.*)?$/i.test(raw)) {
     boardItems.push({key:'i'+Date.now(), label:'Saved item', img:raw, price:''});
     document.getElementById('importUrl').value = '';
     status.textContent = 'Added!';
     renderBoard();
-    if (btn) btn.disabled = false;
     return;
   }
-
-  status.textContent = 'Fetching...';
-  const html = await fetchPage(raw);
+  var html = await fetchPage(raw);
   if (html) {
-    const {img, title} = parseMeta(html);
-    if (img) {
-      boardItems.push({key:'i'+Date.now(), label:title, img, price:''});
+    var meta = parseMeta(html);
+    if (meta.img) {
+      boardItems.push({key:'i'+Date.now(), label:meta.title, img:meta.img, price:''});
       document.getElementById('importUrl').value = '';
-      status.textContent = `Added: ${title}`;
+      status.textContent = 'Added: ' + meta.title;
     } else {
-      status.textContent = 'Found page but no image. Right-click product photo -> Copy image address -> paste here.';
+      status.textContent = 'No image found. Right-click product photo, Copy image address, paste here.';
     }
   } else {
-    status.textContent = 'Site blocked auto-fetch. Right-click product image -> Copy image address -> paste here.';
+    status.textContent = 'Site blocked. Right-click product image, Copy image address, paste here.';
   }
   renderBoard();
-  if (btn) btn.disabled = false;
 }
 
-// -- CURIO STATE --
-let curioItems = [
+var curioItems = [
   {id:1, url:'', img:'', label:'Zara linen dress', cat:'fashion', note:''},
   {id:2, url:'', img:'', label:'Arhaus cloud sofa', cat:'home', note:'Perfect for the new living room'},
   {id:3, url:'', img:'', label:'Glossier serum', cat:'beauty', note:''},
   {id:4, url:'', img:'', label:'Amalfi Coast trip', cat:'travel', note:'Summer 2026 goal'},
   {id:5, url:'', img:'', label:'The Row trousers', cat:'fashion', note:''},
 ];
-let curioFilter = 'all';
-let noteItemId = null;
+var curioFilter = 'all';
+var noteItemId = null;
 
 function renderCurio() {
-  const grid = document.getElementById('curioGrid');
-  const filtered = curioFilter === 'all' ? curioItems : curioItems.filter(i => i.cat === curioFilter);
+  var grid = document.getElementById('curioGrid');
+  if (!grid) return;
+  var filtered = curioFilter === 'all' ? curioItems : curioItems.filter(function(i) { return i.cat === curioFilter; });
   if (filtered.length === 0) {
-    grid.innerHTML = `<div class="curio-empty"><p>Nothing saved yet.</p><span>Paste a URL above to save your first item.</span></div>`;
+    grid.innerHTML = '<div class="curio-empty"><p>Nothing saved yet.</p><span>Paste a URL above to save your first item.</span></div>';
     return;
   }
-  grid.innerHTML = filtered.map(item => `
-    <div class="curio-item" onclick="openNote(${item.id})">
-      <div class="curio-img">
-        ${item.img ? `<img src="${item.img}" onerror="this.style.display='none'">` : `<div class="curio-img-placeholder">${item.label}</div>`}
-        <button class="curio-item-del" onclick="event.stopPropagation();deleteCurio(${item.id})">x</button>
-      </div>
-      <div class="curio-item-info">
-        <div class="curio-item-cat">${item.cat}</div>
-        <div class="curio-item-name">${item.label}</div>
-        ${item.note ? `<div style="font-size:10px;color:var(--g500);margin-top:3px;font-style:italic">"${item.note.substring(0,40)}${item.note.length>40?'...':''}"</div>` : ''}
-      </div>
-    </div>`).join('');
+  grid.innerHTML = filtered.map(function(item) {
+    return '<div class="curio-item" onclick="openNote(' + item.id + ')">' +
+      '<div class="curio-img">' +
+      (item.img ? '<img src="' + item.img + '" onerror="this.style.display=\'none\'">' : '<div class="curio-img-placeholder">' + item.label + '</div>') +
+      '<button class="curio-item-del" onclick="event.stopPropagation();deleteCurio(' + item.id + ')">x</button>' +
+      '</div>' +
+      '<div class="curio-item-info">' +
+      '<div class="curio-item-cat">' + item.cat + '</div>' +
+      '<div class="curio-item-name">' + item.label + '</div>' +
+      (item.note ? '<div style="font-size:10px;color:var(--g500);margin-top:3px;font-style:italic">"' + item.note.substring(0,40) + (item.note.length>40?'...':'') + '"</div>' : '') +
+      '</div></div>';
+  }).join('');
 }
 
 function filterCurio(cat, btn) {
   curioFilter = cat;
-  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('on'));
+  document.querySelectorAll('.cat-btn').forEach(function(b) { b.classList.remove('on'); });
   btn.classList.add('on');
   renderCurio();
 }
 
 function deleteCurio(id) {
-  curioItems = curioItems.filter(i => i.id !== id);
+  curioItems = curioItems.filter(function(i) { return i.id !== id; });
   renderCurio();
 }
 
 function openNote(id) {
   noteItemId = id;
-  const item = curioItems.find(i => i.id === id);
+  var item = curioItems.find(function(i) { return i.id === id; });
   document.getElementById('noteItemName').textContent = item.label;
   document.getElementById('noteText').value = item.note || '';
-  const imgEl = document.getElementById('noteItemImg');
+  var imgEl = document.getElementById('noteItemImg');
   if (item.img) {
-    imgEl.innerHTML = `<img src="${item.img}" style="width:100%;height:100%;object-fit:cover">`;
+    imgEl.innerHTML = '<img src="' + item.img + '" style="width:100%;height:100%;object-fit:cover">';
   } else {
     imgEl.textContent = item.label;
   }
@@ -1210,103 +1206,94 @@ function openNote(id) {
 function closeNote() { document.getElementById('noteOverlay').classList.remove('on'); }
 
 function saveNote() {
-  const item = curioItems.find(i => i.id === noteItemId);
+  var item = curioItems.find(function(i) { return i.id === noteItemId; });
   if (item) item.note = document.getElementById('noteText').value;
   closeNote();
   renderCurio();
 }
 
-// -- CURIO SAVE --
 async function curioSave() {
-  const raw = document.getElementById('curioUrl').value.trim();
+  var raw = document.getElementById('curioUrl').value.trim();
   if (!raw) return;
-  const status = document.getElementById('curioStatus');
-  const btn = document.querySelector('#page-curio .save-btn');
-  btn.disabled = true;
-
-  // Detect category from URL
-  const cats = {fashion:['ssense','net-a-porter','zara','asos','revolve','shopbop','farfetch','cos','hm','uniqlo','mango'],
+  var status = document.getElementById('curioStatus');
+  var btn = document.querySelector('#page-curio .save-btn');
+  if (btn) btn.disabled = true;
+  var cats = {
+    fashion:['ssense','net-a-porter','zara','asos','revolve','shopbop','farfetch','cos','hm','uniqlo','mango'],
     home:['arhaus','wayfair','cb2','westelm','crateandbarrel','potterybarn','ikea','restoration'],
     beauty:['glossier','sephora','ulta','space-nk','kiehls'],
-    travel:['airbnb','booking','tripadvisor','hotels','expedia']};
-  let detectedCat = 'fashion';
-  for (const [cat, domains] of Object.entries(cats)) {
-    if (domains.some(d => raw.toLowerCase().includes(d))) { detectedCat = cat; break; }
+    travel:['airbnb','booking','tripadvisor','hotels','expedia']
+  };
+  var detectedCat = 'fashion';
+  for (var cat in cats) {
+    if (cats[cat].some(function(d) { return raw.toLowerCase().includes(d); })) { detectedCat = cat; break; }
   }
-
   if (/\.(jpg|jpeg|png|webp|gif)(\?.*)?$/i.test(raw)) {
-    curioItems.unshift({id: Date.now(), url: raw, img: raw, label: 'Saved item', cat: detectedCat, note: ''});
+    curioItems.unshift({id:Date.now(), url:raw, img:raw, label:'Saved item', cat:detectedCat, note:''});
     document.getElementById('curioUrl').value = '';
     status.textContent = 'Saved!';
     renderCurio();
-    btn.disabled = false;
+    if (btn) btn.disabled = false;
     return;
   }
-
   status.textContent = 'Saving...';
-  const html = await fetchPage(raw);
+  var html = await fetchPage(raw);
   if (html) {
-    const {img, title} = parseMeta(html);
-    curioItems.unshift({id: Date.now(), url: raw, img: img || '', label: title, cat: detectedCat, note: ''});
-    status.textContent = img ? `Saved: ${title}` : `Saved: ${title} - right-click product image -> Copy image address for the photo`;
+    var meta = parseMeta(html);
+    curioItems.unshift({id:Date.now(), url:raw, img:meta.img||'', label:meta.title, cat:detectedCat, note:''});
+    status.textContent = meta.img ? 'Saved: ' + meta.title : 'Saved: ' + meta.title + ' - right-click image, Copy image address for photo';
     document.getElementById('curioUrl').value = '';
   } else {
-    status.textContent = 'Site blocked. Right-click the product image -> "Copy image address" and paste that here.';
+    status.textContent = 'Site blocked. Right-click product image, Copy image address, paste here.';
   }
   renderCurio();
-  btn.disabled = false;
+  if (btn) btn.disabled = false;
 }
 
-// -- HERO SAVE --
-let heroCount = 2;
+var heroCount = 2;
 async function heroSave() {
-  const raw = document.getElementById('heroUrl').value.trim();
+  var raw = document.getElementById('heroUrl').value.trim();
   if (!raw) return;
-  const status = document.getElementById('heroStatus');
+  var status = document.getElementById('heroStatus');
   status.textContent = 'Saving...';
-  const html = await fetchPage(raw);
-  let label = 'Saved item';
-  let img = '';
-  if (html) { const m = parseMeta(html); label = m.title; img = m.img; }
+  var html = await fetchPage(raw);
+  var label = 'Saved item';
+  var img = '';
+  if (html) { var m = parseMeta(html); label = m.title; img = m.img; }
   heroCount++;
   document.getElementById('heroCount').textContent = heroCount + ' items saved';
   document.getElementById('heroUrl').value = '';
-  status.textContent = img ? `Saved: ${label}` : 'Saved! (paste image URL for the photo)';
+  status.textContent = img ? 'Saved: ' + label : 'Saved! Paste image URL for the photo.';
 }
 
-// -- CONTENT GENERATOR --
-let genCurrentTab = 'caption';
-let genData = {caption: '', hashtags: [], hook: ''};
-
-const captions = {
-  'Editorial - authoritative and sparse': (desc) => `The edit.\n\n${desc.includes('linen') ? 'Linen, silk, and the kind of restraint that takes years to develop.' : 'Pieces chosen for what they do, not what they say.'}\n\nAll linked.`,
-  'Warm - personal and conversational': (desc) => `Ok but this look is everything right now \n\n${desc.includes('minimal') ? 'Going through a major minimal moment and honestly it feels like the most me I have ever dressed.' : 'Found these pieces and couldn\'t stop thinking about them together.'}\n\nLinks are in bio - let me know if you want more details on sizing!`,
-  'Direct - just the facts and links': (desc) => `This week's edit.\n\nEverything linked in bio. Affiliate links used - thank you for supporting the work.`,
-  'Aspirational - lifestyle and feeling': (desc) => `There's a certain kind of dressing that feels like armor. Quiet, considered, completely intentional.\n\n${desc.includes('spring') ? 'This is how I'm entering spring.' : 'This is the energy.'}\n\nEvery piece linked.`,
-};
-
-const hashtagSets = {
-  'Instagram': ['#quietluxury','#editorialfashion','#minimalstyle','#slowfashion','#fashionedit','#ootd','#styleinspo','#fashionblogger','#wardrobeessentials','#investmentpiece','#therow','#toteme','#avantgarde','#womensstyle','#fashionminimalist'],
-  'TikTok': ['#quietluxury','#fashiontok','#ootd','#styletok','#fashioninspo','#minimalfashion','#outfitcheck','#fashionblogger','#stylecheck','#fashionadvice','#grwm','#whatiwore'],
-  'Pinterest': ['#quietluxury','#minimalistfashion','#editorialstyle','#capsulewardrobe','#fashionmoodboard','#styleinspo','#womensfashion','#luxuryfashion'],
-  'LinkedIn': ['#fashionbusiness','#creatorseconomy','#fashionmarketing','#contentcreator','#fashionindustry'],
-};
+var genCurrentTab = 'caption';
+var genData = {caption:'', hashtags:[], hook:''};
 
 function generateContent() {
-  const desc = document.getElementById('genDesc').value || 'Minimal spring look with neutral tones';
-  const tone = document.getElementById('genTone').value;
-  const platform = document.getElementById('genPlatform').value;
-
+  var desc = document.getElementById('genDesc').value || 'Minimal spring look with neutral tones';
+  var tone = document.getElementById('genTone').value;
+  var platform = document.getElementById('genPlatform').value;
   document.getElementById('genPlaceholder').style.display = 'none';
   document.getElementById('genResult').style.display = 'none';
   document.getElementById('genLoading').style.display = 'flex';
-
-  setTimeout(() => {
-    const captionFn = captions[tone] || captions['Editorial - authoritative and sparse'];
-    genData.caption = captionFn(desc.toLowerCase());
+  setTimeout(function() {
+    if (tone.indexOf('Editorial') > -1) {
+      genData.caption = 'The edit.\n\nPieces chosen for what they do, not what they say.\n\nAll linked.';
+    } else if (tone.indexOf('Warm') > -1) {
+      genData.caption = 'Ok but this look is everything right now.\n\nFound these pieces and could not stop thinking about them together.\n\nLinks are in bio!';
+    } else if (tone.indexOf('Direct') > -1) {
+      genData.caption = 'This weeks edit.\n\nEverything linked in bio. Affiliate links used - thank you for supporting the work.';
+    } else {
+      genData.caption = 'There is a certain kind of dressing that feels like armor. Quiet, considered, completely intentional.\n\nEvery piece linked.';
+    }
+    var hashtagSets = {
+      'Instagram': ['#quietluxury','#editorialfashion','#minimalstyle','#slowfashion','#fashionedit','#ootd','#styleinspo','#fashionblogger','#wardrobeessentials','#investmentpiece','#therow','#toteme'],
+      'TikTok': ['#quietluxury','#fashiontok','#ootd','#styletok','#fashioninspo','#minimalfashion','#outfitcheck','#fashionblogger','#stylecheck','#fashionadvice'],
+      'Pinterest': ['#quietluxury','#minimalistfashion','#editorialstyle','#capsulewardrobe','#fashionmoodboard','#styleinspo'],
+      'LinkedIn': ['#fashionbusiness','#creatorseconomy','#fashionmarketing','#contentcreator','#fashionindustry'],
+    };
     genData.hashtags = (hashtagSets[platform] || hashtagSets['Instagram']).slice(0, 12);
-    genData.hook = `"${desc.includes('minimal') ? 'The most minimal look I have worn all season - and the most compliments I have received.' : 'This is the edit I keep coming back to.'}"`;
-
+    genData.hook = 'The most considered look of the season. Every piece linked.';
     document.getElementById('genLoading').style.display = 'none';
     document.getElementById('genResult').style.display = 'block';
     switchGenTab(genCurrentTab, null);
@@ -1315,42 +1302,39 @@ function generateContent() {
 
 function switchGenTab(tab, btn) {
   genCurrentTab = tab;
-  document.querySelectorAll('.gen-tab').forEach(t => t.classList.remove('on'));
+  document.querySelectorAll('.gen-tab').forEach(function(t) { t.classList.remove('on'); });
   if (btn) btn.classList.add('on');
-
   document.getElementById('genCaption').style.display = tab === 'caption' ? 'block' : 'none';
   document.getElementById('genHashtagsWrap').style.display = tab === 'hashtags' ? 'block' : 'none';
   document.getElementById('genHookWrap').style.display = tab === 'hook' ? 'block' : 'none';
-
   if (tab === 'caption') {
     document.getElementById('genCaption').textContent = genData.caption;
   } else if (tab === 'hashtags') {
-    document.getElementById('genHashtagsList').innerHTML = genData.hashtags.map(h => `<span class="gen-hashtag">${h}</span>`).join('');
+    document.getElementById('genHashtagsList').innerHTML = genData.hashtags.map(function(h) { return '<span class="gen-hashtag">' + h + '</span>'; }).join('');
   } else if (tab === 'hook') {
     document.getElementById('genHookText').textContent = genData.hook;
   }
 }
 
 function copyContent() {
-  let text = '';
+  var text = '';
   if (genCurrentTab === 'caption') text = genData.caption;
   else if (genCurrentTab === 'hashtags') text = genData.hashtags.join(' ');
   else text = genData.hook;
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = event.target;
+  navigator.clipboard.writeText(text).then(function() {
+    var btn = event.target;
     btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy', 1500);
+    setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
   });
 }
 
 function generateFromBoard() {
   showPanel('content-gen', document.getElementById('si-content-gen'));
-  const names = boardItems.map(b => b.label).join(', ');
+  var names = boardItems.map(function(b) { return b.label; }).join(', ');
   if (names) document.getElementById('genDesc').value = names;
 }
 
-// -- HASHTAG TOOL --
-const hashtagDB = {
+var hashtagDB = {
   'quiet luxury': ['#quietluxury','#therow','#toteme','#lemaire','#minimalistfashion','#oldmoney','#luxuryfashion','#editorialstyle','#slowfashion','#investmentpieces','#capsulewardrobe','#timelessstyle'],
   'streetwear': ['#streetwear','#streetstyle','#hypebeast','#streetfashion','#urbanfashion','#sneakers','#drip','#outfitoftheday','#ootd','#fashion','#style','#hype'],
   'coastal grandmother': ['#coastalgrandmother','#coastalstyle','#summerstyle','#linen','#beachstyle','#cozyfashion','#effortlessstyle','#casualluxury','#beachwear','#summeroutfit'],
@@ -1359,26 +1343,25 @@ const hashtagDB = {
 };
 
 function generateHashtags() {
-  const input = document.getElementById('htInput').value.toLowerCase().trim();
-  const results = document.getElementById('htResults');
-  let tags = hashtagDB.default;
-  for (const [key, val] of Object.entries(hashtagDB)) {
-    if (input.includes(key) || key.includes(input)) { tags = val; break; }
+  var input = document.getElementById('htInput').value.toLowerCase().trim();
+  var results = document.getElementById('htResults');
+  var tags = hashtagDB['default'];
+  for (var key in hashtagDB) {
+    if (input.indexOf(key) > -1 || key.indexOf(input) > -1) { tags = hashtagDB[key]; break; }
   }
-  results.innerHTML = tags.map(t => `<span class="ht-tag" onclick="copyTag(this,'${t}')">${t}</span>`).join('');
+  results.innerHTML = tags.map(function(t) { return '<span class="ht-tag" onclick="copyTag(this,\'' + t + '\')">' + t + '</span>'; }).join('');
 }
 
 function copyTag(el, tag) {
   navigator.clipboard.writeText(tag);
   el.classList.add('copied');
   el.textContent = 'Copied!';
-  setTimeout(() => { el.classList.remove('copied'); el.textContent = tag; }, 1200);
+  setTimeout(function() { el.classList.remove('copied'); el.textContent = tag; }, 1200);
 }
 
-// -- WEEKLY PLANNER --
-const days = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
-const dates = [14,15,16,17,18,19,20];
-const defaultPosts = [
+var plannerDays = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+var plannerDates = [14,15,16,17,18,19,20];
+var defaultPosts = [
   [{platform:'Instagram',text:'Quiet luxury edit - spring capsule'},{platform:'Pinterest',text:'Mood board: neutral tones'}],
   [],
   [{platform:'TikTok',text:'Outfit check - 3 ways to wear a silk shirt'}],
@@ -1389,22 +1372,20 @@ const defaultPosts = [
 ];
 
 function renderPlanner(posts) {
-  const grid = document.getElementById('plannerGrid');
-  grid.innerHTML = days.map((day, i) => `
-    <div class="planner-day">
-      <div class="planner-day-header">
-        <div class="planner-day-name">${day}</div>
-        <div class="planner-day-date">Apr ${dates[i]}</div>
-      </div>
-      <div class="planner-day-body">
-        ${(posts[i]||[]).map(p => `<div class="planner-post"><div class="planner-post-platform">${p.platform}</div><div class="planner-post-text">${p.text}</div></div>`).join('')}
-        <div class="planner-add" onclick="openModal()">+ Add post</div>
-      </div>
-    </div>`).join('');
+  var grid = document.getElementById('plannerGrid');
+  if (!grid) return;
+  grid.innerHTML = plannerDays.map(function(day, i) {
+    return '<div class="planner-day">' +
+      '<div class="planner-day-header"><div class="planner-day-name">' + day + '</div><div class="planner-day-date">Apr ' + plannerDates[i] + '</div></div>' +
+      '<div class="planner-day-body">' +
+      (posts[i]||[]).map(function(p) { return '<div class="planner-post"><div class="planner-post-platform">' + p.platform + '</div><div class="planner-post-text">' + p.text + '</div></div>'; }).join('') +
+      '<div class="planner-add" onclick="openModal()">+ Add post</div>' +
+      '</div></div>';
+  }).join('');
 }
 
 function generateWeek() {
-  const suggestions = [
+  var suggestions = [
     [{platform:'Instagram',text:'The edit: spring capsule essentials'},{platform:'Pinterest',text:'Quiet luxury mood board 2026'}],
     [{platform:'TikTok',text:'5 pieces I wear on repeat'}],
     [{platform:'Instagram Stories',text:'Behind the edit - what I almost bought'}],
@@ -1416,7 +1397,6 @@ function generateWeek() {
   renderPlanner(suggestions);
 }
 
-// -- MODAL --
 function openModal() { document.getElementById('modalOverlay').classList.add('on'); document.body.style.overflow='hidden'; }
 function closeModal() { document.getElementById('modalOverlay').classList.remove('on'); document.body.style.overflow=''; }
 function modalSubmit() {
@@ -1425,15 +1405,13 @@ function modalSubmit() {
   setTimeout(closeModal, 2200);
 }
 
-// -- NEWSLETTER --
 function editSubscribe() {
-  const v = document.getElementById('editEmail').value;
-  if (!v || !v.includes('@')) return;
+  var v = document.getElementById('editEmail').value;
+  if (!v || v.indexOf('@') === -1) return;
   document.getElementById('editForm').style.display = 'none';
   document.getElementById('editOk').style.display = 'block';
 }
 
-// -- INIT --
 renderBoard();
 renderSampleMini();
 renderCurio();
