@@ -779,7 +779,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
           </div>
           <div class="pitch-body">
             <div class="pitch-section-title">About</div>
-            <p class="pitch-bio" id="pitchBio">Fashion creator focused on quiet luxury and minimalist dressing. I help my audience build intentional, investment-worthy wardrobes - every recommendation is something I've personally worn or tested. My content drives real purchase decisions.</p>
+            <p class="pitch-bio" id="pitchBio">Fashion creator focused on quiet luxury and minimalist dressing. I help my audience build intentional, investment-worthy wardrobes - every recommendation is something I have personally worn or tested. My content drives real purchase decisions.</p>
             <div class="pitch-section-title">Recent work</div>
             <div class="pitch-edit-grid">
               <div class="pitch-edit-item">Edit 01</div>
@@ -1280,7 +1280,7 @@ let genData = {caption: '', hashtags: [], hook: ''};
 
 const captions = {
   'Editorial - authoritative and sparse': (desc) => `The edit.\n\n${desc.includes('linen') ? 'Linen, silk, and the kind of restraint that takes years to develop.' : 'Pieces chosen for what they do, not what they say.'}\n\nAll linked.`,
-  'Warm - personal and conversational': (desc) => `Ok but this look is everything right now \n\n${desc.includes('minimal') ? 'Going through a major minimal moment and honestly it feels like the most me I've ever dressed.' : 'Found these pieces and couldn\'t stop thinking about them together.'}\n\nLinks are in bio - let me know if you want more details on sizing!`,
+  'Warm - personal and conversational': (desc) => `Ok but this look is everything right now \n\n${desc.includes('minimal') ? 'Going through a major minimal moment and honestly it feels like the most me I have ever dressed.' : 'Found these pieces and couldn\'t stop thinking about them together.'}\n\nLinks are in bio - let me know if you want more details on sizing!`,
   'Direct - just the facts and links': (desc) => `This week's edit.\n\nEverything linked in bio. Affiliate links used - thank you for supporting the work.`,
   'Aspirational - lifestyle and feeling': (desc) => `There's a certain kind of dressing that feels like armor. Quiet, considered, completely intentional.\n\n${desc.includes('spring') ? 'This is how I'm entering spring.' : 'This is the energy.'}\n\nEvery piece linked.`,
 };
@@ -1305,7 +1305,7 @@ function generateContent() {
     const captionFn = captions[tone] || captions['Editorial - authoritative and sparse'];
     genData.caption = captionFn(desc.toLowerCase());
     genData.hashtags = (hashtagSets[platform] || hashtagSets['Instagram']).slice(0, 12);
-    genData.hook = `"${desc.includes('minimal') ? 'The most minimal look I've worn all season - and the most compliments I've received.' : 'This is the edit I keep coming back to.'}"`;
+    genData.hook = `"${desc.includes('minimal') ? 'The most minimal look I have worn all season - and the most compliments I have received.' : 'This is the edit I keep coming back to.'}"`;
 
     document.getElementById('genLoading').style.display = 'none';
     document.getElementById('genResult').style.display = 'block';
