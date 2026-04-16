@@ -1,1444 +1,696 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AVANT - Save. Curate. Create.</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --black:#080808;--white:#fafaf8;--off:#f3f1ec;--g100:#e8e4dc;--g200:#d4cfc5;
-  --g300:#b5b0a5;--g500:#78746c;--g700:#3a3730;--warm:#c8a882;--purple:#534ab7;
-  --serif:'Cormorant Garamond',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;
-}
-html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--white);color:var(--black);overflow-x:hidden}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jackie's Affiliate Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blush: #f2c4ce;
+            --rose: #e8899a;
+            --deep-rose: #c45c72;
+            --cream: #fdf6f0;
+            --warm-white: #fffaf7;
+            --charcoal: #2d2020;
+            --muted: #9a7c7c;
+            --gold: #d4a96a;
+            --soft-gold: #f0dfc0;
+        }
 
-/* -- NAV -- */
-nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:16px 48px;background:rgba(250,250,248,.95);backdrop-filter:blur(16px);border-bottom:.5px solid var(--g100)}
-.nav-logo{font-size:12px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--black);cursor:pointer}
-.nav-links{display:flex;gap:4px;align-items:center}
-.nav-link{font-size:11px;letter-spacing:.08em;color:var(--g500);padding:7px 14px;border-radius:2px;cursor:pointer;transition:all .15s;border:none;background:none;font-family:var(--sans)}
-.nav-link:hover{color:var(--black);background:var(--off)}
-.nav-link.active{color:var(--black);background:var(--off)}
-.nav-cta{font-size:11px;letter-spacing:.1em;background:var(--black);color:var(--white);padding:9px 20px;border-radius:2px;cursor:pointer;border:none;font-family:var(--sans);transition:opacity .2s}
-.nav-cta:hover{opacity:.8}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* -- PAGES -- */
-.page{display:none;padding-top:64px;min-height:100vh}
-.page.active{display:block}
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--warm-white);
+            color: var(--charcoal);
+            min-height: 100vh;
+        }
 
-/* -- SHARED -- */
-.eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--g500);margin-bottom:14px}
-.serif-title{font-family:var(--serif);font-weight:300;line-height:1.08}
-.serif-title em{font-style:italic}
-.section{padding:80px 48px}
-.section-sm{padding:48px 48px}
-.btn-dark{font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:var(--black);color:var(--white);padding:12px 24px;border:none;border-radius:2px;cursor:pointer;font-family:var(--sans);transition:opacity .2s;display:inline-block;text-decoration:none}
-.btn-dark:hover{opacity:.8}
-.btn-light{font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:transparent;color:var(--black);padding:12px 24px;border:.5px solid var(--g300);border-radius:2px;cursor:pointer;font-family:var(--sans);transition:border-color .2s;display:inline-block}
-.btn-light:hover{border-color:var(--black)}
-.btn-sm{font-size:10px;letter-spacing:.08em;text-transform:uppercase;background:var(--black);color:var(--white);padding:8px 16px;border:none;border-radius:2px;cursor:pointer;font-family:var(--sans)}
-.btn-sm-light{font-size:10px;letter-spacing:.08em;text-transform:uppercase;background:transparent;color:var(--black);padding:8px 16px;border:.5px solid var(--g200);border-radius:2px;cursor:pointer;font-family:var(--sans)}
-.tag{font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:100px;display:inline-block}
-.tag-free{background:var(--off);color:var(--g500)}
-.tag-studio{background:var(--black);color:var(--white)}
-.tag-warm{background:#f5ede0;color:#8a5e35}
-.tag-purple{background:#eeedfe;color:var(--purple)}
-.input{width:100%;padding:10px 14px;border:.5px solid var(--g100);border-radius:2px;font-size:13px;font-family:var(--sans);color:var(--black);background:var(--off);outline:none;transition:border-color .15s}
-.input:focus{border-color:var(--black);background:var(--white)}
-.card{background:var(--white);border:.5px solid var(--g100);border-radius:4px;overflow:hidden}
+        header {
+            background: var(--charcoal);
+            padding: 18px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-/* ============================
-   PAGE 1 - HOME
-============================ */
-.hero{min-height:calc(100vh - 64px);display:grid;grid-template-columns:1fr 1fr}
-.hero-left{display:flex;flex-direction:column;justify-content:center;padding:80px 60px 80px 48px;border-right:.5px solid var(--g100)}
-.hero-title{font-family:var(--serif);font-size:clamp(50px,4.8vw,76px);font-weight:300;line-height:1.05;margin-bottom:22px}
-.hero-title em{font-style:italic}
-.hero-sub{font-size:15px;line-height:1.8;color:var(--g700);max-width:400px;margin-bottom:32px;font-weight:300}
-.hero-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
-.pill{font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:6px 16px;border-radius:100px;border:.5px solid var(--g300);color:var(--g500);cursor:pointer;transition:all .15s}
-.pill:hover,.pill.on{background:var(--black);color:var(--white);border-color:var(--black)}
-.hero-btns{display:flex;gap:12px}
-.hero-right{background:var(--off);display:flex;align-items:center;justify-content:center;padding:60px 48px}
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--blush);
+            letter-spacing: 0.02em;
+        }
 
-/* PRODUCT CARDS on home */
-.product-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--g100);border:.5px solid var(--g100)}
-.prod-card{background:var(--white);padding:52px 44px;cursor:pointer;transition:background .2s}
-.prod-card:hover{background:var(--off)}
-.prod-icon{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:22px;font-size:18px}
-.prod-name{font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px;font-weight:500}
-.prod-title{font-family:var(--serif);font-size:28px;font-weight:300;margin-bottom:12px;line-height:1.1}
-.prod-title em{font-style:italic}
-.prod-desc{font-size:13px;color:var(--g700);line-height:1.75;font-weight:300;margin-bottom:16px}
+        .logo span { color: var(--gold); font-style: italic; }
 
-/* MARQUEE */
-.marquee-wrap{overflow:hidden;padding:13px 0;background:var(--black);border-top:.5px solid var(--g100);border-bottom:.5px solid var(--g100)}
-.marquee{display:flex;animation:mq 32s linear infinite;white-space:nowrap}
-.marquee span{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.2);padding:0 24px}
-.marquee span.hi{color:rgba(255,255,255,.65)}
-@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+        .header-date {
+            font-size: 0.75rem;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
 
-/* ============================
-   PAGE 2 - CURIO
-============================ */
-.curio-hero{background:var(--off);padding:60px 48px 0;border-bottom:.5px solid var(--g100)}
-.curio-hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;max-width:1200px;margin:0 auto}
-.curio-save-box{background:var(--white);border:.5px solid var(--g100);border-radius:4px 4px 0 0;padding:24px;box-shadow:0 -8px 32px rgba(0,0,0,.04)}
-.save-row{display:flex;gap:8px;margin-bottom:10px}
-.save-input{flex:1;padding:11px 14px;border:.5px solid var(--g100);border-radius:2px;font-size:13px;font-family:var(--sans);color:var(--black);background:var(--off);outline:none;transition:all .15s}
-.save-input:focus{border-color:var(--black);background:var(--white)}
-.save-btn{font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:var(--black);color:var(--white);border:none;padding:11px 18px;border-radius:2px;cursor:pointer;font-family:var(--sans);white-space:nowrap}
-.save-status{font-size:11px;color:var(--g500);font-style:italic;min-height:16px;margin-bottom:12px}
-.save-hint{font-size:10px;color:var(--g300);margin-top:8px}
+        .progress-bar {
+            background: white;
+            border-bottom: 1px solid #f0e8e8;
+            padding: 0 32px;
+            display: flex;
+            gap: 0;
+            overflow-x: auto;
+        }
 
-.curio-cats{display:flex;gap:8px;flex-wrap:wrap;padding:20px 48px;border-bottom:.5px solid var(--g100);background:var(--white)}
-.cat-btn{font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:6px 16px;border-radius:100px;border:.5px solid var(--g200);color:var(--g500);cursor:pointer;transition:all .15s;background:none;font-family:var(--sans)}
-.cat-btn:hover,.cat-btn.on{background:var(--black);color:var(--white);border-color:var(--black)}
+        .step-tab {
+            padding: 14px 20px;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-.curio-grid-wrap{padding:32px 48px 64px}
-.curio-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
-.curio-item{border:.5px solid var(--g100);border-radius:3px;overflow:hidden;cursor:pointer;transition:all .2s;position:relative;background:var(--white)}
-.curio-item:hover{border-color:var(--black);transform:translateY(-2px)}
-.curio-img{aspect-ratio:3/4;background:var(--off);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
-.curio-img img{width:100%;height:100%;object-fit:cover}
-.curio-img-placeholder{font-family:var(--serif);font-size:11px;color:var(--g300);font-style:italic;text-align:center;padding:12px;line-height:1.5}
-.curio-item-info{padding:10px 12px 12px}
-.curio-item-cat{font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--g500);margin-bottom:3px}
-.curio-item-name{font-size:12px;color:var(--black);line-height:1.3}
-.curio-item-del{position:absolute;top:6px;right:6px;width:20px;height:20px;background:rgba(8,8,8,.6);color:white;border:none;border-radius:50%;font-size:11px;cursor:pointer;display:none;align-items:center;justify-content:center;line-height:1}
-.curio-item:hover .curio-item-del{display:flex}
-.curio-empty{grid-column:1/-1;text-align:center;padding:80px 20px}
-.curio-empty p{font-family:var(--serif);font-size:22px;font-weight:300;color:var(--g300);font-style:italic;margin-bottom:8px}
-.curio-empty span{font-size:12px;color:var(--g500)}
+        .step-tab.active { color: var(--deep-rose); border-bottom-color: var(--deep-rose); }
+        .step-tab.completed { color: var(--gold); border-bottom-color: var(--gold); }
 
-/* NOTE MODAL */
-.note-overlay{display:none;position:fixed;inset:0;z-index:600;background:rgba(8,8,8,.5);backdrop-filter:blur(4px);align-items:center;justify-content:center}
-.note-overlay.on{display:flex}
-.note-modal{background:var(--white);width:360px;border-radius:4px;overflow:hidden}
-.note-header{padding:16px 20px;border-bottom:.5px solid var(--g100);display:flex;align-items:center;justify-content:space-between}
-.note-header span{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--g500)}
-.note-close{background:none;border:none;font-size:18px;cursor:pointer;color:var(--g500)}
-.note-body{padding:20px}
-.note-img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:2px;margin-bottom:12px;background:var(--off)}
-.note-textarea{width:100%;padding:10px 12px;border:.5px solid var(--g100);border-radius:2px;font-size:13px;font-family:var(--sans);resize:none;height:80px;outline:none;color:var(--black)}
-.note-textarea:focus{border-color:var(--black)}
-.note-footer{padding:12px 20px;border-top:.5px solid var(--g100);display:flex;justify-content:flex-end;gap:8px}
+        .step-num {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: currentColor;
+            color: white;
+            font-size: 0.65rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
 
-/* ============================
-   PAGE 3 - STUDIO
-============================ */
-.studio-layout{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 64px)}
-.studio-sidebar{border-right:.5px solid var(--g100);padding:24px 0;background:var(--white);position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto}
-.sidebar-section{margin-bottom:8px}
-.sidebar-label{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--g300);padding:8px 20px 4px}
-.sidebar-item{display:flex;align-items:center;gap:10px;padding:9px 20px;font-size:13px;color:var(--g700);cursor:pointer;transition:all .15s;border:none;background:none;width:100%;font-family:var(--sans);text-align:left}
-.sidebar-item:hover{background:var(--off);color:var(--black)}
-.sidebar-item.on{background:var(--off);color:var(--black);font-weight:500}
-.sidebar-item .si-icon{font-size:14px;width:20px;text-align:center}
-.sidebar-badge{margin-left:auto;font-size:8px;letter-spacing:.08em;background:var(--black);color:var(--white);padding:2px 7px;border-radius:100px}
+        .step-tab.active .step-num { background: var(--deep-rose); color: white; }
+        .step-tab.completed .step-num { background: var(--gold); color: white; }
+        .step-tab:not(.active):not(.completed) .step-num { background: #e8e0e0; color: var(--muted); }
 
-.studio-main{padding:0}
-.studio-panel{display:none;padding:40px 48px}
-.studio-panel.on{display:block}
-.panel-title{font-family:var(--serif);font-size:36px;font-weight:300;margin-bottom:6px}
-.panel-title em{font-style:italic}
-.panel-sub{font-size:13px;color:var(--g500);margin-bottom:32px;line-height:1.6}
+        .main { max-width: 900px; margin: 0 auto; padding: 32px 20px; }
 
-/* LOOK BUILDER */
-.builder-grid{display:grid;grid-template-columns:1fr 320px;gap:24px;align-items:start}
-.builder-board{background:var(--white);border:.5px solid var(--g100);border-radius:4px;overflow:hidden}
-.board-toolbar{padding:12px 16px;border-bottom:.5px solid var(--g100);display:flex;align-items:center;gap:8px}
-.board-name-input{flex:1;border:none;font-size:13px;font-family:var(--sans);color:var(--black);outline:none;background:transparent}
-.board-items-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--g100);min-height:280px}
-.board-cell{background:var(--white);aspect-ratio:3/4;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;cursor:pointer;transition:background .15s}
-.board-cell:hover{background:var(--off)}
-.board-cell img{width:100%;height:100%;object-fit:cover}
-.board-cell-label{position:absolute;bottom:0;left:0;right:0;padding:6px 8px 5px;background:rgba(8,8,8,.55)}
-.board-cell-label span{font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.8)}
-.board-cell-remove{position:absolute;top:4px;right:4px;width:18px;height:18px;background:rgba(8,8,8,.6);color:white;border:none;border-radius:50%;font-size:10px;cursor:pointer;display:none;align-items:center;justify-content:center}
-.board-cell:hover .board-cell-remove{display:flex}
-.board-add-cell{background:var(--off);border:1.5px dashed var(--g200);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;cursor:pointer;transition:all .15s}
-.board-add-cell:hover{border-color:var(--black);background:var(--g100)}
-.board-add-icon{font-size:22px;color:var(--g300)}
-.board-add-text{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--g300)}
-.board-footer{padding:14px 16px;border-top:.5px solid var(--g100);display:flex;align-items:center;justify-content:space-between}
-.board-stats{font-size:11px;color:var(--g500)}
+        .step-panel { display: none; animation: fadeIn 0.3s ease; }
+        .step-panel.active { display: block; }
 
-.builder-sidebar-panel{display:flex;flex-direction:column;gap:16px}
-.bs-card{background:var(--white);border:.5px solid var(--g100);border-radius:4px;overflow:hidden}
-.bs-card-header{padding:12px 16px;border-bottom:.5px solid var(--g100);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--g500)}
-.bs-card-body{padding:14px 16px}
-.import-row{display:flex;gap:6px;margin-bottom:6px}
-.import-status{font-size:10px;color:var(--g500);font-style:italic;min-height:14px}
-.sample-mini{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}
-.sample-card{border:.5px solid var(--g100);border-radius:2px;overflow:hidden;cursor:pointer;transition:all .15s;position:relative}
-.sample-card:hover{border-color:var(--black)}
-.sample-card.picked{border-color:var(--black);border-width:1.5px}
-.sample-card.picked::after{content:'✓';position:absolute;top:3px;right:3px;width:14px;height:14px;background:var(--black);color:white;border-radius:50%;font-size:8px;display:flex;align-items:center;justify-content:center}
-.sample-img{aspect-ratio:3/4;background:var(--off);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:8px;color:var(--g300);font-style:italic;text-align:center;padding:4px;overflow:hidden}
-.sample-img img{width:100%;height:100%;object-fit:cover}
-.sample-info{padding:5px 7px 6px}
-.sample-brand{font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:var(--g500)}
-.sample-name{font-size:9px;color:var(--black);line-height:1.2}
-.sample-price{font-size:9px;color:var(--g500)}
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
-/* CONTENT GENERATOR */
-.content-gen{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
-.gen-input-card{background:var(--white);border:.5px solid var(--g100);border-radius:4px;padding:24px}
-.gen-label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--g500);margin-bottom:8px;display:block}
-.gen-select{width:100%;padding:10px 14px;border:.5px solid var(--g100);border-radius:2px;font-size:13px;font-family:var(--sans);color:var(--black);background:var(--off);outline:none;margin-bottom:14px;cursor:pointer}
-.gen-textarea{width:100%;padding:10px 14px;border:.5px solid var(--g100);border-radius:2px;font-size:13px;font-family:var(--sans);resize:none;height:80px;outline:none;color:var(--black);background:var(--off)}
-.gen-textarea:focus,.gen-select:focus{border-color:var(--black);background:var(--white)}
-.gen-generate-btn{width:100%;font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:var(--black);color:var(--white);border:none;padding:14px;border-radius:2px;cursor:pointer;font-family:var(--sans);margin-top:14px;transition:opacity .2s}
-.gen-generate-btn:hover{opacity:.8}
-.gen-output-card{background:var(--white);border:.5px solid var(--g100);border-radius:4px;overflow:hidden}
-.gen-output-header{padding:12px 16px;border-bottom:.5px solid var(--g100);display:flex;align-items:center;justify-content:space-between}
-.gen-output-title{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--g500)}
-.gen-platform-tabs{display:flex;gap:4px}
-.gen-tab{font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:2px;cursor:pointer;border:.5px solid var(--g100);color:var(--g500);background:none;font-family:var(--sans);transition:all .15s}
-.gen-tab.on{background:var(--black);color:var(--white);border-color:var(--black)}
-.gen-output-body{padding:20px;min-height:280px}
-.gen-caption{font-size:14px;line-height:1.75;color:var(--black);white-space:pre-wrap;margin-bottom:16px}
-.gen-hashtags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
-.gen-hashtag{font-size:11px;color:var(--purple);background:#eeedfe;padding:4px 10px;border-radius:100px}
-.gen-actions{display:flex;gap:8px;padding-top:14px;border-top:.5px solid var(--g100)}
-.gen-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;height:240px;gap:8px}
-.gen-placeholder p{font-family:var(--serif);font-size:18px;font-weight:300;color:var(--g300);font-style:italic}
-.gen-placeholder span{font-size:11px;color:var(--g300)}
-.gen-loading{display:none;flex-direction:column;align-items:center;justify-content:center;height:240px;gap:12px}
-.gen-loading p{font-size:12px;color:var(--g500);font-style:italic}
-.spinner{width:20px;height:20px;border:1.5px solid var(--g100);border-top-color:var(--black);border-radius:50%;animation:spin .7s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
+        .panel-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--charcoal); margin-bottom: 6px; }
+        .panel-title em { color: var(--deep-rose); font-style: italic; }
+        .panel-subtitle { color: var(--muted); font-size: 0.88rem; margin-bottom: 28px; font-weight: 300; }
 
-/* HASHTAG TOOL */
-.hashtag-tool{max-width:720px}
-.ht-input-row{display:flex;gap:10px;margin-bottom:20px}
-.ht-input{flex:1}
-.ht-results{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;min-height:48px}
-.ht-tag{font-size:12px;color:var(--black);background:var(--off);border:.5px solid var(--g200);padding:6px 14px;border-radius:100px;cursor:pointer;transition:all .15s}
-.ht-tag:hover{background:var(--black);color:var(--white);border-color:var(--black)}
-.ht-tag.copied{background:var(--black);color:var(--white)}
-.ht-sets{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
-.ht-set{background:var(--white);border:.5px solid var(--g100);border-radius:4px;padding:16px}
-.ht-set-name{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--g500);margin-bottom:10px}
-.ht-set-tags{display:flex;flex-wrap:wrap;gap:4px}
-.ht-set-tag{font-size:10px;color:var(--purple);background:#eeedfe;padding:3px 8px;border-radius:100px}
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+            letter-spacing: 0.03em;
+        }
 
-/* WEEKLY PLANNER */
-.planner-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-bottom:24px}
-.planner-day{background:var(--white);border:.5px solid var(--g100);border-radius:4px;overflow:hidden}
-.planner-day-header{padding:10px 12px;border-bottom:.5px solid var(--g100);background:var(--off)}
-.planner-day-name{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--g500)}
-.planner-day-date{font-size:11px;color:var(--black);font-weight:500;margin-top:2px}
-.planner-day-body{padding:10px 12px;min-height:100px}
-.planner-post{background:var(--off);border-radius:2px;padding:8px;margin-bottom:6px;cursor:pointer;transition:background .15s}
-.planner-post:hover{background:var(--g100)}
-.planner-post-platform{font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--g500);margin-bottom:3px}
-.planner-post-text{font-size:10px;color:var(--black);line-height:1.4}
-.planner-add{border:1px dashed var(--g200);border-radius:2px;padding:8px;text-align:center;font-size:10px;color:var(--g300);cursor:pointer;transition:all .15s}
-.planner-add:hover{border-color:var(--g500);color:var(--g500)}
+        .btn-primary { background: var(--deep-rose); color: white; }
+        .btn-primary:hover { background: #b04f65; transform: translateY(-1px); }
+        .btn-secondary { background: var(--soft-gold); color: var(--charcoal); }
+        .btn-secondary:hover { background: var(--gold); color: white; }
+        .btn-outline { background: transparent; color: var(--deep-rose); border: 1.5px solid var(--deep-rose); }
+        .btn-outline:hover { background: var(--deep-rose); color: white; }
+        .btn-large { padding: 16px 36px; font-size: 0.95rem; }
 
-/* BRAND PITCH */
-.pitch-preview{background:var(--white);border:.5px solid var(--g100);border-radius:4px;overflow:hidden;max-width:680px}
-.pitch-header{background:var(--black);padding:32px 40px}
-.pitch-brand{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:8px}
-.pitch-name{font-family:var(--serif);font-size:32px;font-weight:300;color:var(--white);margin-bottom:4px}
-.pitch-handle{font-size:13px;color:rgba(255,255,255,.4)}
-.pitch-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.08)}
-.pitch-stat{padding:20px 24px;background:rgba(255,255,255,.03)}
-.pitch-stat-n{font-family:var(--serif);font-size:28px;font-weight:300;color:var(--white);line-height:1}
-.pitch-stat-l{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:4px}
-.pitch-body{padding:32px 40px}
-.pitch-section-title{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--g500);margin-bottom:12px}
-.pitch-bio{font-size:14px;line-height:1.75;color:var(--g700);margin-bottom:28px;font-weight:300}
-.pitch-edit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:28px}
-.pitch-edit-item{aspect-ratio:1;background:var(--off);border-radius:2px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:9px;color:var(--g300);font-style:italic;overflow:hidden}
-.pitch-edit-item img{width:100%;height:100%;object-fit:cover}
-.pitch-rates{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
-.pitch-rate{background:var(--off);border-radius:2px;padding:16px}
-.pitch-rate-type{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--g500);margin-bottom:4px}
-.pitch-rate-price{font-size:22px;font-weight:500;color:var(--black)}
-.pitch-cta{padding:24px 40px;border-top:.5px solid var(--g100);display:flex;gap:10px}
+        .trend-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin: 24px 0; }
 
-/* AFFILIATE DASHBOARD */
-.aff-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px}
-.aff-stat{background:var(--white);border:.5px solid var(--g100);border-radius:4px;padding:20px 24px}
-.aff-stat-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--g500);margin-bottom:8px}
-.aff-stat-value{font-family:var(--serif);font-size:36px;font-weight:300;color:var(--black);line-height:1}
-.aff-stat-sub{font-size:11px;color:var(--g500);margin-top:4px}
-.aff-links{background:var(--white);border:.5px solid var(--g100);border-radius:4px;overflow:hidden}
-.aff-links-header{padding:14px 20px;border-bottom:.5px solid var(--g100);display:flex;align-items:center;justify-content:space-between}
-.aff-links-title{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--g500)}
-.aff-link-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 80px;gap:12px;padding:14px 20px;border-bottom:.5px solid var(--g100);align-items:center}
-.aff-link-row:last-child{border-bottom:none}
-.aff-link-name{font-size:13px;color:var(--black)}
-.aff-link-brand{font-size:11px;color:var(--g500)}
-.aff-link-stat{font-size:13px;color:var(--black);text-align:center}
-.aff-link-stat.earn{color:#2d7a4f;font-weight:500}
-.aff-copy{font-size:9px;letter-spacing:.08em;text-transform:uppercase;background:var(--off);border:.5px solid var(--g200);border-radius:2px;padding:5px 10px;cursor:pointer;font-family:var(--sans);color:var(--black)}
+        .trend-card {
+            background: white;
+            border: 2px solid #f0e8e8;
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
 
-/* ============================
-   PAGE 4 - THE AVANT EDIT
-============================ */
-.edit-hero{background:var(--black);padding:80px 48px;text-align:center}
-.edit-issue{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:14px}
-.edit-title{font-family:var(--serif);font-size:clamp(40px,4vw,64px);font-weight:300;color:var(--white);line-height:1.05;margin-bottom:12px}
-.edit-title em{font-style:italic}
-.edit-sub{font-size:13px;color:rgba(255,255,255,.35);max-width:480px;margin:0 auto 36px;line-height:1.75;font-weight:300}
-.edit-form{display:flex;gap:10px;max-width:380px;margin:0 auto}
-.edit-input{flex:1;padding:12px 16px;border:.5px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:var(--white);font-size:13px;font-family:var(--sans);border-radius:2px;outline:none}
-.edit-input::placeholder{color:rgba(255,255,255,.2)}
-.edit-input:focus{border-color:rgba(255,255,255,.35)}
-.edit-submit{font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:var(--white);color:var(--black);border:none;padding:12px 20px;border-radius:2px;cursor:pointer;font-family:var(--sans);white-space:nowrap}
-.edit-ok{display:none;font-family:var(--serif);font-size:18px;color:var(--white);font-style:italic;margin-top:14px}
+        .trend-card:hover { border-color: var(--rose); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,90,114,0.12); }
+        .trend-card.selected { border-color: var(--deep-rose); background: #fff5f7; }
 
-.edit-issue-preview{max-width:640px;margin:0 auto;padding:0 48px 80px}
-.issue-section{padding:32px 0;border-bottom:.5px solid var(--g100)}
-.issue-section:last-child{border-bottom:none}
-.issue-section-label{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--g500);margin-bottom:16px}
-.issue-from-editor{font-family:var(--serif);font-size:18px;font-weight:300;line-height:1.75;color:var(--g700);font-style:italic;margin-bottom:8px}
-.issue-from-sig{font-size:11px;color:var(--g500)}
-.issue-brand-item{margin-bottom:20px;padding-bottom:20px;border-bottom:.5px solid var(--g100)}
-.issue-brand-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-.issue-brand-name{font-size:13px;font-weight:500;color:var(--black);margin-bottom:4px}
-.issue-brand-where{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--g500);margin-bottom:6px}
-.issue-brand-desc{font-size:13px;color:var(--g700);line-height:1.7;font-weight:300}
-.issue-signal{font-size:14px;line-height:1.8;color:var(--g700);font-weight:300}
-.issue-shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.issue-shop-item{border:.5px solid var(--g100);border-radius:2px;overflow:hidden;cursor:pointer;transition:border-color .15s}
-.issue-shop-item:hover{border-color:var(--black)}
-.issue-shop-img{aspect-ratio:3/4;background:var(--off);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:10px;color:var(--g300);font-style:italic;text-align:center;padding:8px}
-.issue-shop-info{padding:8px 10px 10px}
-.issue-shop-brand{font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--g500);margin-bottom:2px}
-.issue-shop-name{font-size:11px;color:var(--black);line-height:1.3;margin-bottom:2px}
-.issue-shop-price{font-size:11px;color:var(--g500)}
+        .trend-emoji { font-size: 1.8rem; margin-bottom: 10px; }
+        .trend-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; color: var(--charcoal); margin-bottom: 6px; }
+        .trend-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
+        .trend-source { margin-top: 10px; font-size: 0.7rem; color: var(--gold); font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; }
 
-/* ============================
-   PAGE 5 - JOIN
-============================ */
-.join-hero{background:var(--off);padding:80px 48px;text-align:center;border-bottom:.5px solid var(--g100)}
-.join-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--g100);margin:0}
-.join-tier{background:var(--white);padding:48px 40px;display:flex;flex-direction:column}
-.join-tier.star{background:var(--black)}
-.jt-badge{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--g500);margin-bottom:10px}
-.join-tier.star .jt-badge{color:rgba(255,255,255,.35)}
-.jt-name{font-family:var(--serif);font-size:30px;font-weight:300;margin-bottom:4px}
-.join-tier.star .jt-name{color:var(--white)}
-.jt-price{font-size:13px;color:var(--g500);margin-bottom:24px;padding-bottom:24px;border-bottom:.5px solid var(--g100)}
-.join-tier.star .jt-price{color:rgba(255,255,255,.3);border-bottom-color:rgba(255,255,255,.08)}
-.jt-features{list-style:none;flex:1;margin-bottom:24px}
-.jt-features li{font-size:13px;color:var(--g700);padding:7px 0;border-bottom:.5px solid var(--g100);display:flex;gap:8px;font-weight:300;line-height:1.5}
-.jt-features li::before{content:'-';color:var(--g200);font-size:11px;flex-shrink:0;margin-top:2px}
-.join-tier.star .jt-features li{color:rgba(255,255,255,.6);border-bottom-color:rgba(255,255,255,.07)}
-.join-tier.star .jt-features li::before{color:rgba(255,255,255,.15)}
-.jt-btn{font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:13px 20px;border-radius:2px;cursor:pointer;font-family:var(--sans);border:none;transition:all .2s;display:block;text-align:center;width:100%}
-.jt-btn-out{background:transparent;color:var(--black);border:.5px solid var(--g200) !important}
-.jt-btn-out:hover{border-color:var(--black) !important}
-.jt-btn-in{background:var(--white);color:var(--black)}
-.jt-btn-in:hover{background:var(--g100)}
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; margin: 24px 0; }
 
-/* ============================
-   JOIN MODAL (global)
-============================ */
-.modal-overlay{display:none;position:fixed;inset:0;z-index:700;background:rgba(8,8,8,.6);backdrop-filter:blur(6px);align-items:center;justify-content:center}
-.modal-overlay.on{display:flex}
-.modal-box{background:var(--white);max-width:440px;width:92%;border-radius:4px;padding:44px;position:relative}
-.modal-x{position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--g500)}
-.modal-eye{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--g500);margin-bottom:10px}
-.modal-h{font-family:var(--serif);font-size:30px;font-weight:300;line-height:1.1;margin-bottom:8px}
-.modal-h em{font-style:italic}
-.modal-p{font-size:13px;color:var(--g700);line-height:1.7;margin-bottom:24px;font-weight:300}
-.modal-field{width:100%;padding:11px 14px;margin-bottom:9px;border:.5px solid var(--g100);border-radius:2px;font-size:13px;font-family:var(--sans);outline:none;color:var(--black)}
-.modal-field:focus{border-color:var(--black)}
-.modal-go{width:100%;font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:var(--black);color:var(--white);border:none;padding:14px;border-radius:2px;cursor:pointer;font-family:var(--sans);margin-top:4px}
-.modal-small{font-size:11px;color:var(--g500);text-align:center;margin-top:10px}
-.modal-ok{display:none;text-align:center;padding:20px 0;font-family:var(--serif);font-size:22px;font-weight:300;font-style:italic}
+        .product-card {
+            background: white;
+            border: 2px solid #f0e8e8;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+        }
 
-@media(max-width:900px){
-  nav{padding:14px 20px}
-  .nav-links{display:none}
-  .hero{grid-template-columns:1fr}
-  .hero-left{padding:48px 20px 32px}
-  .hero-right{padding:32px 20px 48px}
-  .section,.section-sm{padding:56px 20px}
-  .product-strip,.join-tiers{grid-template-columns:1fr}
-  .studio-layout{grid-template-columns:1fr}
-  .studio-sidebar{display:none}
-  .studio-panel{padding:24px 20px}
-  .content-gen,.builder-grid{grid-template-columns:1fr}
-  .planner-grid{grid-template-columns:repeat(2,1fr)}
-  .aff-stats{grid-template-columns:repeat(2,1fr)}
-  .aff-link-row{grid-template-columns:1fr 1fr;gap:8px}
-  .edit-issue-preview{padding:0 20px 56px}
-  .ht-sets{grid-template-columns:1fr}
-  .curio-hero-inner{grid-template-columns:1fr}
-  .curio-grid-wrap{padding:24px 20px 48px}
-  .curio-cats{padding:16px 20px}
-  .join-hero{padding:56px 20px}
-}
-</style>
+        .product-card:hover { border-color: var(--rose); }
+        .product-card.selected { border-color: var(--deep-rose); }
+        .product-card.deselected { opacity: 0.4; border-color: #e0d8d8; }
+
+        .product-img {
+            width: 100%;
+            height: 140px;
+            background: linear-gradient(135deg, var(--blush), var(--soft-gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
+        .product-info { padding: 10px 12px; }
+        .product-name { font-size: 0.78rem; font-weight: 500; color: var(--charcoal); margin-bottom: 4px; line-height: 1.3; }
+        .product-brand { font-size: 0.7rem; color: var(--muted); }
+        .product-price { font-size: 0.78rem; color: var(--deep-rose); font-weight: 500; margin-top: 4px; }
+
+        .check-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 22px;
+            height: 22px;
+            background: var(--deep-rose);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.7rem;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .product-card.selected .check-badge { opacity: 1; }
+
+        .content-section { background: white; border: 1px solid #f0e8e8; border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+        .content-section-title { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--charcoal); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+
+        .pin-list { display: flex; flex-direction: column; gap: 10px; }
+        .pin-item { display: flex; gap: 12px; align-items: flex-start; }
+
+        .pin-num {
+            min-width: 24px;
+            height: 24px;
+            background: var(--blush);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--deep-rose);
+            margin-top: 8px;
+        }
+
+        .pin-text {
+            flex: 1;
+            padding: 10px 14px;
+            background: var(--cream);
+            border: 1px solid #f0e8e8;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            line-height: 1.5;
+            color: var(--charcoal);
+            resize: vertical;
+            font-family: 'DM Sans', sans-serif;
+            min-height: 44px;
+        }
+
+        .pin-text:focus { outline: none; border-color: var(--rose); background: white; }
+
+        textarea {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--cream);
+            border: 1px solid #f0e8e8;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: var(--charcoal);
+            resize: vertical;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        textarea:focus { outline: none; border-color: var(--rose); background: white; }
+
+        .hashtag-box { display: flex; flex-wrap: wrap; gap: 8px; padding: 14px; background: var(--cream); border: 1px solid #f0e8e8; border-radius: 8px; }
+        .hashtag { background: var(--blush); color: var(--deep-rose); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 500; }
+
+        .carousel-preview { display: flex; gap: 12px; overflow-x: auto; padding: 4px 0 16px; }
+
+        .slide {
+            min-width: 180px;
+            height: 220px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .slide.active-slide { border-color: var(--deep-rose); }
+
+        .slide-bg {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .slide-bg.s1 { background: linear-gradient(145deg, #f2c4ce, #e8899a); }
+        .slide-bg.s2 { background: linear-gradient(145deg, #f0dfc0, #d4a96a); }
+        .slide-bg.s3 { background: linear-gradient(145deg, #c8e6e0, #85c1b5); }
+        .slide-bg.s4 { background: linear-gradient(145deg, #d4c8f0, #9985c4); }
+        .slide-bg.s5 { background: linear-gradient(145deg, #f2c4ce, #c45c72); }
+
+        .slide-text { font-family: 'Playfair Display', serif; font-size: 0.75rem; color: white; margin-top: 10px; line-height: 1.4; text-shadow: 0 1px 3px rgba(0,0,0,0.2); }
+        .slide-num { position: absolute; bottom: 8px; right: 10px; font-size: 0.65rem; color: rgba(255,255,255,0.7); }
+
+        .publish-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+
+        .publish-card { background: white; border: 2px solid #f0e8e8; border-radius: 12px; padding: 20px; display: flex; align-items: center; justify-content: space-between; }
+        .publish-card-info { display: flex; align-items: center; gap: 12px; }
+        .publish-icon { font-size: 1.6rem; }
+        .publish-label { font-weight: 500; font-size: 0.88rem; color: var(--charcoal); }
+        .publish-sublabel { font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
+
+        .toggle { width: 44px; height: 24px; background: #e0d8d8; border-radius: 12px; cursor: pointer; position: relative; transition: background 0.2s; }
+        .toggle.on { background: var(--deep-rose); }
+        .toggle::after { content: ''; position: absolute; width: 18px; height: 18px; background: white; border-radius: 50%; top: 3px; left: 3px; transition: left 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
+        .toggle.on::after { left: 23px; }
+
+        .publish-btn {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--deep-rose), #a04060);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .publish-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(196,92,114,0.35); }
+
+        .loading { display: flex; align-items: center; gap: 12px; padding: 20px; color: var(--muted); font-size: 0.88rem; }
+
+        .spinner { width: 20px; height: 20px; border: 2px solid var(--blush); border-top-color: var(--deep-rose); border-radius: 50%; animation: spin 0.8s linear infinite; }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .nav-row { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding-top: 24px; border-top: 1px solid #f0e8e8; }
+
+        .theme-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--soft-gold); color: var(--charcoal); padding: 8px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: 500; margin-bottom: 20px; }
+
+        .select-count { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; }
+
+        .success-banner { background: linear-gradient(135deg, #d4f0e8, #a8e0cc); border-radius: 12px; padding: 24px; text-align: center; margin-bottom: 20px; }
+        .success-banner h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: #2d6b55; margin-bottom: 8px; }
+        .success-banner p { color: #3d8b6e; font-size: 0.85rem; }
+
+        @media (max-width: 600px) {
+            .publish-grid { grid-template-columns: 1fr; }
+            .panel-title { font-size: 1.4rem; }
+            header { padding: 14px 16px; }
+            .main { padding: 20px 16px; }
+        }
+    </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-logo" onclick="showPage('home')">Avant</div>
-  <div class="nav-links">
-    <button class="nav-link" onclick="showPage('home')" id="nl-home">Home</button>
-    <button class="nav-link" onclick="showPage('curio')" id="nl-curio">Curio</button>
-    <button class="nav-link" onclick="showPage('studio')" id="nl-studio">Studio</button>
-    <button class="nav-link" onclick="showPage('edit')" id="nl-edit">The Avant Edit</button>
-    <button class="nav-cta" onclick="openModal()">Join waitlist</button>
-  </div>
+<header>
+    <div class="logo">Jackie's <span>Affiliate Studio</span></div>
+    <div class="header-date" id="headerDate"></div>
+</header>
+
+<nav class="progress-bar">
+    <div class="step-tab active" onclick="goToStep(1)" id="tab1"><div class="step-num">1</div> Discover Trends</div>
+    <div class="step-tab" onclick="goToStep(2)" id="tab2"><div class="step-num">2</div> Pick Products</div>
+    <div class="step-tab" onclick="goToStep(3)" id="tab3"><div class="step-num">3</div> Generate Content</div>
+    <div class="step-tab" onclick="goToStep(4)" id="tab4"><div class="step-num">4</div> Instagram Slides</div>
+    <div class="step-tab" onclick="goToStep(5)" id="tab5"><div class="step-num">5</div> Publish</div>
 </nav>
 
-<!-- ==============================
-     PAGE: HOME
-============================== -->
-<div class="page active" id="page-home">
+<main class="main">
 
-  <div class="hero">
-    <div class="hero-left">
-      <p class="eyebrow">The fashion creator platform</p>
-      <h1 class="hero-title">Save it.<br><em>Curate it.</em><br>Earn from it.</h1>
-      <p class="hero-sub">Avant is the platform where fashion creators save what they love, build editorial looks, generate content, manage affiliate income, and pitch brands - all in one place.</p>
-      <div class="hero-pills">
-        <span class="pill on" onclick="showPage('curio')">Curio</span>
-        <span class="pill on" onclick="showPage('studio')">Avant Studio</span>
-        <span class="pill on" onclick="showPage('edit')">The Avant Edit</span>
-      </div>
-      <div class="hero-btns">
-        <button class="btn-dark" onclick="showPage('studio')">Try Studio free</button>
-        <button class="btn-light" onclick="showPage('curio')">Explore Curio -></button>
-      </div>
-    </div>
-    <div class="hero-right">
-      <div style="width:100%;max-width:420px">
-        <div class="card">
-          <div style="padding:14px 18px;border-bottom:.5px solid var(--g100);display:flex;align-items:center;justify-content:space-between">
-            <span style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--g500)">Curio - save anything</span>
-            <span class="tag tag-free">Free</span>
-          </div>
-          <div style="padding:16px 18px">
-            <div style="display:flex;gap:8px;margin-bottom:10px">
-              <input class="save-input" id="heroUrl" placeholder="Paste any URL - a sofa, a jacket, an idea..." onkeydown="if(event.key==='Enter')heroSave()">
-              <button class="save-btn" onclick="heroSave()">Save</button>
-            </div>
-            <div class="save-status" id="heroStatus">Paste any URL and save the image instantly.</div>
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px" id="heroGrid">
-              <div style="aspect-ratio:3/4;background:var(--off);border:.5px solid var(--g100);border-radius:2px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:10px;color:var(--g300);font-style:italic;text-align:center;padding:8px;position:relative">
-                Zara linen dress
-                <div style="position:absolute;bottom:0;left:0;right:0;background:rgba(8,8,8,.55);padding:5px 6px"><span style="font-size:8px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.7)">Zara · Fashion</span></div>
-              </div>
-              <div style="aspect-ratio:3/4;background:#ede8e0;border:.5px solid var(--g100);border-radius:2px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:10px;color:var(--g300);font-style:italic;text-align:center;padding:8px;position:relative">
-                Arhaus sofa
-                <div style="position:absolute;bottom:0;left:0;right:0;background:rgba(8,8,8,.55);padding:5px 6px"><span style="font-size:8px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.7)">Arhaus · Home</span></div>
-              </div>
-              <div style="aspect-ratio:3/4;border:1.5px dashed var(--g200);border-radius:2px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px;color:var(--g300)" onclick="document.getElementById('heroUrl').focus()">+</div>
-            </div>
-          </div>
-          <div style="padding:12px 18px;border-top:.5px solid var(--g100);background:var(--off);display:flex;align-items:center;justify-content:space-between">
-            <span style="font-size:11px;color:var(--g500)" id="heroCount">2 items saved</span>
-            <button class="btn-sm" onclick="showPage('curio')">Open Curio -></button>
-          </div>
+    <div class="step-panel active" id="step1">
+        <h1 class="panel-title">Today's <em>Fashion Trends</em></h1>
+        <p class="panel-subtitle">AI scanned Vogue, Revolve, and more — here's what's trending today</p>
+        <button class="btn btn-primary" onclick="discoverTrends()" id="discoverBtn">✨ Discover Today's Trends</button>
+        <div id="trendsLoading" style="display:none" class="loading"><div class="spinner"></div> Scanning Vogue, Revolve, Net-a-Porter...</div>
+        <div class="trend-grid" id="trendGrid"></div>
+        <div class="nav-row" id="step1Nav" style="display:none">
+            <div></div>
+            <button class="btn btn-primary btn-large" onclick="goToStep(2)">Next: Pick Products →</button>
         </div>
-      </div>
     </div>
-  </div>
 
-  <div class="marquee-wrap">
-    <div class="marquee">
-      <span class="hi">Curio</span><span>·</span><span>Save Anything</span><span>·</span>
-      <span class="hi">Look Builder</span><span>·</span><span>Chrome Clipper</span><span>·</span>
-      <span class="hi">Content Generator</span><span>·</span><span>Hashtag Tool</span><span>·</span>
-      <span class="hi">Weekly Planner</span><span>·</span><span>Brand Pitch Kit</span><span>·</span>
-      <span class="hi">Affiliate Dashboard</span><span>·</span><span>The Avant Edit</span><span>·</span>
-      <span class="hi">Curio</span><span>·</span><span>Save Anything</span><span>·</span>
-      <span class="hi">Look Builder</span><span>·</span><span>Chrome Clipper</span><span>·</span>
-      <span class="hi">Content Generator</span><span>·</span><span>Hashtag Tool</span><span>·</span>
-      <span class="hi">Weekly Planner</span><span>·</span><span>Brand Pitch Kit</span><span>·</span>
-      <span class="hi">Affiliate Dashboard</span><span>·</span><span>The Avant Edit</span><span>·</span>
-    </div>
-  </div>
-
-  <div class="section">
-    <p class="eyebrow">The platform</p>
-    <h2 class="serif-title" style="font-size:clamp(34px,3vw,50px);margin-bottom:12px">Three products.<br><em>One ecosystem.</em></h2>
-    <p style="font-size:14px;color:var(--g700);max-width:480px;line-height:1.8;font-weight:300;margin-bottom:56px">Fashion creators stitch together five or six tools to run their business. Avant is the one place where saving, building, and publishing all live together.</p>
-    <div class="product-strip">
-      <div class="prod-card" onclick="showPage('curio')">
-        <div class="prod-icon" style="background:#f5ede0">♡</div>
-        <p class="prod-name">Curio</p>
-        <h3 class="prod-title">Save <em>anything</em><br>you love.</h3>
-        <p class="prod-desc">A sofa. A jacket. An idea at 11pm. Paste any URL and Curio saves the image instantly. Fashion, home, beauty, travel - private, personal, yours.</p>
-        <span class="tag tag-free">Free forever</span>
-      </div>
-      <div class="prod-card" onclick="showPage('studio')">
-        <div class="prod-icon" style="background:var(--black);color:var(--white);font-size:13px;font-weight:500">A</div>
-        <p class="prod-name">Avant Studio</p>
-        <h3 class="prod-title">Build your<br><em>creator business.</em></h3>
-        <p class="prod-desc">Look builder, content generator, hashtag tool, weekly planner, brand pitch kit, affiliate dashboard, creator community. Everything serious creators need.</p>
-        <span class="tag tag-studio">Studio - $18/mo</span>
-      </div>
-      <div class="prod-card" onclick="showPage('edit')">
-        <div class="prod-icon" style="background:#eeedfe;color:var(--purple);font-size:14px">✦</div>
-        <p class="prod-name">The Avant Edit</p>
-        <h3 class="prod-title">Fashion.<br><em>Filtered.</em></h3>
-        <p class="prod-desc">A weekly editorial curation - brands worth knowing before everyone else does, creators worth watching, signals worth understanding. Free with every account.</p>
-        <span class="tag tag-purple">Free newsletter</span>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<!-- ==============================
-     PAGE: CURIO
-============================== -->
-<div class="page" id="page-curio">
-  <div class="curio-hero">
-    <div class="curio-hero-inner">
-      <div>
-        <p class="eyebrow">Curio</p>
-        <h1 class="serif-title" style="font-size:clamp(40px,4vw,60px);margin-bottom:16px">Save anything<br><em>you love.</em></h1>
-        <p style="font-size:14px;color:var(--g700);line-height:1.8;font-weight:300;max-width:380px">A sofa. A jacket. A paint color. An idea. Paste any URL from anywhere on the web and Curio saves the image instantly. Fashion, home, beauty, travel - no categories required. Private and personal, just yours.</p>
-      </div>
-      <div class="curio-save-box">
-        <div class="save-row">
-          <input class="save-input" id="curioUrl" placeholder="Paste any URL - product page, article, image..." onkeydown="if(event.key==='Enter')curioSave()">
-          <button class="save-btn" onclick="curioSave()">Save it</button>
+    <div class="step-panel" id="step2">
+        <h1 class="panel-title">Pick Your <em>Products</em></h1>
+        <div id="selectedThemeBadge" class="theme-badge">🌸 Loading theme...</div>
+        <p class="panel-subtitle">All 15 products are selected — tap any to deselect</p>
+        <p class="select-count" id="selectCount">15 of 15 selected</p>
+        <div class="product-grid" id="productGrid"></div>
+        <div class="nav-row">
+            <button class="btn btn-outline" onclick="goToStep(1)">← Back</button>
+            <button class="btn btn-primary btn-large" onclick="goToStep(3)">Next: Generate Content →</button>
         </div>
-        <div class="save-status" id="curioStatus">Paste a URL from any site - SSENSE, Zara, Arhaus, anywhere.</div>
-        <p class="save-hint">Tip: If auto-fetch fails, right-click the product image -> "Copy image address" and paste that here instead.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="curio-cats">
-    <button class="cat-btn on" onclick="filterCurio('all',this)">All</button>
-    <button class="cat-btn" onclick="filterCurio('fashion',this)">Fashion</button>
-    <button class="cat-btn" onclick="filterCurio('home',this)">Home</button>
-    <button class="cat-btn" onclick="filterCurio('beauty',this)">Beauty</button>
-    <button class="cat-btn" onclick="filterCurio('travel',this)">Travel</button>
-    <button class="cat-btn" onclick="filterCurio('ideas',this)">Ideas</button>
-  </div>
-
-  <div class="curio-grid-wrap">
-    <div class="curio-grid" id="curioGrid"></div>
-  </div>
-</div>
-
-<!-- NOTE MODAL -->
-<div class="note-overlay" id="noteOverlay" onclick="if(event.target===this)closeNote()">
-  <div class="note-modal">
-    <div class="note-header">
-      <span id="noteItemName">Add a note</span>
-      <button class="note-close" onclick="closeNote()">x</button>
-    </div>
-    <div class="note-body">
-      <div id="noteItemImg" style="width:100%;height:120px;background:var(--off);border-radius:2px;margin-bottom:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:11px;color:var(--g300);font-style:italic"></div>
-      <label style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--g500);display:block;margin-bottom:6px">Your note</label>
-      <textarea class="note-textarea" id="noteText" placeholder="Why you saved this, where you'd use it, what it reminds you of..."></textarea>
-    </div>
-    <div class="note-footer">
-      <button class="btn-sm-light" onclick="closeNote()">Cancel</button>
-      <button class="btn-sm" onclick="saveNote()">Save note</button>
-    </div>
-  </div>
-</div>
-
-<!-- ==============================
-     PAGE: STUDIO
-============================== -->
-<div class="page" id="page-studio">
-  <div class="studio-layout">
-    <div class="studio-sidebar">
-      <div class="sidebar-section">
-        <div class="sidebar-label">Create</div>
-        <button class="sidebar-item on" onclick="showPanel('look-builder',this)" id="si-look-builder">
-          <span class="si-icon">□</span> Look Builder
-        </button>
-        <button class="sidebar-item" onclick="showPanel('content-gen',this)" id="si-content-gen">
-          <span class="si-icon">✦</span> Content Generator
-        </button>
-        <button class="sidebar-item" onclick="showPanel('hashtags',this)" id="si-hashtags">
-          <span class="si-icon">#</span> Hashtag Tool
-        </button>
-        <button class="sidebar-item" onclick="showPanel('planner',this)" id="si-planner">
-          <span class="si-icon">#</span> Weekly Planner
-        </button>
-      </div>
-      <div class="sidebar-section">
-        <div class="sidebar-label">Business</div>
-        <button class="sidebar-item" onclick="showPanel('pitch',this)" id="si-pitch">
-          <span class="si-icon">^</span> Brand Pitch Kit
-        </button>
-        <button class="sidebar-item" onclick="showPanel('affiliate',this)" id="si-affiliate">
-          <span class="si-icon">$</span> Affiliate Dashboard
-        </button>
-      </div>
-      <div class="sidebar-section">
-        <div class="sidebar-label">Community</div>
-        <button class="sidebar-item" onclick="showPanel('education',this)" id="si-education">
-          <span class="si-icon">o</span> Education Library
-        </button>
-      </div>
     </div>
 
-    <div class="studio-main">
-
-      <!-- LOOK BUILDER -->
-      <div class="studio-panel on" id="panel-look-builder">
-        <p class="eyebrow">Look Builder</p>
-        <h2 class="panel-title">Build your <em>edit.</em></h2>
-        <p class="panel-sub">Drag in products from anywhere on the web. Build editorial look boards. Save and share with your audience - with affiliate links embedded.</p>
-        <div class="builder-grid">
-          <div class="builder-board">
-            <div class="board-toolbar">
-              <input class="board-name-input" id="boardName" value="Spring edit - minimalist" placeholder="Name your edit...">
-              <button class="btn-sm-light" onclick="clearBoard()">Clear</button>
-              <button class="btn-sm" onclick="generateFromBoard()">Generate content ✦</button>
+    <div class="step-panel" id="step3">
+        <h1 class="panel-title">Your <em>Content</em></h1>
+        <p class="panel-subtitle">AI-generated and ready to edit — everything is yours to tweak</p>
+        <button class="btn btn-secondary" onclick="generateContent()" id="generateBtn" style="margin-bottom:24px">✨ Generate All Content</button>
+        <div id="contentLoading" style="display:none" class="loading"><div class="spinner"></div> Writing Pinterest descriptions, captions, hashtags...</div>
+        <div id="contentArea" style="display:none">
+            <div class="content-section">
+                <div class="content-section-title">📌 Pinterest Pin Descriptions</div>
+                <div class="pin-list" id="pinList"></div>
             </div>
-            <div class="board-items-grid" id="boardGrid"></div>
-            <div class="board-footer">
-              <span class="board-stats" id="boardStats">0 items · $0 total</span>
-              <div style="display:flex;gap:8px">
-                <button class="btn-sm-light">Share edit</button>
-                <button class="btn-sm" onclick="openModal()">Save to storefront</button>
-              </div>
+            <div class="content-section">
+                <div class="content-section-title">📋 Pinterest Board Description</div>
+                <textarea id="boardDesc" rows="3"></textarea>
             </div>
-          </div>
-          <div class="builder-sidebar-panel">
-            <div class="bs-card">
-              <div class="bs-card-header">Import from any site</div>
-              <div class="bs-card-body">
-                <div class="import-row">
-                  <input class="input" id="importUrl" placeholder="Paste product URL..." onkeydown="if(event.key==='Enter')importItem()" style="font-size:12px">
-                  <button class="btn-sm" onclick="importItem()">Add</button>
+            <div class="content-section">
+                <div class="content-section-title">📸 Instagram Caption</div>
+                <textarea id="igCaption" rows="4"></textarea>
+            </div>
+            <div class="content-section">
+                <div class="content-section-title">🏷️ Hashtags</div>
+                <div class="hashtag-box" id="hashtagBox"></div>
+            </div>
+        </div>
+        <div class="nav-row">
+            <button class="btn btn-outline" onclick="goToStep(2)">← Back</button>
+            <button class="btn btn-primary btn-large" onclick="goToStep(4)">Next: Instagram Slides →</button>
+        </div>
+    </div>
+
+    <div class="step-panel" id="step4">
+        <h1 class="panel-title">Instagram <em>Carousel</em></h1>
+        <p class="panel-subtitle">5 slides for your carousel — tap a slide to edit its text</p>
+        <div class="carousel-preview" id="carouselPreview"></div>
+        <div class="content-section" id="slideEditor">
+            <div class="content-section-title">✏️ Edit Slide Text</div>
+            <textarea id="slideText" rows="3" placeholder="Edit the selected slide text here..."></textarea>
+            <div style="margin-top:10px;">
+                <button class="btn btn-secondary" onclick="updateSlide()">Update Slide</button>
+            </div>
+        </div>
+        <div class="nav-row">
+            <button class="btn btn-outline" onclick="goToStep(3)">← Back</button>
+            <button class="btn btn-primary btn-large" onclick="goToStep(5)">Next: Publish →</button>
+        </div>
+    </div>
+
+    <div class="step-panel" id="step5">
+        <h1 class="panel-title">Ready to <em>Publish</em></h1>
+        <p class="panel-subtitle">Toggle what you want to post, then hit publish!</p>
+        <div class="publish-grid">
+            <div class="publish-card">
+                <div class="publish-card-info">
+                    <div class="publish-icon">📌</div>
+                    <div><div class="publish-label">Pinterest Pins</div><div class="publish-sublabel" id="pinCount">15 pins ready</div></div>
                 </div>
-                <div class="import-status" id="importStatus">Paste any URL to import a product image.</div>
-                <p style="font-size:10px;color:var(--g300);margin-top:6px">Tip: Right-click a product photo -> "Copy image address" for instant import.</p>
-              </div>
+                <div class="toggle on" id="togglePins" onclick="toggleSwitch('togglePins')"></div>
             </div>
-            <div class="bs-card">
-              <div class="bs-card-header">Curated feed</div>
-              <div class="bs-card-body">
-                <div class="sample-mini" id="sampleMini"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- CONTENT GENERATOR -->
-      <div class="studio-panel" id="panel-content-gen">
-        <p class="eyebrow">Content Generator</p>
-        <h2 class="panel-title">One edit. <em>Ready to post.</em></h2>
-        <p class="panel-sub">Describe your look and Avant writes the caption, selects the hashtags, and formats it for Instagram, TikTok, or Pinterest - ready to copy and post.</p>
-        <div class="content-gen">
-          <div class="gen-input-card">
-            <label class="gen-label">Platform</label>
-            <select class="gen-select" id="genPlatform">
-              <option>Instagram</option>
-              <option>TikTok</option>
-              <option>Pinterest</option>
-              <option>LinkedIn</option>
-            </select>
-            <label class="gen-label">Describe your look or edit</label>
-            <textarea class="gen-textarea" id="genDesc" placeholder="e.g. Minimal spring look - cream linen trousers, silk shirt, Lemaire bag, neutral tones, quiet luxury aesthetic..."></textarea>
-            <label class="gen-label" style="margin-top:14px">Your tone</label>
-            <select class="gen-select" id="genTone">
-              <option>Editorial - authoritative and sparse</option>
-              <option>Warm - personal and conversational</option>
-              <option>Direct - just the facts and links</option>
-              <option>Aspirational - lifestyle and feeling</option>
-            </select>
-            <button class="gen-generate-btn" onclick="generateContent()">Generate content ✦</button>
-          </div>
-          <div class="gen-output-card">
-            <div class="gen-output-header">
-              <span class="gen-output-title">Your content</span>
-              <div class="gen-platform-tabs">
-                <button class="gen-tab on" onclick="switchGenTab('caption',this)">Caption</button>
-                <button class="gen-tab" onclick="switchGenTab('hashtags',this)">Hashtags</button>
-                <button class="gen-tab" onclick="switchGenTab('hook',this)">Hook</button>
-              </div>
-            </div>
-            <div class="gen-output-body">
-              <div id="genLoading" class="gen-loading">
-                <div class="spinner"></div>
-                <p>Writing your content...</p>
-              </div>
-              <div id="genPlaceholder" class="gen-placeholder">
-                <p>Your content appears here.</p>
-                <span>Describe your look and hit generate.</span>
-              </div>
-              <div id="genResult" style="display:none">
-                <div id="genCaption" class="gen-caption"></div>
-                <div id="genHashtagsWrap" style="display:none">
-                  <div class="gen-hashtags" id="genHashtagsList"></div>
+            <div class="publish-card">
+                <div class="publish-card-info">
+                    <div class="publish-icon">🎠</div>
+                    <div><div class="publish-label">IG Carousel</div><div class="publish-sublabel">5 slides</div></div>
                 </div>
-                <div id="genHookWrap" style="display:none">
-                  <div class="gen-caption" id="genHookText"></div>
+                <div class="toggle on" id="toggleCarousel" onclick="toggleSwitch('toggleCarousel')"></div>
+            </div>
+            <div class="publish-card">
+                <div class="publish-card-info">
+                    <div class="publish-icon">📖</div>
+                    <div><div class="publish-label">IG Stories</div><div class="publish-sublabel">Same images</div></div>
                 </div>
-                <div class="gen-actions">
-                  <button class="btn-sm" onclick="copyContent()">Copy</button>
-                  <button class="btn-sm-light" onclick="generateContent()">Regenerate</button>
+                <div class="toggle on" id="toggleStories" onclick="toggleSwitch('toggleStories')"></div>
+            </div>
+            <div class="publish-card">
+                <div class="publish-card-info">
+                    <div class="publish-icon">🔗</div>
+                    <div><div class="publish-label">Linktree Links</div><div class="publish-sublabel">Affiliate links</div></div>
                 </div>
-              </div>
+                <div class="toggle on" id="toggleLinktree" onclick="toggleSwitch('toggleLinktree')"></div>
             </div>
-          </div>
         </div>
-      </div>
-
-      <!-- HASHTAG TOOL -->
-      <div class="studio-panel" id="panel-hashtags">
-        <p class="eyebrow">Hashtag Tool</p>
-        <h2 class="panel-title">The right tags. <em>Every time.</em></h2>
-        <p class="panel-sub">Enter your niche or aesthetic and get a curated set of high-performing hashtags. Tap any tag to copy it. Save sets for each content type.</p>
-        <div class="hashtag-tool">
-          <div class="ht-input-row">
-            <input class="input ht-input" id="htInput" placeholder="Enter your aesthetic - quiet luxury, coastal grandmother, streetwear..." onkeydown="if(event.key==='Enter')generateHashtags()">
-            <button class="btn-dark" onclick="generateHashtags()">Generate</button>
-          </div>
-          <div class="ht-results" id="htResults">
-            <span style="font-size:12px;color:var(--g300);font-style:italic;font-family:var(--serif)">Your hashtags appear here - tap any to copy.</span>
-          </div>
-          <div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--g500);margin-bottom:14px">Saved sets</div>
-          <div class="ht-sets">
-            <div class="ht-set">
-              <div class="ht-set-name">Quiet Luxury</div>
-              <div class="ht-set-tags">
-                <span class="ht-set-tag">#quietluxury</span>
-                <span class="ht-set-tag">#therow</span>
-                <span class="ht-set-tag">#minimalistfashion</span>
-                <span class="ht-set-tag">#editorialstyle</span>
-                <span class="ht-set-tag">#slowfashion</span>
-                <span class="ht-set-tag">#luxuryfashion</span>
-              </div>
+        <div id="publishSuccess" style="display:none">
+            <div class="success-banner">
+                <h3>🎉 Everything Posted!</h3>
+                <p>Your pins, carousel, stories and links are all live. Great work today, Jackie!</p>
             </div>
-            <div class="ht-set">
-              <div class="ht-set-name">Street Style</div>
-              <div class="ht-set-tags">
-                <span class="ht-set-tag">#streetstyle</span>
-                <span class="ht-set-tag">#ootd</span>
-                <span class="ht-set-tag">#streetwear</span>
-                <span class="ht-set-tag">#fashionblogger</span>
-                <span class="ht-set-tag">#styleinspo</span>
-                <span class="ht-set-tag">#outfitoftheday</span>
-              </div>
-            </div>
-            <div class="ht-set">
-              <div class="ht-set-name">Editorial</div>
-              <div class="ht-set-tags">
-                <span class="ht-set-tag">#editorialfashion</span>
-                <span class="ht-set-tag">#fashionedit</span>
-                <span class="ht-set-tag">#avantgarde</span>
-                <span class="ht-set-tag">#highfashion</span>
-                <span class="ht-set-tag">#fashionforward</span>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-
-      <!-- WEEKLY PLANNER -->
-      <div class="studio-panel" id="panel-planner">
-        <p class="eyebrow">Weekly Content Planner</p>
-        <h2 class="panel-title">Plan the week. <em>Post with purpose.</em></h2>
-        <p class="panel-sub">Map your content across the week. See what's going out where. Never run out of ideas - Avant suggests what to post based on your aesthetic and audience.</p>
-        <div class="planner-grid" id="plannerGrid"></div>
-        <div style="background:var(--off);border:.5px solid var(--g100);border-radius:4px;padding:20px;display:flex;align-items:center;justify-content:space-between">
-          <div>
-            <div style="font-size:11px;font-weight:500;margin-bottom:4px">This week - 4 posts scheduled</div>
-            <div style="font-size:12px;color:var(--g500)">Instagram x 2 · TikTok x 1 · Pinterest x 1</div>
-          </div>
-          <button class="btn-dark" onclick="generateWeek()">Suggest this week ✦</button>
+        <button class="publish-btn" onclick="publishAll()" id="publishBtn">🚀 Publish Everything</button>
+        <div class="nav-row">
+            <button class="btn btn-outline" onclick="goToStep(4)">← Back</button>
+            <button class="btn btn-secondary" onclick="startOver()">Start New Day ✨</button>
         </div>
-      </div>
-
-      <!-- BRAND PITCH KIT -->
-      <div class="studio-panel" id="panel-pitch">
-        <p class="eyebrow">Brand Pitch Kit</p>
-        <h2 class="panel-title">Pitch brands. <em>Get replies.</em></h2>
-        <p class="panel-sub">Build a professional pitch deck that brands actually want to read. Your stats, your aesthetic, your rates - in a format that converts.</p>
-        <div class="pitch-preview" id="pitchPreview">
-          <div class="pitch-header">
-            <div class="pitch-brand">Creator profile</div>
-            <div class="pitch-name" id="pitchName">Your Name</div>
-            <div class="pitch-handle" id="pitchHandle">@yourhandle</div>
-            <div class="pitch-stats">
-              <div class="pitch-stat"><div class="pitch-stat-n" id="pitchFollowers">12.4K</div><div class="pitch-stat-l">Followers</div></div>
-              <div class="pitch-stat"><div class="pitch-stat-n" id="pitchEngagement">4.2%</div><div class="pitch-stat-l">Engagement</div></div>
-              <div class="pitch-stat"><div class="pitch-stat-n" id="pitchReach">48K</div><div class="pitch-stat-l">Monthly reach</div></div>
-              <div class="pitch-stat"><div class="pitch-stat-n" id="pitchNiche">Fashion</div><div class="pitch-stat-l">Niche</div></div>
-            </div>
-          </div>
-          <div class="pitch-body">
-            <div class="pitch-section-title">About</div>
-            <p class="pitch-bio" id="pitchBio">Fashion creator focused on quiet luxury and minimalist dressing. I help my audience build intentional, investment-worthy wardrobes - every recommendation is something I've personally worn or tested. My content drives real purchase decisions.</p>
-            <div class="pitch-section-title">Recent work</div>
-            <div class="pitch-edit-grid">
-              <div class="pitch-edit-item">Edit 01</div>
-              <div class="pitch-edit-item">Edit 02</div>
-              <div class="pitch-edit-item">Edit 03</div>
-            </div>
-            <div class="pitch-section-title">Rates</div>
-            <div class="pitch-rates">
-              <div class="pitch-rate"><div class="pitch-rate-type">Instagram post</div><div class="pitch-rate-price" id="rateIG">$800</div></div>
-              <div class="pitch-rate"><div class="pitch-rate-type">TikTok video</div><div class="pitch-rate-price" id="rateTT">$600</div></div>
-              <div class="pitch-rate"><div class="pitch-rate-type">Story series (3)</div><div class="pitch-rate-price" id="rateStory">$400</div></div>
-              <div class="pitch-rate"><div class="pitch-rate-type">Newsletter feature</div><div class="pitch-rate-price" id="rateNL">$350</div></div>
-            </div>
-          </div>
-          <div class="pitch-cta">
-            <button class="btn-dark" onclick="openModal()">Customize my kit</button>
-            <button class="btn-light">Download PDF</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- AFFILIATE DASHBOARD -->
-      <div class="studio-panel" id="panel-affiliate">
-        <p class="eyebrow">Affiliate Dashboard</p>
-        <h2 class="panel-title">Your links. <em>Your earnings.</em></h2>
-        <p class="panel-sub">All your ShopMy and LTK links in one place. See what's converting, what's earning, and where to focus.</p>
-        <div class="aff-stats">
-          <div class="aff-stat"><div class="aff-stat-label">This month</div><div class="aff-stat-value">$847</div><div class="aff-stat-sub">+23% vs last month</div></div>
-          <div class="aff-stat"><div class="aff-stat-label">Total clicks</div><div class="aff-stat-value">3,240</div><div class="aff-stat-sub">Across all links</div></div>
-          <div class="aff-stat"><div class="aff-stat-label">Conversion rate</div><div class="aff-stat-value">2.8%</div><div class="aff-stat-sub">Industry avg: 1.2%</div></div>
-          <div class="aff-stat"><div class="aff-stat-label">Active links</div><div class="aff-stat-value">24</div><div class="aff-stat-sub">Across 3 platforms</div></div>
-        </div>
-        <div class="aff-links">
-          <div class="aff-links-header">
-            <span class="aff-links-title">Top performing links</span>
-            <button class="btn-sm">Add new link</button>
-          </div>
-          <div class="aff-link-row" style="background:var(--off)">
-            <span style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--g500)">Product</span>
-            <span style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--g500);text-align:center">Clicks</span>
-            <span style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--g500);text-align:center">Orders</span>
-            <span style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--g500);text-align:center">Earned</span>
-            <span></span>
-          </div>
-          <div class="aff-link-row">
-            <div><div class="aff-link-name">Toteme silk shirt</div><div class="aff-link-brand">ShopMy · 18% commission</div></div>
-            <div class="aff-link-stat">284</div><div class="aff-link-stat">12</div><div class="aff-link-stat earn">$907</div>
-            <button class="aff-copy">Copy link</button>
-          </div>
-          <div class="aff-link-row">
-            <div><div class="aff-link-name">The Row trouser</div><div class="aff-link-brand">LTK · 12% commission</div></div>
-            <div class="aff-link-stat">196</div><div class="aff-link-stat">7</div><div class="aff-link-stat earn">$1,085</div>
-            <button class="aff-copy">Copy link</button>
-          </div>
-          <div class="aff-link-row">
-            <div><div class="aff-link-name">Lemaire crossbody</div><div class="aff-link-brand">ShopMy · 15% commission</div></div>
-            <div class="aff-link-stat">142</div><div class="aff-link-stat">5</div><div class="aff-link-stat earn">$672</div>
-            <button class="aff-copy">Copy link</button>
-          </div>
-          <div class="aff-link-row">
-            <div><div class="aff-link-name">Khaite mules</div><div class="aff-link-brand">LTK · 10% commission</div></div>
-            <div class="aff-link-stat">118</div><div class="aff-link-stat">4</div><div class="aff-link-stat earn">$260</div>
-            <button class="aff-copy">Copy link</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- EDUCATION -->
-      <div class="studio-panel" id="panel-education">
-        <p class="eyebrow">Education Library</p>
-        <h2 class="panel-title">Learn the <em>business side.</em></h2>
-        <p class="panel-sub">Everything they don't tell you about building a creator business - from stacking affiliate platforms to negotiating brand deals.</p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px">
-          <div class="card" style="padding:24px;cursor:pointer" onclick="openModal()">
-            <div style="font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple);margin-bottom:10px">Affiliate</div>
-            <div style="font-size:15px;font-weight:500;margin-bottom:8px">How to stack ShopMy + LTK for maximum commission</div>
-            <div style="font-size:12px;color:var(--g500);line-height:1.6">Most creators use one platform. Smart creators use three. Here's the exact setup.</div>
-            <div style="margin-top:16px;font-size:10px;color:var(--g500)">8 min read</div>
-          </div>
-          <div class="card" style="padding:24px;cursor:pointer" onclick="openModal()">
-            <div style="font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--warm);margin-bottom:10px">Brand Deals</div>
-            <div style="font-size:15px;font-weight:500;margin-bottom:8px">What to charge as a micro-influencer in 2026</div>
-            <div style="font-size:12px;color:var(--g500);line-height:1.6">Rate cards, negotiation scripts, and the exact email that gets brands to respond.</div>
-            <div style="margin-top:16px;font-size:10px;color:var(--g500)">12 min read</div>
-          </div>
-          <div class="card" style="padding:24px;cursor:pointer" onclick="openModal()">
-            <div style="font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--g500);margin-bottom:10px">Growth</div>
-            <div style="font-size:15px;font-weight:500;margin-bottom:8px">The 90-day plan to 10K engaged followers</div>
-            <div style="font-size:12px;color:var(--g500);line-height:1.6">Not followers who scroll past. Followers who click your links and buy.</div>
-            <div style="margin-top:16px;font-size:10px;color:var(--g500)">15 min read</div>
-          </div>
-          <div class="card" style="padding:24px;cursor:pointer" onclick="openModal()">
-            <div style="font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple);margin-bottom:10px">Pinterest</div>
-            <div style="font-size:15px;font-weight:500;margin-bottom:8px">Why Pinterest is still the best ROI for fashion creators</div>
-            <div style="font-size:12px;color:var(--g500);line-height:1.6">Pins from 2 years ago still driving clicks. Here's how to build that.</div>
-            <div style="margin-top:16px;font-size:10px;color:var(--g500)">10 min read</div>
-          </div>
-          <div class="card" style="padding:24px;cursor:pointer" onclick="openModal()">
-            <div style="font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--warm);margin-bottom:10px">Newsletters</div>
-            <div style="font-size:15px;font-weight:500;margin-bottom:8px">Starting a fashion newsletter with zero subscribers</div>
-            <div style="font-size:12px;color:var(--g500);line-height:1.6">The exact launch sequence that gets your first 500 real subscribers.</div>
-            <div style="margin-top:16px;font-size:10px;color:var(--g500)">11 min read</div>
-          </div>
-          <div class="card" style="padding:24px;cursor:pointer;background:var(--black)" onclick="openModal()">
-            <div style="font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:10px">Studio members only</div>
-            <div style="font-size:15px;font-weight:500;margin-bottom:8px;color:var(--white)">Full library - 40+ guides</div>
-            <div style="font-size:12px;color:rgba(255,255,255,.4);line-height:1.6">Every topic a fashion creator needs to build a real business.</div>
-            <div style="margin-top:20px"><button class="btn-sm" style="background:var(--white);color:var(--black)" onclick="openModal()">Join Studio</button></div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<!-- ==============================
-     PAGE: THE AVANT EDIT
-============================== -->
-<div class="page" id="page-edit">
-  <div class="edit-hero">
-    <p class="edit-issue">Issue No. 001 - April 2026</p>
-    <h1 class="edit-title">The Avant Edit</h1>
-    <p class="edit-sub">Fashion filtered. The brands worth knowing before everyone else does, the creators worth watching, the industry signals worth understanding.</p>
-    <div class="edit-form" id="editForm">
-      <input class="edit-input" type="email" id="editEmail" placeholder="Your email address">
-      <button class="edit-submit" onclick="editSubscribe()">Subscribe free</button>
-    </div>
-    <p style="font-size:11px;color:rgba(255,255,255,.15);margin-top:10px">Free with every Avant account. No spam.</p>
-    <p class="edit-ok" id="editOk">You're on the list. See you in your inbox.</p>
-  </div>
-
-  <div class="edit-issue-preview">
-    <div class="issue-section">
-      <div class="issue-section-label">From the editor</div>
-      <p class="issue-from-editor">"Fifteen years inside fashion teaches you what the algorithm never will: which brands are built to last, which creators are actually moving culture, and which trends are signals versus noise. That's what this is."</p>
-      <p class="issue-from-sig">- J, founder of Avant</p>
     </div>
 
-    <div class="issue-section">
-      <div class="issue-section-label">The edit - 3 brands right now</div>
-      <div class="issue-brand-item">
-        <div class="issue-brand-name">Auralee</div>
-        <div class="issue-brand-where">auralee.jp · Available at Ssense</div>
-        <p class="issue-brand-desc">Japanese label doing the most considered basics in the market right now. The fabric quality at this price point doesn't exist anywhere else. If you're building an investment wardrobe, start here. The luster plaited knit is the piece.</p>
-      </div>
-      <div class="issue-brand-item">
-        <div class="issue-brand-name">Toteme</div>
-        <div class="issue-brand-where">toteme-studio.com · Nordstrom</div>
-        <p class="issue-brand-desc">The Swedish brand that figured out how to make a silk shirt that actually fits. The new season has three pieces I'd buy immediately - the charmeuse in ivory, the wide-leg trouser, and a scarf that works harder than any accessory I own.</p>
-      </div>
-      <div class="issue-brand-item">
-        <div class="issue-brand-name">Baserange</div>
-        <div class="issue-brand-where">baserange.net</div>
-        <p class="issue-brand-desc">The wildcard this week. A Danish label making clothes out of bamboo and organic cotton that feel like nothing else. Slightly under the radar still - which is exactly when to pay attention.</p>
-      </div>
-    </div>
-
-    <div class="issue-section">
-      <div class="issue-section-label">Creator worth watching</div>
-      <div style="margin-bottom:8px">
-        <span style="font-size:13px;font-weight:500">@lucywilliams02</span>
-        <span style="font-size:11px;color:var(--g500);margin-left:8px">Instagram · 700K</span>
-      </div>
-      <p class="issue-signal">What she's doing right that most creators miss: she treats her feed as an edit, not a feed. Every post connects to the next. The result is an aesthetic that's instantly recognizable from the first image. Brands pay a premium for that kind of visual consistency and audiences reward it with the kind of loyalty that converts. Watch how she introduces new brands - always through the lens of her existing aesthetic, never as a disruption to it.</p>
-    </div>
-
-    <div class="issue-section">
-      <div class="issue-section-label">The signal</div>
-      <p class="issue-signal">Luxury fashion had a difficult year on social in 2025 - flat numbers, declining engagement, audiences fatigued by the same heritage house content. What worked? Smaller brands with emerging creator voices. The lesson isn't that luxury is dead on social, it's that authenticity is finally more valuable than prestige. The brands winning right now are the ones who found creators who genuinely wear their product and let them tell their own story. That gap between brand authority and creator authenticity is where the interesting business is being built.</p>
-    </div>
-
-    <div class="issue-section">
-      <div class="issue-section-label">Shop the edit</div>
-      <div class="issue-shop-grid">
-        <div class="issue-shop-item">
-          <div class="issue-shop-img">Auralee<br>Luster knit</div>
-          <div class="issue-shop-info"><div class="issue-shop-brand">Auralee</div><div class="issue-shop-name">Luster plaited knit top</div><div class="issue-shop-price">$380</div></div>
-        </div>
-        <div class="issue-shop-item">
-          <div class="issue-shop-img">Toteme<br>Silk shirt</div>
-          <div class="issue-shop-info"><div class="issue-shop-brand">Toteme</div><div class="issue-shop-name">Charmeuse shirt in ivory</div><div class="issue-shop-price">$420</div></div>
-        </div>
-        <div class="issue-shop-item">
-          <div class="issue-shop-img">Baserange<br>Wide leg</div>
-          <div class="issue-shop-info"><div class="issue-shop-brand">Baserange</div><div class="issue-shop-name">Bamboo wide-leg trouser</div><div class="issue-shop-price">$185</div></div>
-        </div>
-        <div class="issue-shop-item">
-          <div class="issue-shop-img">The Row<br>Margaux bag</div>
-          <div class="issue-shop-info"><div class="issue-shop-brand">The Row</div><div class="issue-shop-name">Margaux 10 bag</div><div class="issue-shop-price">$1,490</div></div>
-        </div>
-        <div class="issue-shop-item">
-          <div class="issue-shop-img">Khaite<br>Mules</div>
-          <div class="issue-shop-info"><div class="issue-shop-brand">Khaite</div><div class="issue-shop-name">Carine slide mule</div><div class="issue-shop-price">$650</div></div>
-        </div>
-        <div class="issue-shop-item">
-          <div class="issue-shop-img">Cos<br>Coat</div>
-          <div class="issue-shop-info"><div class="issue-shop-brand">Cos</div><div class="issue-shop-name">Oversized wool coat</div><div class="issue-shop-price">$340</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- MODAL -->
-<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
-  <div class="modal-box">
-    <button class="modal-x" onclick="closeModal()">x</button>
-    <p class="modal-eye">Early access</p>
-    <h3 class="modal-h">Join the<br><em>Avant waitlist.</em></h3>
-    <p class="modal-p">Avant Studio is launching soon. Join for early access plus a free issue of The Avant Edit in your inbox this week.</p>
-    <div id="modalForm">
-      <input class="modal-field" type="text" placeholder="Your name">
-      <input class="modal-field" type="email" placeholder="Your email address">
-      <input class="modal-field" type="text" placeholder="Instagram handle (optional)">
-      <button class="modal-go" onclick="modalSubmit()">Join the waitlist</button>
-      <p class="modal-small">Free to join. No card required.</p>
-    </div>
-    <div class="modal-ok" id="modalOk">You're on the list.<br><span style="font-size:15px;color:var(--g500);font-style:normal">See you soon.</span></div>
-  </div>
-</div>
+</main>
 
 <script>
-// -- NAVIGATION --
-function showPage(id) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-  document.getElementById('page-' + id).classList.add('active');
-  const nl = document.getElementById('nl-' + id);
-  if (nl) nl.classList.add('active');
-  window.scrollTo(0, 0);
-}
+    let currentStep = 1;
+    let selectedTheme = '';
+    let selectedProducts = [];
+    let slideTexts = ['', '', '', '', ''];
+    let activeSlide = 0;
 
-function showPanel(id, btn) {
-  document.querySelectorAll('.studio-panel').forEach(p => p.classList.remove('on'));
-  document.querySelectorAll('.sidebar-item').forEach(s => s.classList.remove('on'));
-  document.getElementById('panel-' + id).classList.add('on');
-  if (btn) btn.classList.add('on');
-}
+    const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const now = new Date();
+    document.getElementById('headerDate').textContent = `${days[now.getDay()]}, ${months[now.getMonth()]} ${now.getDate()}`;
 
-// -- SAMPLES --
-const samples = [
-  {brand:'Toteme',name:'Silk shirt',price:'$420'},
-  {brand:'The Row',name:'Trousers',price:'$1,290'},
-  {brand:'Lemaire',name:'Crossbody',price:'$895'},
-  {brand:'Cos',name:'Wool coat',price:'$340'},
-  {brand:'Khaite',name:'Mules',price:'$650'},
-  {brand:'Auralee',name:'Knit top',price:'$380'},
-  {brand:'Baserange',name:'Wide leg',price:'$185'},
-  {brand:'Jacquemus',name:'Mini bag',price:'$560'},
-];
+    const trends = [
+        { emoji: '🪡', name: 'Silk Pants for Spring', desc: 'Fluid silk trousers in champagne, ivory and blush tones dominating runway looks', source: 'Vogue' },
+        { emoji: '👒', name: 'Wide Brim Hat Moment', desc: 'Oversized straw and felt hats styled with everything from mini dresses to blazers', source: 'Revolve' },
+        { emoji: '👗', name: 'Sheer Layering', desc: 'Transparent fabrics worn over slip dresses and bodysuits for a dreamy layered effect', source: 'Net-a-Porter' },
+        { emoji: '👠', name: 'Ballet Flat Revival', desc: 'The classic ballet flat gets a luxe update in satin, patent and embellished styles', source: 'Vogue' },
+        { emoji: '💚', name: 'Sage & Olive Tones', desc: 'Muted green palette taking over spring wardrobes in every silhouette', source: 'Revolve' },
+        { emoji: '🎀', name: 'Bow Everything', desc: 'Oversized bows on bags, shoes, tops and skirts — the sweeter the better', source: 'List.com' },
+    ];
 
-// -- BOARD STATE --
-const boardItems = [];
-const pickedSamples = new Set();
+    const productTemplates = [
+        { emoji: '👗', name: 'Silk Wide Leg Trousers', brand: 'Revolve', price: '$148' },
+        { emoji: '💼', name: 'Cream Satin Blouse', brand: 'Vince', price: '$195' },
+        { emoji: '👠', name: 'Pointed Toe Mule', brand: 'Steve Madden', price: '$89' },
+        { emoji: '🧥', name: 'Linen Blazer', brand: 'Mango', price: '$79' },
+        { emoji: '👜', name: 'Mini Shoulder Bag', brand: 'Coach', price: '$295' },
+        { emoji: '🧣', name: 'Silk Scarf', brand: 'Free People', price: '$68' },
+        { emoji: '💍', name: 'Gold Hoop Earrings', brand: 'Mejuri', price: '$58' },
+        { emoji: '👒', name: 'Wide Brim Sun Hat', brand: 'Anthropologie', price: '$78' },
+        { emoji: '🩱', name: 'Ruched Midi Dress', brand: 'ASOS', price: '$65' },
+        { emoji: '🧤', name: 'Strappy Sandals', brand: 'Schutz', price: '$110' },
+        { emoji: '🌸', name: 'Floral Mini Skirt', brand: 'Zara', price: '$45' },
+        { emoji: '💎', name: 'Pearl Necklace', brand: 'Gorjana', price: '$88' },
+        { emoji: '🪞', name: 'Square Sunglasses', brand: 'Quay', price: '$55' },
+        { emoji: '✨', name: 'Sequin Cami Top', brand: 'NBD', price: '$95' },
+        { emoji: '🎀', name: 'Bow Ballet Flats', brand: 'Sam Edelman', price: '$90' },
+    ];
 
-function renderBoard() {
-  const grid = document.getElementById('boardGrid');
-  const stats = document.getElementById('boardStats');
-  const cells = [];
-  boardItems.forEach((item, i) => {
-    cells.push(`<div class="board-cell">
-      ${item.img ? `<img src="${item.img}" onerror="this.style.display='none'">` : ''}
-      <div class="board-cell-label"><span>${item.label}</span></div>
-      <button class="board-cell-remove" onclick="removeBoard(${i})">x</button>
-    </div>`);
-  });
-  while (cells.length < 6) cells.push(`<div class="board-cell board-add-cell" onclick="document.getElementById('importUrl').focus()"><div class="board-add-icon">+</div><div class="board-add-text">Add item</div></div>`);
-  grid.innerHTML = cells.join('');
-  const total = boardItems.reduce((s, item) => s + (item.price ? parseInt(item.price.replace(/[^0-9]/g,'')) : 0), 0);
-  stats.textContent = `${boardItems.length} items   $${total.toLocaleString()} total`;
-}
-
-function removeBoard(i) { boardItems.splice(i, 1); renderBoard(); }
-function clearBoard() { boardItems.length = 0; pickedSamples.clear(); renderSampleMini(); renderBoard(); }
-
-function renderSampleMini() {
-  const grid = document.getElementById('sampleMini');
-  if (!grid) return;
-  grid.innerHTML = samples.map((s, i) => `
-    <div class="sample-card ${pickedSamples.has(i)?'picked':''}" onclick="toggleSample(${i})">
-      <div class="sample-img"><span>${s.brand}<br>${s.name}</span></div>
-      <div class="sample-info"><div class="sample-brand">${s.brand}</div><div class="sample-name">${s.name}</div><div class="sample-price">${s.price}</div></div>
-    </div>`).join('');
-}
-
-function toggleSample(i) {
-  if (pickedSamples.has(i)) {
-    pickedSamples.delete(i);
-    const idx = boardItems.findIndex(b => b.key === 's'+i);
-    if (idx > -1) boardItems.splice(idx, 1);
-  } else {
-    pickedSamples.add(i);
-    boardItems.push({key:'s'+i, label:samples[i].brand, img:null, price:samples[i].price});
-  }
-  renderSampleMini();
-  renderBoard();
-}
-
-// -- PROXY FETCH --
-async function fetchPage(url) {
-  const proxies = [
-    u => `https://api.allorigins.win/get?url=${encodeURIComponent(u)}`,
-    u => `https://corsproxy.io/?${encodeURIComponent(u)}`,
-    u => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(u)}`,
-  ];
-  for (const mk of proxies) {
-    try {
-      const r = await fetch(mk(url), {signal: AbortSignal.timeout(7000)});
-      if (!r.ok) continue;
-      const ct = r.headers.get('content-type') || '';
-      let text = ct.includes('json') ? (await r.json()).contents || '' : await r.text();
-      if (text && text.length > 200) return text;
-    } catch(e) { continue; }
-  }
-  return null;
-}
-
-function parseMeta(html) {
-  let img = '';
-  for (const p of [
-    /<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i,
-    /<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:image["']/i,
-    /<meta[^>]+name=["']twitter:image["'][^>]+content=["']([^"']+)["']/i,
-  ]) {
-    const m = html.match(p);
-    if (m && m[1] && m[1].startsWith('http')) { img = m[1]; break; }
-  }
-  const tm = html.match(/<meta[^>]+property=["']og:title["'][^>]+content=["']([^"']+)["']/i)
-    || html.match(/<title[^>]*>([^<]+)<\/title>/i);
-  const title = tm ? tm[1].replace(/\s*[\|\-\u2013\u2014]\s*.+$/, '').trim().substring(0, 30) : 'Saved item';
-  return { img, title };
-}
-
-// -- IMPORT ITEM (board) --
-async function importItem() {
-  const raw = document.getElementById('importUrl').value.trim();
-  if (!raw) return;
-  const status = document.getElementById('importStatus');
-  const btn = document.querySelector('#panel-look-builder .bs-card .btn-sm');
-  if (btn) btn.disabled = true;
-
-  if (/\.(jpg|jpeg|png|webp|gif)(\?.*)?$/i.test(raw)) {
-    boardItems.push({key:'i'+Date.now(), label:'Saved item', img:raw, price:''});
-    document.getElementById('importUrl').value = '';
-    status.textContent = 'Added!';
-    renderBoard();
-    if (btn) btn.disabled = false;
-    return;
-  }
-
-  status.textContent = 'Fetching...';
-  const html = await fetchPage(raw);
-  if (html) {
-    const {img, title} = parseMeta(html);
-    if (img) {
-      boardItems.push({key:'i'+Date.now(), label:title, img, price:''});
-      document.getElementById('importUrl').value = '';
-      status.textContent = `Added: ${title}`;
-    } else {
-      status.textContent = 'Found page but no image. Right-click product photo -> Copy image address -> paste here.';
+    function goToStep(step) {
+        document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.step-tab').forEach(t => t.classList.remove('active'));
+        document.getElementById('step' + step).classList.add('active');
+        document.getElementById('tab' + step).classList.add('active');
+        for (let i = 1; i < step; i++) document.getElementById('tab' + i).classList.add('completed');
+        currentStep = step;
+        if (step === 2) buildProductGrid();
+        if (step === 4) buildCarousel();
+        if (step === 5) updatePublishCount();
+        window.scrollTo(0, 0);
     }
-  } else {
-    status.textContent = 'Site blocked auto-fetch. Right-click product image -> Copy image address -> paste here.';
-  }
-  renderBoard();
-  if (btn) btn.disabled = false;
-}
 
-// -- CURIO STATE --
-let curioItems = [
-  {id:1, url:'', img:'', label:'Zara linen dress', cat:'fashion', note:''},
-  {id:2, url:'', img:'', label:'Arhaus cloud sofa', cat:'home', note:'Perfect for the new living room'},
-  {id:3, url:'', img:'', label:'Glossier serum', cat:'beauty', note:''},
-  {id:4, url:'', img:'', label:'Amalfi Coast trip', cat:'travel', note:'Summer 2026 goal'},
-  {id:5, url:'', img:'', label:'The Row trousers', cat:'fashion', note:''},
-];
-let curioFilter = 'all';
-let noteItemId = null;
+    function discoverTrends() {
+        document.getElementById('discoverBtn').style.display = 'none';
+        document.getElementById('trendsLoading').style.display = 'flex';
+        setTimeout(() => {
+            document.getElementById('trendsLoading').style.display = 'none';
+            buildTrendGrid();
+            document.getElementById('step1Nav').style.display = 'flex';
+        }, 2000);
+    }
 
-function renderCurio() {
-  const grid = document.getElementById('curioGrid');
-  const filtered = curioFilter === 'all' ? curioItems : curioItems.filter(i => i.cat === curioFilter);
-  if (filtered.length === 0) {
-    grid.innerHTML = `<div class="curio-empty"><p>Nothing saved yet.</p><span>Paste a URL above to save your first item.</span></div>`;
-    return;
-  }
-  grid.innerHTML = filtered.map(item => `
-    <div class="curio-item" onclick="openNote(${item.id})">
-      <div class="curio-img">
-        ${item.img ? `<img src="${item.img}" onerror="this.style.display='none'">` : `<div class="curio-img-placeholder">${item.label}</div>`}
-        <button class="curio-item-del" onclick="event.stopPropagation();deleteCurio(${item.id})">x</button>
-      </div>
-      <div class="curio-item-info">
-        <div class="curio-item-cat">${item.cat}</div>
-        <div class="curio-item-name">${item.label}</div>
-        ${item.note ? `<div style="font-size:10px;color:var(--g500);margin-top:3px;font-style:italic">"${item.note.substring(0,40)}${item.note.length>40?'...':''}"</div>` : ''}
-      </div>
-    </div>`).join('');
-}
+    function buildTrendGrid() {
+        const grid = document.getElementById('trendGrid');
+        grid.innerHTML = '';
+        trends.forEach((t, i) => {
+            const card = document.createElement('div');
+            card.className = 'trend-card';
+            card.innerHTML = `<div class="trend-emoji">${t.emoji}</div><div class="trend-name">${t.name}</div><div class="trend-desc">${t.desc}</div><div class="trend-source">📰 ${t.source}</div>`;
+            card.onclick = () => selectTrend(card, t.name);
+            grid.appendChild(card);
+        });
+    }
 
-function filterCurio(cat, btn) {
-  curioFilter = cat;
-  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('on'));
-  btn.classList.add('on');
-  renderCurio();
-}
+    function selectTrend(card, name) {
+        document.querySelectorAll('.trend-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        selectedTheme = name;
+        document.getElementById('step1Nav').style.display = 'flex';
+    }
 
-function deleteCurio(id) {
-  curioItems = curioItems.filter(i => i.id !== id);
-  renderCurio();
-}
+    function buildProductGrid() {
+        const grid = document.getElementById('productGrid');
+        grid.innerHTML = '';
+        document.getElementById('selectedThemeBadge').textContent = '🌸 ' + (selectedTheme || "Today's Theme");
+        if (selectedProducts.length === 0) selectedProducts = productTemplates.map((_, i) => i);
+        productTemplates.forEach((p, i) => {
+            const card = document.createElement('div');
+            card.className = 'product-card ' + (selectedProducts.includes(i) ? 'selected' : 'deselected');
+            card.id = 'product' + i;
+            card.innerHTML = `<div class="product-img">${p.emoji}</div><div class="product-info"><div class="product-name">${p.name}</div><div class="product-brand">${p.brand}</div><div class="product-price">${p.price}</div></div><div class="check-badge">✓</div>`;
+            card.onclick = () => toggleProduct(i, card);
+            grid.appendChild(card);
+        });
+        updateSelectCount();
+    }
 
-function openNote(id) {
-  noteItemId = id;
-  const item = curioItems.find(i => i.id === id);
-  document.getElementById('noteItemName').textContent = item.label;
-  document.getElementById('noteText').value = item.note || '';
-  const imgEl = document.getElementById('noteItemImg');
-  if (item.img) {
-    imgEl.innerHTML = `<img src="${item.img}" style="width:100%;height:100%;object-fit:cover">`;
-  } else {
-    imgEl.textContent = item.label;
-  }
-  document.getElementById('noteOverlay').classList.add('on');
-}
+    function toggleProduct(i, card) {
+        if (selectedProducts.includes(i)) {
+            selectedProducts = selectedProducts.filter(x => x !== i);
+            card.classList.remove('selected');
+            card.classList.add('deselected');
+        } else {
+            selectedProducts.push(i);
+            card.classList.add('selected');
+            card.classList.remove('deselected');
+        }
+        updateSelectCount();
+    }
 
-function closeNote() { document.getElementById('noteOverlay').classList.remove('on'); }
+    function updateSelectCount() {
+        document.getElementById('selectCount').textContent = `${selectedProducts.length} of 15 selected`;
+    }
 
-function saveNote() {
-  const item = curioItems.find(i => i.id === noteItemId);
-  if (item) item.note = document.getElementById('noteText').value;
-  closeNote();
-  renderCurio();
-}
+    function generateContent() {
+        document.getElementById('generateBtn').style.display = 'none';
+        document.getElementById('contentLoading').style.display = 'flex';
+        setTimeout(() => {
+            document.getElementById('contentLoading').style.display = 'none';
+            document.getElementById('contentArea').style.display = 'block';
+            buildContentArea();
+        }, 2500);
+    }
 
-// -- CURIO SAVE --
-async function curioSave() {
-  const raw = document.getElementById('curioUrl').value.trim();
-  if (!raw) return;
-  const status = document.getElementById('curioStatus');
-  const btn = document.querySelector('#page-curio .save-btn');
-  btn.disabled = true;
+    function buildContentArea() {
+        const theme = selectedTheme || 'Spring Fashion Trends';
+        const selected = selectedProducts.map(i => productTemplates[i]);
+        const pinList = document.getElementById('pinList');
+        pinList.innerHTML = '';
+        selected.slice(0, 15).forEach((p, i) => {
+            const item = document.createElement('div');
+            item.className = 'pin-item';
+            item.innerHTML = `<div class="pin-num">${i+1}</div><textarea class="pin-text" rows="2">${p.name} from ${p.brand} — the perfect piece for your ${theme} wardrobe. Shop the link in bio! ✨ #SpringFashion #${p.brand.replace(/\s/g,'')} #OOTD</textarea>`;
+            pinList.appendChild(item);
+        });
+        document.getElementById('boardDesc').value = `Your ultimate guide to ${theme} — curated with the season's most coveted pieces from top brands. From effortless daytime looks to elevated evening styles, find everything you need to refresh your wardrobe this spring. Shop all links in bio! 💕`;
+        document.getElementById('igCaption').value = `Spring is calling and your wardrobe is ready to answer ✨ I've rounded up the most beautiful pieces for ${theme} — every single one is linked in my bio so you can shop directly! Which one is your favorite? Drop a 💕 below! #SpringFashion #AffiliateLink #FashionInspo`;
+        const hashtags = ['#SpringFashion','#OOTD','#FashionInspo','#StyleBlogger','#AffiliateFashion','#ShopMyStyle','#SpringOutfit','#FashionBlogger','#StyleInspo','#NewArrivals','#FashionFinds','#WardrobeGoals','#SpringVibes','#ShopNow','#FashionLover'];
+        const box = document.getElementById('hashtagBox');
+        box.innerHTML = '';
+        hashtags.forEach(h => { const tag = document.createElement('span'); tag.className = 'hashtag'; tag.textContent = h; box.appendChild(tag); });
+        slideTexts = [selectedTheme + ' 🌸', 'Top Picks This Season ✨', 'Shop the Look 💕', 'Links in Bio 🔗', 'New Arrivals Just Dropped 🛍️'];
+    }
 
-  // Detect category from URL
-  const cats = {fashion:['ssense','net-a-porter','zara','asos','revolve','shopbop','farfetch','cos','hm','uniqlo','mango'],
-    home:['arhaus','wayfair','cb2','westelm','crateandbarrel','potterybarn','ikea','restoration'],
-    beauty:['glossier','sephora','ulta','space-nk','kiehls'],
-    travel:['airbnb','booking','tripadvisor','hotels','expedia']};
-  let detectedCat = 'fashion';
-  for (const [cat, domains] of Object.entries(cats)) {
-    if (domains.some(d => raw.toLowerCase().includes(d))) { detectedCat = cat; break; }
-  }
+    function buildCarousel() {
+        const preview = document.getElementById('carouselPreview');
+        preview.innerHTML = '';
+        const emojis = ['🌸','✨','💕','🔗','🛍️'];
+        for (let i = 0; i < 5; i++) {
+            const slide = document.createElement('div');
+            slide.className = 'slide' + (i === 0 ? ' active-slide' : '');
+            slide.id = 'slide' + i;
+            slide.innerHTML = `<div class="slide-bg s${i+1}"><div>${emojis[i]}</div><div class="slide-text">${slideTexts[i] || 'Slide ' + (i+1)}</div></div><div class="slide-num">${i+1}/5</div>`;
+            slide.onclick = () => selectSlide(i);
+            preview.appendChild(slide);
+        }
+        document.getElementById('slideText').value = slideTexts[0];
+        activeSlide = 0;
+    }
 
-  if (/\.(jpg|jpeg|png|webp|gif)(\?.*)?$/i.test(raw)) {
-    curioItems.unshift({id: Date.now(), url: raw, img: raw, label: 'Saved item', cat: detectedCat, note: ''});
-    document.getElementById('curioUrl').value = '';
-    status.textContent = 'Saved!';
-    renderCurio();
-    btn.disabled = false;
-    return;
-  }
+    function selectSlide(i) {
+        document.querySelectorAll('.slide').forEach(s => s.classList.remove('active-slide'));
+        document.getElementById('slide' + i).classList.add('active-slide');
+        activeSlide = i;
+        document.getElementById('slideText').value = slideTexts[i];
+    }
 
-  status.textContent = 'Saving...';
-  const html = await fetchPage(raw);
-  if (html) {
-    const {img, title} = parseMeta(html);
-    curioItems.unshift({id: Date.now(), url: raw, img: img || '', label: title, cat: detectedCat, note: ''});
-    status.textContent = img ? `Saved: ${title}` : `Saved: ${title} - right-click product image -> Copy image address for the photo`;
-    document.getElementById('curioUrl').value = '';
-  } else {
-    status.textContent = 'Site blocked. Right-click the product image -> "Copy image address" and paste that here.';
-  }
-  renderCurio();
-  btn.disabled = false;
-}
+    function updateSlide() {
+        slideTexts[activeSlide] = document.getElementById('slideText').value;
+        buildCarousel();
+        selectSlide(activeSlide);
+    }
 
-// -- HERO SAVE --
-let heroCount = 2;
-async function heroSave() {
-  const raw = document.getElementById('heroUrl').value.trim();
-  if (!raw) return;
-  const status = document.getElementById('heroStatus');
-  status.textContent = 'Saving...';
-  const html = await fetchPage(raw);
-  let label = 'Saved item';
-  let img = '';
-  if (html) { const m = parseMeta(html); label = m.title; img = m.img; }
-  heroCount++;
-  document.getElementById('heroCount').textContent = heroCount + ' items saved';
-  document.getElementById('heroUrl').value = '';
-  status.textContent = img ? `Saved: ${label}` : 'Saved! (paste image URL for the photo)';
-}
+    function updatePublishCount() {
+        document.getElementById('pinCount').textContent = selectedProducts.length + ' pins ready';
+    }
 
-// -- CONTENT GENERATOR --
-let genCurrentTab = 'caption';
-let genData = {caption: '', hashtags: [], hook: ''};
+    function toggleSwitch(id) {
+        document.getElementById(id).classList.toggle('on');
+    }
 
-const captions = {
-  'Editorial - authoritative and sparse': (desc) => `The edit.\n\n${desc.includes('linen') ? 'Linen, silk, and the kind of restraint that takes years to develop.' : 'Pieces chosen for what they do, not what they say.'}\n\nAll linked.`,
-  'Warm - personal and conversational': (desc) => `Ok but this look is everything right now \n\n${desc.includes('minimal') ? 'Going through a major minimal moment and honestly it feels like the most me I've ever dressed.' : 'Found these pieces and couldn\'t stop thinking about them together.'}\n\nLinks are in bio - let me know if you want more details on sizing!`,
-  'Direct - just the facts and links': (desc) => `This week's edit.\n\nEverything linked in bio. Affiliate links used - thank you for supporting the work.`,
-  'Aspirational - lifestyle and feeling': (desc) => `There's a certain kind of dressing that feels like armor. Quiet, considered, completely intentional.\n\n${desc.includes('spring') ? 'This is how I'm entering spring.' : 'This is the energy.'}\n\nEvery piece linked.`,
-};
+    function publishAll() {
+        const btn = document.getElementById('publishBtn');
+        btn.textContent = '⏳ Publishing...';
+        btn.disabled = true;
+        setTimeout(() => {
+            document.getElementById('publishSuccess').style.display = 'block';
+            btn.textContent = '✅ Published!';
+            btn.style.background = 'linear-gradient(135deg, #3d8b6e, #2d6b55)';
+        }, 2500);
+    }
 
-const hashtagSets = {
-  'Instagram': ['#quietluxury','#editorialfashion','#minimalstyle','#slowfashion','#fashionedit','#ootd','#styleinspo','#fashionblogger','#wardrobeessentials','#investmentpiece','#therow','#toteme','#avantgarde','#womensstyle','#fashionminimalist'],
-  'TikTok': ['#quietluxury','#fashiontok','#ootd','#styletok','#fashioninspo','#minimalfashion','#outfitcheck','#fashionblogger','#stylecheck','#fashionadvice','#grwm','#whatiwore'],
-  'Pinterest': ['#quietluxury','#minimalistfashion','#editorialstyle','#capsulewardrobe','#fashionmoodboard','#styleinspo','#womensfashion','#luxuryfashion'],
-  'LinkedIn': ['#fashionbusiness','#creatorseconomy','#fashionmarketing','#contentcreator','#fashionindustry'],
-};
-
-function generateContent() {
-  const desc = document.getElementById('genDesc').value || 'Minimal spring look with neutral tones';
-  const tone = document.getElementById('genTone').value;
-  const platform = document.getElementById('genPlatform').value;
-
-  document.getElementById('genPlaceholder').style.display = 'none';
-  document.getElementById('genResult').style.display = 'none';
-  document.getElementById('genLoading').style.display = 'flex';
-
-  setTimeout(() => {
-    const captionFn = captions[tone] || captions['Editorial - authoritative and sparse'];
-    genData.caption = captionFn(desc.toLowerCase());
-    genData.hashtags = (hashtagSets[platform] || hashtagSets['Instagram']).slice(0, 12);
-    genData.hook = `"${desc.includes('minimal') ? 'The most minimal look I've worn all season - and the most compliments I've received.' : 'This is the edit I keep coming back to.'}"`;
-
-    document.getElementById('genLoading').style.display = 'none';
-    document.getElementById('genResult').style.display = 'block';
-    switchGenTab(genCurrentTab, null);
-  }, 1200);
-}
-
-function switchGenTab(tab, btn) {
-  genCurrentTab = tab;
-  document.querySelectorAll('.gen-tab').forEach(t => t.classList.remove('on'));
-  if (btn) btn.classList.add('on');
-
-  document.getElementById('genCaption').style.display = tab === 'caption' ? 'block' : 'none';
-  document.getElementById('genHashtagsWrap').style.display = tab === 'hashtags' ? 'block' : 'none';
-  document.getElementById('genHookWrap').style.display = tab === 'hook' ? 'block' : 'none';
-
-  if (tab === 'caption') {
-    document.getElementById('genCaption').textContent = genData.caption;
-  } else if (tab === 'hashtags') {
-    document.getElementById('genHashtagsList').innerHTML = genData.hashtags.map(h => `<span class="gen-hashtag">${h}</span>`).join('');
-  } else if (tab === 'hook') {
-    document.getElementById('genHookText').textContent = genData.hook;
-  }
-}
-
-function copyContent() {
-  let text = '';
-  if (genCurrentTab === 'caption') text = genData.caption;
-  else if (genCurrentTab === 'hashtags') text = genData.hashtags.join(' ');
-  else text = genData.hook;
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = event.target;
-    btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy', 1500);
-  });
-}
-
-function generateFromBoard() {
-  showPanel('content-gen', document.getElementById('si-content-gen'));
-  const names = boardItems.map(b => b.label).join(', ');
-  if (names) document.getElementById('genDesc').value = names;
-}
-
-// -- HASHTAG TOOL --
-const hashtagDB = {
-  'quiet luxury': ['#quietluxury','#therow','#toteme','#lemaire','#minimalistfashion','#oldmoney','#luxuryfashion','#editorialstyle','#slowfashion','#investmentpieces','#capsulewardrobe','#timelessstyle'],
-  'streetwear': ['#streetwear','#streetstyle','#hypebeast','#streetfashion','#urbanfashion','#sneakers','#drip','#outfitoftheday','#ootd','#fashion','#style','#hype'],
-  'coastal grandmother': ['#coastalgrandmother','#coastalstyle','#summerstyle','#linen','#beachstyle','#cozyfashion','#effortlessstyle','#casualluxury','#beachwear','#summeroutfit'],
-  'dark academia': ['#darkacademia','#academiaesthetic','#vintagevibes','#grunge','#darkfashion','#gothicfashion','#vintagefashion','#cottagecore','#darkstyle'],
-  'default': ['#fashion','#style','#ootd','#fashionblogger','#styleinspo','#fashionista','#instafashion','#lookoftheday','#fashiongram','#outfitinspiration','#womensfashion','#fashionedit'],
-};
-
-function generateHashtags() {
-  const input = document.getElementById('htInput').value.toLowerCase().trim();
-  const results = document.getElementById('htResults');
-  let tags = hashtagDB.default;
-  for (const [key, val] of Object.entries(hashtagDB)) {
-    if (input.includes(key) || key.includes(input)) { tags = val; break; }
-  }
-  results.innerHTML = tags.map(t => `<span class="ht-tag" onclick="copyTag(this,'${t}')">${t}</span>`).join('');
-}
-
-function copyTag(el, tag) {
-  navigator.clipboard.writeText(tag);
-  el.classList.add('copied');
-  el.textContent = 'Copied!';
-  setTimeout(() => { el.classList.remove('copied'); el.textContent = tag; }, 1200);
-}
-
-// -- WEEKLY PLANNER --
-const days = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
-const dates = [14,15,16,17,18,19,20];
-const defaultPosts = [
-  [{platform:'Instagram',text:'Quiet luxury edit - spring capsule'},{platform:'Pinterest',text:'Mood board: neutral tones'}],
-  [],
-  [{platform:'TikTok',text:'Outfit check - 3 ways to wear a silk shirt'}],
-  [{platform:'Instagram',text:'Creator worth watching this week'}],
-  [],
-  [{platform:'Instagram',text:'Shop the edit - weekend picks'}],
-  [],
-];
-
-function renderPlanner(posts) {
-  const grid = document.getElementById('plannerGrid');
-  grid.innerHTML = days.map((day, i) => `
-    <div class="planner-day">
-      <div class="planner-day-header">
-        <div class="planner-day-name">${day}</div>
-        <div class="planner-day-date">Apr ${dates[i]}</div>
-      </div>
-      <div class="planner-day-body">
-        ${(posts[i]||[]).map(p => `<div class="planner-post"><div class="planner-post-platform">${p.platform}</div><div class="planner-post-text">${p.text}</div></div>`).join('')}
-        <div class="planner-add" onclick="openModal()">+ Add post</div>
-      </div>
-    </div>`).join('');
-}
-
-function generateWeek() {
-  const suggestions = [
-    [{platform:'Instagram',text:'The edit: spring capsule essentials'},{platform:'Pinterest',text:'Quiet luxury mood board 2026'}],
-    [{platform:'TikTok',text:'5 pieces I wear on repeat'}],
-    [{platform:'Instagram Stories',text:'Behind the edit - what I almost bought'}],
-    [{platform:'Instagram',text:'Brand worth knowing this week'},{platform:'Newsletter',text:'The Avant Edit - issue 4'}],
-    [{platform:'TikTok',text:'Outfit check: before and after the edit'}],
-    [{platform:'Instagram',text:'Weekend edit - what I actually wore'}],
-    [],
-  ];
-  renderPlanner(suggestions);
-}
-
-// -- MODAL --
-function openModal() { document.getElementById('modalOverlay').classList.add('on'); document.body.style.overflow='hidden'; }
-function closeModal() { document.getElementById('modalOverlay').classList.remove('on'); document.body.style.overflow=''; }
-function modalSubmit() {
-  document.getElementById('modalForm').style.display = 'none';
-  document.getElementById('modalOk').style.display = 'block';
-  setTimeout(closeModal, 2200);
-}
-
-// -- NEWSLETTER --
-function editSubscribe() {
-  const v = document.getElementById('editEmail').value;
-  if (!v || !v.includes('@')) return;
-  document.getElementById('editForm').style.display = 'none';
-  document.getElementById('editOk').style.display = 'block';
-}
-
-// -- INIT --
-renderBoard();
-renderSampleMini();
-renderCurio();
-renderPlanner(defaultPosts);
-document.getElementById('nl-home').classList.add('active');
+    function startOver() {
+        selectedTheme = '';
+        selectedProducts = [];
+        slideTexts = ['','','','',''];
+        document.getElementById('trendGrid').innerHTML = '';
+        document.getElementById('discoverBtn').style.display = 'inline-flex';
+        document.getElementById('step1Nav').style.display = 'none';
+        document.getElementById('contentArea').style.display = 'none';
+        document.getElementById('generateBtn').style.display = 'inline-flex';
+        document.getElementById('publishSuccess').style.display = 'none';
+        document.getElementById('publishBtn').textContent = '🚀 Publish Everything';
+        document.getElementById('publishBtn').disabled = false;
+        document.getElementById('publishBtn').style.background = '';
+        document.querySelectorAll('.step-tab').forEach(t => t.classList.remove('completed'));
+        goToStep(1);
+    }
 </script>
 </body>
 </html>
