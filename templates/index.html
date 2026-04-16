@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AVANT - Save. Curate. Create.</title>
+<title>AVANT — Save. Curate. Create.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -14,9 +14,9 @@
   --serif:'Cormorant Garamond',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;
 }
 html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--white);color:var(--black);overflow-x:hidden}
+body{font-family:var(--sans);background:var(--white);color:var(--black);overflow-x:hidden;font-size:15px}
 
-/* -- NAV -- */
+/* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:16px 48px;background:rgba(250,250,248,.95);backdrop-filter:blur(16px);border-bottom:.5px solid var(--g100)}
 .nav-logo{font-size:12px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--black);cursor:pointer}
 .nav-links{display:flex;gap:4px;align-items:center}
@@ -26,11 +26,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
 .nav-cta{font-size:11px;letter-spacing:.1em;background:var(--black);color:var(--white);padding:9px 20px;border-radius:2px;cursor:pointer;border:none;font-family:var(--sans);transition:opacity .2s}
 .nav-cta:hover{opacity:.8}
 
-/* -- PAGES -- */
+/* ── PAGES ── */
 .page{display:none;padding-top:64px;min-height:100vh}
 .page.active{display:block}
 
-/* -- SHARED -- */
+/* ── SHARED ── */
 .eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--g500);margin-bottom:14px}
 .serif-title{font-family:var(--serif);font-weight:300;line-height:1.08}
 .serif-title em{font-style:italic}
@@ -51,14 +51,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
 .input:focus{border-color:var(--black);background:var(--white)}
 .card{background:var(--white);border:.5px solid var(--g100);border-radius:4px;overflow:hidden}
 
-/* ============================
-   PAGE 1 - HOME
-============================ */
+/* ════════════════════════════
+   PAGE 1 — HOME
+════════════════════════════ */
 .hero{min-height:calc(100vh - 64px);display:grid;grid-template-columns:1fr 1fr}
 .hero-left{display:flex;flex-direction:column;justify-content:center;padding:80px 60px 80px 48px;border-right:.5px solid var(--g100)}
 .hero-title{font-family:var(--serif);font-size:clamp(50px,4.8vw,76px);font-weight:300;line-height:1.05;margin-bottom:22px}
 .hero-title em{font-style:italic}
-.hero-sub{font-size:15px;line-height:1.8;color:var(--g700);max-width:400px;margin-bottom:32px;font-weight:300}
+.hero-sub{font-size:15px;line-height:1.8;color:var(--g700);max-width:400px;margin-bottom:32px;font-weight:400}
 .hero-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
 .pill{font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:6px 16px;border-radius:100px;border:.5px solid var(--g300);color:var(--g500);cursor:pointer;transition:all .15s}
 .pill:hover,.pill.on{background:var(--black);color:var(--white);border-color:var(--black)}
@@ -82,9 +82,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
 .marquee span.hi{color:rgba(255,255,255,.65)}
 @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* ============================
-   PAGE 2 - CURIO
-============================ */
+/* ════════════════════════════
+   PAGE 2 — CURIO
+════════════════════════════ */
 .curio-hero{background:var(--off);padding:60px 48px 0;border-bottom:.5px solid var(--g100)}
 .curio-hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;max-width:1200px;margin:0 auto}
 .curio-save-box{background:var(--white);border:.5px solid var(--g100);border-radius:4px 4px 0 0;padding:24px;box-shadow:0 -8px 32px rgba(0,0,0,.04)}
@@ -128,9 +128,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
 .note-textarea:focus{border-color:var(--black)}
 .note-footer{padding:12px 20px;border-top:.5px solid var(--g100);display:flex;justify-content:flex-end;gap:8px}
 
-/* ============================
-   PAGE 3 - STUDIO
-============================ */
+/* ════════════════════════════
+   PAGE 3 — STUDIO
+════════════════════════════ */
 .studio-layout{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 64px)}
 .studio-sidebar{border-right:.5px solid var(--g100);padding:24px 0;background:var(--white);position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto}
 .sidebar-section{margin-bottom:8px}
@@ -254,7 +254,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
 .pitch-stat-l{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:4px}
 .pitch-body{padding:32px 40px}
 .pitch-section-title{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--g500);margin-bottom:12px}
-.pitch-bio{font-size:14px;line-height:1.75;color:var(--g700);margin-bottom:28px;font-weight:300}
+.pitch-bio{font-size:14px;line-height:1.75;color:var(--g700);margin-bottom:28px;font-weight:400}
 .pitch-edit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:28px}
 .pitch-edit-item{aspect-ratio:1;background:var(--off);border-radius:2px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:9px;color:var(--g300);font-style:italic;overflow:hidden}
 .pitch-edit-item img{width:100%;height:100%;object-fit:cover}
@@ -281,14 +281,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
 .aff-link-stat.earn{color:#2d7a4f;font-weight:500}
 .aff-copy{font-size:9px;letter-spacing:.08em;text-transform:uppercase;background:var(--off);border:.5px solid var(--g200);border-radius:2px;padding:5px 10px;cursor:pointer;font-family:var(--sans);color:var(--black)}
 
-/* ============================
-   PAGE 4 - THE AVANT EDIT
-============================ */
+/* ════════════════════════════
+   PAGE 4 — THE AVANT EDIT
+════════════════════════════ */
 .edit-hero{background:var(--black);padding:80px 48px;text-align:center}
 .edit-issue{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:14px}
 .edit-title{font-family:var(--serif);font-size:clamp(40px,4vw,64px);font-weight:300;color:var(--white);line-height:1.05;margin-bottom:12px}
 .edit-title em{font-style:italic}
-.edit-sub{font-size:13px;color:rgba(255,255,255,.35);max-width:480px;margin:0 auto 36px;line-height:1.75;font-weight:300}
+.edit-sub{font-size:13px;color:rgba(255,255,255,.35);max-width:480px;margin:0 auto 36px;line-height:1.75;font-weight:400}
 .edit-form{display:flex;gap:10px;max-width:380px;margin:0 auto}
 .edit-input{flex:1;padding:12px 16px;border:.5px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:var(--white);font-size:13px;font-family:var(--sans);border-radius:2px;outline:none}
 .edit-input::placeholder{color:rgba(255,255,255,.2)}
@@ -306,8 +306,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
 .issue-brand-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
 .issue-brand-name{font-size:13px;font-weight:500;color:var(--black);margin-bottom:4px}
 .issue-brand-where{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--g500);margin-bottom:6px}
-.issue-brand-desc{font-size:13px;color:var(--g700);line-height:1.7;font-weight:300}
-.issue-signal{font-size:14px;line-height:1.8;color:var(--g700);font-weight:300}
+.issue-brand-desc{font-size:13px;color:var(--g700);line-height:1.7;font-weight:400}
+.issue-signal{font-size:14px;line-height:1.8;color:var(--g700);font-weight:400}
 .issue-shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .issue-shop-item{border:.5px solid var(--g100);border-radius:2px;overflow:hidden;cursor:pointer;transition:border-color .15s}
 .issue-shop-item:hover{border-color:var(--black)}
@@ -317,9 +317,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
 .issue-shop-name{font-size:11px;color:var(--black);line-height:1.3;margin-bottom:2px}
 .issue-shop-price{font-size:11px;color:var(--g500)}
 
-/* ============================
-   PAGE 5 - JOIN
-============================ */
+/* ════════════════════════════
+   PAGE 5 — JOIN
+════════════════════════════ */
 .join-hero{background:var(--off);padding:80px 48px;text-align:center;border-bottom:.5px solid var(--g100)}
 .join-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--g100);margin:0}
 .join-tier{background:var(--white);padding:48px 40px;display:flex;flex-direction:column}
@@ -332,7 +332,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
 .join-tier.star .jt-price{color:rgba(255,255,255,.3);border-bottom-color:rgba(255,255,255,.08)}
 .jt-features{list-style:none;flex:1;margin-bottom:24px}
 .jt-features li{font-size:13px;color:var(--g700);padding:7px 0;border-bottom:.5px solid var(--g100);display:flex;gap:8px;font-weight:300;line-height:1.5}
-.jt-features li::before{content:'-';color:var(--g200);font-size:11px;flex-shrink:0;margin-top:2px}
+.jt-features li::before{content:'—';color:var(--g200);font-size:11px;flex-shrink:0;margin-top:2px}
 .join-tier.star .jt-features li{color:rgba(255,255,255,.6);border-bottom-color:rgba(255,255,255,.07)}
 .join-tier.star .jt-features li::before{color:rgba(255,255,255,.15)}
 .jt-btn{font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:13px 20px;border-radius:2px;cursor:pointer;font-family:var(--sans);border:none;transition:all .2s;display:block;text-align:center;width:100%}
@@ -341,9 +341,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
 .jt-btn-in{background:var(--white);color:var(--black)}
 .jt-btn-in:hover{background:var(--g100)}
 
-/* ============================
+/* ════════════════════════════
    JOIN MODAL (global)
-============================ */
+════════════════════════════ */
 .modal-overlay{display:none;position:fixed;inset:0;z-index:700;background:rgba(8,8,8,.6);backdrop-filter:blur(6px);align-items:center;justify-content:center}
 .modal-overlay.on{display:flex}
 .modal-box{background:var(--white);max-width:440px;width:92%;border-radius:4px;padding:44px;position:relative}
@@ -351,7 +351,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
 .modal-eye{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--g500);margin-bottom:10px}
 .modal-h{font-family:var(--serif);font-size:30px;font-weight:300;line-height:1.1;margin-bottom:8px}
 .modal-h em{font-style:italic}
-.modal-p{font-size:13px;color:var(--g700);line-height:1.7;margin-bottom:24px;font-weight:300}
+.modal-p{font-size:13px;color:var(--g700);line-height:1.7;margin-bottom:24px;font-weight:400}
 .modal-field{width:100%;padding:11px 14px;margin-bottom:9px;border:.5px solid var(--g100);border-radius:2px;font-size:13px;font-family:var(--sans);outline:none;color:var(--black)}
 .modal-field:focus{border-color:var(--black)}
 .modal-go{width:100%;font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:var(--black);color:var(--white);border:none;padding:14px;border-radius:2px;cursor:pointer;font-family:var(--sans);margin-top:4px}
@@ -395,16 +395,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
   </div>
 </nav>
 
-<!-- ==============================
+<!-- ══════════════════════════════
      PAGE: HOME
-============================== -->
+══════════════════════════════ -->
 <div class="page active" id="page-home">
 
   <div class="hero">
     <div class="hero-left">
       <p class="eyebrow">The fashion creator platform</p>
       <h1 class="hero-title">Save it.<br><em>Curate it.</em><br>Earn from it.</h1>
-      <p class="hero-sub">Avant is the platform where fashion creators save what they love, build editorial looks, generate content, manage affiliate income, and pitch brands - all in one place.</p>
+      <p class="hero-sub">Avant is the platform where fashion creators save what they love, build editorial looks, generate content, manage affiliate income, and pitch brands — all in one place.</p>
       <div class="hero-pills">
         <span class="pill on" onclick="showPage('curio')">Curio</span>
         <span class="pill on" onclick="showPage('studio')">Avant Studio</span>
@@ -412,38 +412,34 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
       </div>
       <div class="hero-btns">
         <button class="btn-dark" onclick="showPage('studio')">Try Studio free</button>
-        <button class="btn-light" onclick="showPage('curio')">Explore Curio -></button>
+        <button class="btn-light" onclick="showPage('curio')">Explore Curio →</button>
       </div>
     </div>
-    <div class="hero-right">
-      <div style="width:100%;max-width:420px">
-        <div class="card">
-          <div style="padding:14px 18px;border-bottom:.5px solid var(--g100);display:flex;align-items:center;justify-content:space-between">
-            <span style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--g500)">Curio - save anything</span>
-            <span class="tag tag-free">Free</span>
-          </div>
-          <div style="padding:16px 18px">
-            <div style="display:flex;gap:8px;margin-bottom:10px">
-              <input class="save-input" id="heroUrl" placeholder="Paste any URL - a sofa, a jacket, an idea..." onkeydown="if(event.key==='Enter')heroSave()">
-              <button class="save-btn" onclick="heroSave()">Save</button>
-            </div>
-            <div class="save-status" id="heroStatus">Paste any URL and save the image instantly.</div>
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px" id="heroGrid">
-              <div style="aspect-ratio:3/4;background:var(--off);border:.5px solid var(--g100);border-radius:2px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:10px;color:var(--g300);font-style:italic;text-align:center;padding:8px;position:relative">
-                Zara linen dress
-                <div style="position:absolute;bottom:0;left:0;right:0;background:rgba(8,8,8,.55);padding:5px 6px"><span style="font-size:8px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.7)">Zara · Fashion</span></div>
-              </div>
-              <div style="aspect-ratio:3/4;background:#ede8e0;border:.5px solid var(--g100);border-radius:2px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:10px;color:var(--g300);font-style:italic;text-align:center;padding:8px;position:relative">
-                Arhaus sofa
-                <div style="position:absolute;bottom:0;left:0;right:0;background:rgba(8,8,8,.55);padding:5px 6px"><span style="font-size:8px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.7)">Arhaus · Home</span></div>
-              </div>
-              <div style="aspect-ratio:3/4;border:1.5px dashed var(--g200);border-radius:2px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px;color:var(--g300)" onclick="document.getElementById('heroUrl').focus()">+</div>
-            </div>
-          </div>
-          <div style="padding:12px 18px;border-top:.5px solid var(--g100);background:var(--off);display:flex;align-items:center;justify-content:space-between">
-            <span style="font-size:11px;color:var(--g500)" id="heroCount">2 items saved</span>
-            <button class="btn-sm" onclick="showPage('curio')">Open Curio -></button>
-          </div>
+    <div class="hero-right" style="padding:0;overflow:hidden">
+      <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;height:100%;gap:1px;background:var(--g100)">
+        <div style="background:var(--off);display:flex;align-items:center;justify-content:center;padding:32px;flex-direction:column;gap:12px">
+          <div style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--g300)">Curio</div>
+          <div style="font-family:var(--serif);font-size:22px;font-weight:400;color:var(--black);text-align:center;line-height:1.2">Save anything<br><em>you love.</em></div>
+          <div style="font-size:12px;color:var(--g500);text-align:center;line-height:1.6">A sofa. A jacket. An idea at 11pm.</div>
+          <button class="btn-sm" onclick="showPage('curio')" style="margin-top:8px">Try Curio free</button>
+        </div>
+        <div style="background:#0a0a0a;display:flex;align-items:center;justify-content:center;padding:32px;flex-direction:column;gap:12px">
+          <div style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.3)">Avant Studio</div>
+          <div style="font-family:var(--serif);font-size:22px;font-weight:400;color:var(--white);text-align:center;line-height:1.2">Build your<br><em>creator business.</em></div>
+          <div style="font-size:12px;color:rgba(255,255,255,.4);text-align:center;line-height:1.6">Look builder. Content generator. Brand pitches.</div>
+          <button onclick="showPage('studio')" style="margin-top:8px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;background:var(--white);color:var(--black);border:none;padding:8px 16px;border-radius:2px;cursor:pointer">Try Studio</button>
+        </div>
+        <div style="background:var(--g100);display:flex;align-items:center;justify-content:center;padding:32px;flex-direction:column;gap:12px">
+          <div style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--g300)">The Avant Edit</div>
+          <div style="font-family:var(--serif);font-size:22px;font-weight:400;color:var(--black);text-align:center;line-height:1.2">Fashion.<br><em>Filtered.</em></div>
+          <div style="font-size:12px;color:var(--g500);text-align:center;line-height:1.6">Weekly curation from 15 years inside fashion.</div>
+          <button class="btn-sm" onclick="showPage('edit')" style="margin-top:8px">Read the edit</button>
+        </div>
+        <div style="background:var(--white);display:flex;align-items:center;justify-content:center;padding:32px;flex-direction:column;gap:12px">
+          <div style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--g300)">Early access</div>
+          <div style="font-family:var(--serif);font-size:22px;font-weight:400;color:var(--black);text-align:center;line-height:1.2">Join the<br><em>waitlist.</em></div>
+          <div style="font-size:12px;color:var(--g500);text-align:center;line-height:1.6">Free to join. No card required.</div>
+          <button class="btn-dark" onclick="openModal()" style="margin-top:8px;font-size:10px;padding:8px 16px">Join Avant</button>
         </div>
       </div>
     </div>
@@ -473,7 +469,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
         <div class="prod-icon" style="background:#f5ede0">♡</div>
         <p class="prod-name">Curio</p>
         <h3 class="prod-title">Save <em>anything</em><br>you love.</h3>
-        <p class="prod-desc">A sofa. A jacket. An idea at 11pm. Paste any URL and Curio saves the image instantly. Fashion, home, beauty, travel - private, personal, yours.</p>
+        <p class="prod-desc">A sofa. A jacket. An idea at 11pm. Paste any URL and Curio saves the image instantly. Fashion, home, beauty, travel — private, personal, yours.</p>
         <span class="tag tag-free">Free forever</span>
       </div>
       <div class="prod-card" onclick="showPage('studio')">
@@ -481,13 +477,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
         <p class="prod-name">Avant Studio</p>
         <h3 class="prod-title">Build your<br><em>creator business.</em></h3>
         <p class="prod-desc">Look builder, content generator, hashtag tool, weekly planner, brand pitch kit, affiliate dashboard, creator community. Everything serious creators need.</p>
-        <span class="tag tag-studio">Studio - $18/mo</span>
+        <span class="tag tag-studio">Studio — $18/mo</span>
       </div>
       <div class="prod-card" onclick="showPage('edit')">
         <div class="prod-icon" style="background:#eeedfe;color:var(--purple);font-size:14px">✦</div>
         <p class="prod-name">The Avant Edit</p>
         <h3 class="prod-title">Fashion.<br><em>Filtered.</em></h3>
-        <p class="prod-desc">A weekly editorial curation - brands worth knowing before everyone else does, creators worth watching, signals worth understanding. Free with every account.</p>
+        <p class="prod-desc">A weekly editorial curation — brands worth knowing before everyone else does, creators worth watching, signals worth understanding. Free with every account.</p>
         <span class="tag tag-purple">Free newsletter</span>
       </div>
     </div>
@@ -495,24 +491,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
 
 </div>
 
-<!-- ==============================
+<!-- ══════════════════════════════
      PAGE: CURIO
-============================== -->
+══════════════════════════════ -->
 <div class="page" id="page-curio">
   <div class="curio-hero">
     <div class="curio-hero-inner">
       <div>
         <p class="eyebrow">Curio</p>
         <h1 class="serif-title" style="font-size:clamp(40px,4vw,60px);margin-bottom:16px">Save anything<br><em>you love.</em></h1>
-        <p style="font-size:14px;color:var(--g700);line-height:1.8;font-weight:300;max-width:380px">A sofa. A jacket. A paint color. An idea. Paste any URL from anywhere on the web and Curio saves the image instantly. Fashion, home, beauty, travel - no categories required. Private and personal, just yours.</p>
+        <p style="font-size:14px;color:var(--g700);line-height:1.8;font-weight:300;max-width:380px">A sofa. A jacket. A paint color. An idea. Paste any URL from anywhere on the web and Curio saves the image instantly. Fashion, home, beauty, travel — no categories required. Private and personal, just yours.</p>
       </div>
       <div class="curio-save-box">
         <div class="save-row">
-          <input class="save-input" id="curioUrl" placeholder="Paste any URL - product page, article, image..." onkeydown="if(event.key==='Enter')curioSave()">
+          <input class="save-input" id="curioUrl" placeholder="Paste any URL — product page, article, image..." onkeydown="if(event.key==='Enter')curioSave()">
           <button class="save-btn" onclick="curioSave()">Save it</button>
         </div>
-        <div class="save-status" id="curioStatus">Paste a URL from any site - SSENSE, Zara, Arhaus, anywhere.</div>
-        <p class="save-hint">Tip: If auto-fetch fails, right-click the product image -> "Copy image address" and paste that here instead.</p>
+        <div class="save-status" id="curioStatus">Paste a URL from any site — SSENSE, Zara, Arhaus, anywhere.</div>
+        <p class="save-hint">Tip: If auto-fetch fails, right-click the product image → "Copy image address" and paste that here instead.</p>
       </div>
     </div>
   </div>
@@ -536,7 +532,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
   <div class="note-modal">
     <div class="note-header">
       <span id="noteItemName">Add a note</span>
-      <button class="note-close" onclick="closeNote()">x</button>
+      <button class="note-close" onclick="closeNote()">×</button>
     </div>
     <div class="note-body">
       <div id="noteItemImg" style="width:100%;height:120px;background:var(--off);border-radius:2px;margin-bottom:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:11px;color:var(--g300);font-style:italic"></div>
@@ -550,16 +546,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
   </div>
 </div>
 
-<!-- ==============================
+<!-- ══════════════════════════════
      PAGE: STUDIO
-============================== -->
+══════════════════════════════ -->
 <div class="page" id="page-studio">
   <div class="studio-layout">
     <div class="studio-sidebar">
       <div class="sidebar-section">
         <div class="sidebar-label">Create</div>
         <button class="sidebar-item on" onclick="showPanel('look-builder',this)" id="si-look-builder">
-          <span class="si-icon">□</span> Look Builder
+          <span class="si-icon">◻</span> Look Builder
         </button>
         <button class="sidebar-item" onclick="showPanel('content-gen',this)" id="si-content-gen">
           <span class="si-icon">✦</span> Content Generator
@@ -568,13 +564,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
           <span class="si-icon">#</span> Hashtag Tool
         </button>
         <button class="sidebar-item" onclick="showPanel('planner',this)" id="si-planner">
-          <span class="si-icon">#</span> Weekly Planner
+          <span class="si-icon">▦</span> Weekly Planner
         </button>
       </div>
       <div class="sidebar-section">
         <div class="sidebar-label">Business</div>
         <button class="sidebar-item" onclick="showPanel('pitch',this)" id="si-pitch">
-          <span class="si-icon">^</span> Brand Pitch Kit
+          <span class="si-icon">↗</span> Brand Pitch Kit
         </button>
         <button class="sidebar-item" onclick="showPanel('affiliate',this)" id="si-affiliate">
           <span class="si-icon">$</span> Affiliate Dashboard
@@ -583,7 +579,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
       <div class="sidebar-section">
         <div class="sidebar-label">Community</div>
         <button class="sidebar-item" onclick="showPanel('education',this)" id="si-education">
-          <span class="si-icon">o</span> Education Library
+          <span class="si-icon">◎</span> Education Library
         </button>
       </div>
     </div>
@@ -594,11 +590,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
       <div class="studio-panel on" id="panel-look-builder">
         <p class="eyebrow">Look Builder</p>
         <h2 class="panel-title">Build your <em>edit.</em></h2>
-        <p class="panel-sub">Drag in products from anywhere on the web. Build editorial look boards. Save and share with your audience - with affiliate links embedded.</p>
+        <p class="panel-sub">Drag in products from anywhere on the web. Build editorial look boards. Save and share with your audience — with affiliate links embedded.</p>
         <div class="builder-grid">
           <div class="builder-board">
             <div class="board-toolbar">
-              <input class="board-name-input" id="boardName" value="Spring edit - minimalist" placeholder="Name your edit...">
+              <input class="board-name-input" id="boardName" value="Spring edit — minimalist" placeholder="Name your edit...">
               <button class="btn-sm-light" onclick="clearBoard()">Clear</button>
               <button class="btn-sm" onclick="generateFromBoard()">Generate content ✦</button>
             </div>
@@ -620,7 +616,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
                   <button class="btn-sm" onclick="importItem()">Add</button>
                 </div>
                 <div class="import-status" id="importStatus">Paste any URL to import a product image.</div>
-                <p style="font-size:10px;color:var(--g300);margin-top:6px">Tip: Right-click a product photo -> "Copy image address" for instant import.</p>
+                <p style="font-size:10px;color:var(--g300);margin-top:6px">Tip: Right-click a product photo → "Copy image address" for instant import.</p>
+              </div>
+            </div>
+            <div class="bs-card">
+              <div class="bs-card-header">From your Curio</div>
+              <div class="bs-card-body">
+                <div class="sample-mini" id="curioFeedMini"></div>
+                <div style="font-size:10px;color:var(--g300);margin-top:8px">Items saved in Curio appear here.</div>
               </div>
             </div>
             <div class="bs-card">
@@ -637,7 +640,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
       <div class="studio-panel" id="panel-content-gen">
         <p class="eyebrow">Content Generator</p>
         <h2 class="panel-title">One edit. <em>Ready to post.</em></h2>
-        <p class="panel-sub">Describe your look and Avant writes the caption, selects the hashtags, and formats it for Instagram, TikTok, or Pinterest - ready to copy and post.</p>
+        <p class="panel-sub">Describe your look and Avant writes the caption, selects the hashtags, and formats it for Instagram, TikTok, or Pinterest — ready to copy and post.</p>
         <div class="content-gen">
           <div class="gen-input-card">
             <label class="gen-label">Platform</label>
@@ -648,13 +651,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
               <option>LinkedIn</option>
             </select>
             <label class="gen-label">Describe your look or edit</label>
-            <textarea class="gen-textarea" id="genDesc" placeholder="e.g. Minimal spring look - cream linen trousers, silk shirt, Lemaire bag, neutral tones, quiet luxury aesthetic..."></textarea>
+            <textarea class="gen-textarea" id="genDesc" placeholder="e.g. Minimal spring look — cream linen trousers, silk shirt, Lemaire bag, neutral tones, quiet luxury aesthetic..."></textarea>
             <label class="gen-label" style="margin-top:14px">Your tone</label>
             <select class="gen-select" id="genTone">
-              <option>Editorial - authoritative and sparse</option>
-              <option>Warm - personal and conversational</option>
-              <option>Direct - just the facts and links</option>
-              <option>Aspirational - lifestyle and feeling</option>
+              <option>Editorial — authoritative and sparse</option>
+              <option>Warm — personal and conversational</option>
+              <option>Direct — just the facts and links</option>
+              <option>Aspirational — lifestyle and feeling</option>
             </select>
             <button class="gen-generate-btn" onclick="generateContent()">Generate content ✦</button>
           </div>
@@ -701,11 +704,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
         <p class="panel-sub">Enter your niche or aesthetic and get a curated set of high-performing hashtags. Tap any tag to copy it. Save sets for each content type.</p>
         <div class="hashtag-tool">
           <div class="ht-input-row">
-            <input class="input ht-input" id="htInput" placeholder="Enter your aesthetic - quiet luxury, coastal grandmother, streetwear..." onkeydown="if(event.key==='Enter')generateHashtags()">
+            <input class="input ht-input" id="htInput" placeholder="Enter your aesthetic — quiet luxury, coastal grandmother, streetwear..." onkeydown="if(event.key==='Enter')generateHashtags()">
             <button class="btn-dark" onclick="generateHashtags()">Generate</button>
           </div>
           <div class="ht-results" id="htResults">
-            <span style="font-size:12px;color:var(--g300);font-style:italic;font-family:var(--serif)">Your hashtags appear here - tap any to copy.</span>
+            <span style="font-size:12px;color:var(--g300);font-style:italic;font-family:var(--serif)">Your hashtags appear here — tap any to copy.</span>
           </div>
           <div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--g500);margin-bottom:14px">Saved sets</div>
           <div class="ht-sets">
@@ -749,12 +752,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
       <div class="studio-panel" id="panel-planner">
         <p class="eyebrow">Weekly Content Planner</p>
         <h2 class="panel-title">Plan the week. <em>Post with purpose.</em></h2>
-        <p class="panel-sub">Map your content across the week. See what's going out where. Never run out of ideas - Avant suggests what to post based on your aesthetic and audience.</p>
+        <p class="panel-sub">Map your content across the week. See what's going out where. Never run out of ideas — Avant suggests what to post based on your aesthetic and audience.</p>
         <div class="planner-grid" id="plannerGrid"></div>
         <div style="background:var(--off);border:.5px solid var(--g100);border-radius:4px;padding:20px;display:flex;align-items:center;justify-content:space-between">
           <div>
-            <div style="font-size:11px;font-weight:500;margin-bottom:4px">This week - 4 posts scheduled</div>
-            <div style="font-size:12px;color:var(--g500)">Instagram x 2 · TikTok x 1 · Pinterest x 1</div>
+            <div style="font-size:11px;font-weight:500;margin-bottom:4px">This week — 4 posts scheduled</div>
+            <div style="font-size:12px;color:var(--g500)">Instagram × 2 · TikTok × 1 · Pinterest × 1</div>
           </div>
           <button class="btn-dark" onclick="generateWeek()">Suggest this week ✦</button>
         </div>
@@ -764,7 +767,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
       <div class="studio-panel" id="panel-pitch">
         <p class="eyebrow">Brand Pitch Kit</p>
         <h2 class="panel-title">Pitch brands. <em>Get replies.</em></h2>
-        <p class="panel-sub">Build a professional pitch deck that brands actually want to read. Your stats, your aesthetic, your rates - in a format that converts.</p>
+        <p class="panel-sub">Build a professional pitch deck that brands actually want to read. Your stats, your aesthetic, your rates — in a format that converts.</p>
         <div class="pitch-preview" id="pitchPreview">
           <div class="pitch-header">
             <div class="pitch-brand">Creator profile</div>
@@ -779,7 +782,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
           </div>
           <div class="pitch-body">
             <div class="pitch-section-title">About</div>
-            <p class="pitch-bio" id="pitchBio">Fashion creator focused on quiet luxury and minimalist dressing. I help my audience build intentional, investment-worthy wardrobes - every recommendation is something I have personally worn or tested. My content drives real purchase decisions.</p>
+            <p class="pitch-bio" id="pitchBio">Fashion creator focused on quiet luxury and minimalist dressing. I help my audience build intentional, investment-worthy wardrobes — every recommendation is something I've personally worn or tested. My content drives real purchase decisions.</p>
             <div class="pitch-section-title">Recent work</div>
             <div class="pitch-edit-grid">
               <div class="pitch-edit-item">Edit 01</div>
@@ -825,7 +828,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
             <span></span>
           </div>
           <div class="aff-link-row">
-            <div><div class="aff-link-name">Toteme silk shirt</div><div class="aff-link-brand">ShopMy · 18% commission</div></div>
+            <div><div class="aff-link-name">Totême silk shirt</div><div class="aff-link-brand">ShopMy · 18% commission</div></div>
             <div class="aff-link-stat">284</div><div class="aff-link-stat">12</div><div class="aff-link-stat earn">$907</div>
             <button class="aff-copy">Copy link</button>
           </div>
@@ -851,7 +854,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
       <div class="studio-panel" id="panel-education">
         <p class="eyebrow">Education Library</p>
         <h2 class="panel-title">Learn the <em>business side.</em></h2>
-        <p class="panel-sub">Everything they don't tell you about building a creator business - from stacking affiliate platforms to negotiating brand deals.</p>
+        <p class="panel-sub">Everything they don't tell you about building a creator business — from stacking affiliate platforms to negotiating brand deals.</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px">
           <div class="card" style="padding:24px;cursor:pointer" onclick="openModal()">
             <div style="font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple);margin-bottom:10px">Affiliate</div>
@@ -885,7 +888,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
           </div>
           <div class="card" style="padding:24px;cursor:pointer;background:var(--black)" onclick="openModal()">
             <div style="font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:10px">Studio members only</div>
-            <div style="font-size:15px;font-weight:500;margin-bottom:8px;color:var(--white)">Full library - 40+ guides</div>
+            <div style="font-size:15px;font-weight:500;margin-bottom:8px;color:var(--white)">Full library — 40+ guides</div>
             <div style="font-size:12px;color:rgba(255,255,255,.4);line-height:1.6">Every topic a fashion creator needs to build a real business.</div>
             <div style="margin-top:20px"><button class="btn-sm" style="background:var(--white);color:var(--black)" onclick="openModal()">Join Studio</button></div>
           </div>
@@ -896,12 +899,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
   </div>
 </div>
 
-<!-- ==============================
+<!-- ══════════════════════════════
      PAGE: THE AVANT EDIT
-============================== -->
+══════════════════════════════ -->
 <div class="page" id="page-edit">
   <div class="edit-hero">
-    <p class="edit-issue">Issue No. 001 - April 2026</p>
+    <p class="edit-issue">Issue No. 001 — April 2026</p>
     <h1 class="edit-title">The Avant Edit</h1>
     <p class="edit-sub">Fashion filtered. The brands worth knowing before everyone else does, the creators worth watching, the industry signals worth understanding.</p>
     <div class="edit-form" id="editForm">
@@ -916,25 +919,25 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
     <div class="issue-section">
       <div class="issue-section-label">From the editor</div>
       <p class="issue-from-editor">"Fifteen years inside fashion teaches you what the algorithm never will: which brands are built to last, which creators are actually moving culture, and which trends are signals versus noise. That's what this is."</p>
-      <p class="issue-from-sig">- J, founder of Avant</p>
+      <p class="issue-from-sig">— J, founder of Avant</p>
     </div>
 
     <div class="issue-section">
-      <div class="issue-section-label">The edit - 3 brands right now</div>
+      <div class="issue-section-label">The edit — 3 brands right now</div>
       <div class="issue-brand-item">
         <div class="issue-brand-name">Auralee</div>
         <div class="issue-brand-where">auralee.jp · Available at Ssense</div>
         <p class="issue-brand-desc">Japanese label doing the most considered basics in the market right now. The fabric quality at this price point doesn't exist anywhere else. If you're building an investment wardrobe, start here. The luster plaited knit is the piece.</p>
       </div>
       <div class="issue-brand-item">
-        <div class="issue-brand-name">Toteme</div>
+        <div class="issue-brand-name">Totême</div>
         <div class="issue-brand-where">toteme-studio.com · Nordstrom</div>
-        <p class="issue-brand-desc">The Swedish brand that figured out how to make a silk shirt that actually fits. The new season has three pieces I'd buy immediately - the charmeuse in ivory, the wide-leg trouser, and a scarf that works harder than any accessory I own.</p>
+        <p class="issue-brand-desc">The Swedish brand that figured out how to make a silk shirt that actually fits. The new season has three pieces I'd buy immediately — the charmeuse in ivory, the wide-leg trouser, and a scarf that works harder than any accessory I own.</p>
       </div>
       <div class="issue-brand-item">
         <div class="issue-brand-name">Baserange</div>
         <div class="issue-brand-where">baserange.net</div>
-        <p class="issue-brand-desc">The wildcard this week. A Danish label making clothes out of bamboo and organic cotton that feel like nothing else. Slightly under the radar still - which is exactly when to pay attention.</p>
+        <p class="issue-brand-desc">The wildcard this week. A Danish label making clothes out of bamboo and organic cotton that feel like nothing else. Slightly under the radar still — which is exactly when to pay attention.</p>
       </div>
     </div>
 
@@ -944,12 +947,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
         <span style="font-size:13px;font-weight:500">@lucywilliams02</span>
         <span style="font-size:11px;color:var(--g500);margin-left:8px">Instagram · 700K</span>
       </div>
-      <p class="issue-signal">What she's doing right that most creators miss: she treats her feed as an edit, not a feed. Every post connects to the next. The result is an aesthetic that's instantly recognizable from the first image. Brands pay a premium for that kind of visual consistency and audiences reward it with the kind of loyalty that converts. Watch how she introduces new brands - always through the lens of her existing aesthetic, never as a disruption to it.</p>
+      <p class="issue-signal">What she's doing right that most creators miss: she treats her feed as an edit, not a feed. Every post connects to the next. The result is an aesthetic that's instantly recognizable from the first image. Brands pay a premium for that kind of visual consistency and audiences reward it with the kind of loyalty that converts. Watch how she introduces new brands — always through the lens of her existing aesthetic, never as a disruption to it.</p>
     </div>
 
     <div class="issue-section">
       <div class="issue-section-label">The signal</div>
-      <p class="issue-signal">Luxury fashion had a difficult year on social in 2025 - flat numbers, declining engagement, audiences fatigued by the same heritage house content. What worked? Smaller brands with emerging creator voices. The lesson isn't that luxury is dead on social, it's that authenticity is finally more valuable than prestige. The brands winning right now are the ones who found creators who genuinely wear their product and let them tell their own story. That gap between brand authority and creator authenticity is where the interesting business is being built.</p>
+      <p class="issue-signal">Luxury fashion had a difficult year on social in 2025 — flat numbers, declining engagement, audiences fatigued by the same heritage house content. What worked? Smaller brands with emerging creator voices. The lesson isn't that luxury is dead on social, it's that authenticity is finally more valuable than prestige. The brands winning right now are the ones who found creators who genuinely wear their product and let them tell their own story. That gap between brand authority and creator authenticity is where the interesting business is being built.</p>
     </div>
 
     <div class="issue-section">
@@ -960,8 +963,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
           <div class="issue-shop-info"><div class="issue-shop-brand">Auralee</div><div class="issue-shop-name">Luster plaited knit top</div><div class="issue-shop-price">$380</div></div>
         </div>
         <div class="issue-shop-item">
-          <div class="issue-shop-img">Toteme<br>Silk shirt</div>
-          <div class="issue-shop-info"><div class="issue-shop-brand">Toteme</div><div class="issue-shop-name">Charmeuse shirt in ivory</div><div class="issue-shop-price">$420</div></div>
+          <div class="issue-shop-img">Totême<br>Silk shirt</div>
+          <div class="issue-shop-info"><div class="issue-shop-brand">Totême</div><div class="issue-shop-name">Charmeuse shirt in ivory</div><div class="issue-shop-price">$420</div></div>
         </div>
         <div class="issue-shop-item">
           <div class="issue-shop-img">Baserange<br>Wide leg</div>
@@ -987,7 +990,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
 <!-- MODAL -->
 <div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
   <div class="modal-box">
-    <button class="modal-x" onclick="closeModal()">x</button>
+    <button class="modal-x" onclick="closeModal()">×</button>
     <p class="modal-eye">Early access</p>
     <h3 class="modal-h">Join the<br><em>Avant waitlist.</em></h3>
     <p class="modal-p">Avant Studio is launching soon. Join for early access plus a free issue of The Avant Edit in your inbox this week.</p>
@@ -1003,76 +1006,98 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
 </div>
 
 <script>
-// -- NAVIGATION --
-  // -- NAVIGATION --
+// ── NAVIGATION ──
 function showPage(id) {
-  document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
-  document.querySelectorAll('.nav-link').forEach(function(l) { l.classList.remove('active'); });
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
   document.getElementById('page-' + id).classList.add('active');
-  var nl = document.getElementById('nl-' + id);
+  const nl = document.getElementById('nl-' + id);
   if (nl) nl.classList.add('active');
   window.scrollTo(0, 0);
 }
 
 function showPanel(id, btn) {
-  document.querySelectorAll('.studio-panel').forEach(function(p) { p.classList.remove('on'); });
-  document.querySelectorAll('.sidebar-item').forEach(function(s) { s.classList.remove('on'); });
+  document.querySelectorAll('.studio-panel').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.sidebar-item').forEach(s => s.classList.remove('on'));
   document.getElementById('panel-' + id).classList.add('on');
   if (btn) btn.classList.add('on');
 }
 
-var samples = [
-  {brand:'Toteme',name:'Silk shirt',price:'$420'},
-  {brand:'The Row',name:'Trousers',price:'$1,290'},
-  {brand:'Lemaire',name:'Crossbody',price:'$895'},
-  {brand:'Cos',name:'Wool coat',price:'$340'},
-  {brand:'Khaite',name:'Mules',price:'$650'},
-  {brand:'Auralee',name:'Knit top',price:'$380'},
-  {brand:'Baserange',name:'Wide leg',price:'$185'},
-  {brand:'Jacquemus',name:'Mini bag',price:'$560'},
+// ── SAMPLES ──
+const samples = [
+  {brand:'Toteme',name:'Silk shirt',price:'$420',img:'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=300&q=80'},
+  {brand:'The Row',name:'Trousers',price:'$1,290',img:'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=300&q=80'},
+  {brand:'Lemaire',name:'Crossbody',price:'$895',img:'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=300&q=80'},
+  {brand:'Cos',name:'Wool coat',price:'$340',img:'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=300&q=80'},
+  {brand:'Khaite',name:'Mules',price:'$650',img:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&q=80'},
+  {brand:'Auralee',name:'Knit top',price:'$380',img:'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=300&q=80'},
+  {brand:'Baserange',name:'Wide leg',price:'$185',img:'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=300&q=80'},
+  {brand:'Jacquemus',name:'Mini bag',price:'$560',img:'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=300&q=80'},
 ];
 
-var boardItems = [];
-var pickedSamples = new Set();
+// ── BOARD STATE ──
+const boardItems = [];
+const pickedSamples = new Set();
 
 function renderBoard() {
-  var grid = document.getElementById('boardGrid');
-  var stats = document.getElementById('boardStats');
-  if (!grid) return;
-  var cells = [];
-  boardItems.forEach(function(item, i) {
-    cells.push('<div class="board-cell">' +
-      (item.img ? '<img src="' + item.img + '" onerror="this.style.display=\'none\'">' : '') +
-      '<div class="board-cell-label"><span>' + item.label + '</span></div>' +
-      '<button class="board-cell-remove" onclick="removeBoard(' + i + ')">x</button>' +
-      '</div>');
+  const grid = document.getElementById('boardGrid');
+  const stats = document.getElementById('boardStats');
+  const cells = [];
+  boardItems.forEach((item, i) => {
+    cells.push(`<div class="board-cell">
+      ${item.img ? `<img src="${item.img}" onerror="this.style.display='none'">` : ''}
+      <div class="board-cell-label"><span>${item.label}</span></div>
+      <button class="board-cell-remove" onclick="removeBoard(${i})">×</button>
+    </div>`);
   });
-  while (cells.length < 6) {
-    cells.push('<div class="board-cell board-add-cell" onclick="document.getElementById(\'importUrl\').focus()"><div class="board-add-icon">+</div><div class="board-add-text">Add item</div></div>');
-  }
+  while (cells.length < 6) cells.push(`<div class="board-cell board-add-cell" onclick="document.getElementById('importUrl').focus()"><div class="board-add-icon">+</div><div class="board-add-text">Add item</div></div>`);
   grid.innerHTML = cells.join('');
-  var total = boardItems.reduce(function(s, item) { return s + (item.price ? parseInt(item.price.replace(/[^0-9]/g,'')) : 0); }, 0);
-  if (stats) stats.textContent = boardItems.length + ' items  $' + total.toLocaleString() + ' total';
+  const total = boardItems.reduce((s, item) => s + (item.price ? parseInt(item.price.replace(/[^0-9]/g,'')) : 0), 0);
+  stats.textContent = `${boardItems.length} items · $${total.toLocaleString()} total`;
 }
 
 function removeBoard(i) { boardItems.splice(i, 1); renderBoard(); }
 function clearBoard() { boardItems.length = 0; pickedSamples.clear(); renderSampleMini(); renderBoard(); }
 
 function renderSampleMini() {
-  var grid = document.getElementById('sampleMini');
+  const grid = document.getElementById('sampleMini');
   if (!grid) return;
-  grid.innerHTML = samples.map(function(s, i) {
-    return '<div class="sample-card ' + (pickedSamples.has(i) ? 'picked' : '') + '" onclick="toggleSample(' + i + ')">' +
-      '<div class="sample-img"><span>' + s.brand + '<br>' + s.name + '</span></div>' +
-      '<div class="sample-info"><div class="sample-brand">' + s.brand + '</div><div class="sample-name">' + s.name + '</div><div class="sample-price">' + s.price + '</div></div>' +
-      '</div>';
-  }).join('');
+  grid.innerHTML = samples.map((s, i) => `
+    <div class="sample-card ${pickedSamples.has(i)?'picked':''}" onclick="toggleSample(${i})">
+      <div class="sample-img">${s.img ? `<img src="${s.img}" onerror="this.style.display='none'">` : `<span>${s.brand}<br>${s.name}</span>`}</div>
+      <div class="sample-info"><div class="sample-brand">${s.brand}</div><div class="sample-name">${s.name}</div><div class="sample-price">${s.price}</div></div>
+    </div>`).join('');
+  renderCurioFeedMini();
 }
+
+function renderCurioFeedMini() {
+  const grid = document.getElementById('curioFeedMini');
+  if (!grid) return;
+  const items = typeof curioItems !== 'undefined' ? curioItems : [];
+  if (items.length === 0) {
+    grid.innerHTML = '<div style="font-size:11px;color:var(--g300);font-style:italic;padding:8px 0">Save items in Curio to see them here.</div>';
+    return;
+  }
+  grid.innerHTML = items.slice(0,6).map(item =>
+    `<div class="sample-card" onclick="addCurioToBoard(${item.id})" title="Add to board">
+      <div class="sample-img">${item.img ? `<img src="${item.img}" onerror="this.style.display='none'">` : `<span>${item.label}</span>`}</div>
+      <div class="sample-info"><div class="sample-brand">${item.cat}</div><div class="sample-name">${item.label}</div></div>
+    </div>`
+  ).join('');
+}
+
+function addCurioToBoard(id) {
+  const item = curioItems.find(i => i.id === id);
+  if (!item) return;
+  boardItems.push({key:'c'+id, label:item.label, img:item.img||'', price:''});
+  renderBoard();
+}
+
 
 function toggleSample(i) {
   if (pickedSamples.has(i)) {
     pickedSamples.delete(i);
-    var idx = boardItems.findIndex(function(b) { return b.key === 's'+i; });
+    const idx = boardItems.findIndex(b => b.key === 's'+i);
     if (idx > -1) boardItems.splice(idx, 1);
   } else {
     pickedSamples.add(i);
@@ -1082,18 +1107,19 @@ function toggleSample(i) {
   renderBoard();
 }
 
+// ── PROXY FETCH ──
 async function fetchPage(url) {
-  var proxies = [
-    function(u) { return 'https://api.allorigins.win/get?url=' + encodeURIComponent(u); },
-    function(u) { return 'https://corsproxy.io/?' + encodeURIComponent(u); },
-    function(u) { return 'https://api.codetabs.com/v1/proxy?quest=' + encodeURIComponent(u); },
+  const proxies = [
+    u => `https://api.allorigins.win/get?url=${encodeURIComponent(u)}`,
+    u => `https://corsproxy.io/?${encodeURIComponent(u)}`,
+    u => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(u)}`,
   ];
-  for (var i = 0; i < proxies.length; i++) {
+  for (const mk of proxies) {
     try {
-      var r = await fetch(proxies[i](url), {signal: AbortSignal.timeout(7000)});
+      const r = await fetch(mk(url), {signal: AbortSignal.timeout(7000)});
       if (!r.ok) continue;
-      var ct = r.headers.get('content-type') || '';
-      var text = ct.includes('json') ? (await r.json()).contents || '' : await r.text();
+      const ct = r.headers.get('content-type') || '';
+      let text = ct.includes('json') ? (await r.json()).contents || '' : await r.text();
       if (text && text.length > 200) return text;
     } catch(e) { continue; }
   }
@@ -1101,102 +1127,111 @@ async function fetchPage(url) {
 }
 
 function parseMeta(html) {
-  var img = '';
-  var patterns = [
+  let img = '';
+  for (const p of [
     /<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i,
     /<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:image["']/i,
     /<meta[^>]+name=["']twitter:image["'][^>]+content=["']([^"']+)["']/i,
-  ];
-  for (var i = 0; i < patterns.length; i++) {
-    var m = html.match(patterns[i]);
+  ]) {
+    const m = html.match(p);
     if (m && m[1] && m[1].startsWith('http')) { img = m[1]; break; }
   }
-  var tm = html.match(/<meta[^>]+property=["']og:title["'][^>]+content=["']([^"']+)["']/i)
+  const tm = html.match(/<meta[^>]+property=["']og:title["'][^>]+content=["']([^"']+)["']/i)
     || html.match(/<title[^>]*>([^<]+)<\/title>/i);
-  var title = tm ? tm[1].replace(/\s*[\|\-\u2013\u2014]\s*.+$/, '').trim().substring(0, 30) : 'Saved item';
-  return { img: img, title: title };
+  const title = tm ? tm[1].replace(/\s*[\|\-\u2013\u2014]\s*.+$/, '').trim().substring(0, 30) : 'Saved item';
+  return { img, title };
 }
 
+// ── IMPORT ITEM (board) ──
 async function importItem() {
-  var raw = document.getElementById('importUrl').value.trim();
+  const raw = document.getElementById('importUrl').value.trim();
   if (!raw) return;
-  var status = document.getElementById('importStatus');
-  status.textContent = 'Fetching...';
+  const status = document.getElementById('importStatus');
+  const btn = document.querySelector('#panel-look-builder .bs-card .btn-sm');
+  if (btn) btn.disabled = true;
+
   if (/\.(jpg|jpeg|png|webp|gif)(\?.*)?$/i.test(raw)) {
     boardItems.push({key:'i'+Date.now(), label:'Saved item', img:raw, price:''});
     document.getElementById('importUrl').value = '';
     status.textContent = 'Added!';
     renderBoard();
+    if (btn) btn.disabled = false;
     return;
   }
-  var html = await fetchPage(raw);
+
+  status.textContent = 'Fetching...';
+  const html = await fetchPage(raw);
   if (html) {
-    var meta = parseMeta(html);
-    if (meta.img) {
-      boardItems.push({key:'i'+Date.now(), label:meta.title, img:meta.img, price:''});
+    const {img, title} = parseMeta(html);
+    if (img) {
+      boardItems.push({key:'i'+Date.now(), label:title, img, price:''});
       document.getElementById('importUrl').value = '';
-      status.textContent = 'Added: ' + meta.title;
+      status.textContent = `Added: ${title}`;
     } else {
-      status.textContent = 'No image found. Right-click product photo, Copy image address, paste here.';
+      status.textContent = 'Found page but no image. Right-click product photo → Copy image address → paste here.';
     }
   } else {
-    status.textContent = 'Site blocked. Right-click product image, Copy image address, paste here.';
+    status.textContent = 'Site blocked auto-fetch. Right-click product image → Copy image address → paste here.';
   }
   renderBoard();
+  if (btn) btn.disabled = false;
 }
 
-var curioItems = [
-  {id:1, url:'', img:'', label:'Zara linen dress', cat:'fashion', note:''},
-  {id:2, url:'', img:'', label:'Arhaus cloud sofa', cat:'home', note:'Perfect for the new living room'},
-  {id:3, url:'', img:'', label:'Glossier serum', cat:'beauty', note:''},
-  {id:4, url:'', img:'', label:'Amalfi Coast trip', cat:'travel', note:'Summer 2026 goal'},
-  {id:5, url:'', img:'', label:'The Row trousers', cat:'fashion', note:''},
+// ── CURIO STATE ──
+let curioItems = [
+  {id:1, url:'', img:'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&q=80', label:'Zara linen dress', cat:'fashion', note:''},
+  {id:2, url:'', img:'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&q=80', label:'Arhaus cloud sofa', cat:'home', note:'Perfect for the new living room'},
+  {id:3, url:'', img:'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&q=80', label:'Glossier serum', cat:'beauty', note:''},
+  {id:4, url:'', img:'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=400&q=80', label:'Amalfi Coast', cat:'travel', note:'Summer 2026 goal'},
+  {id:5, url:'', img:'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&q=80', label:'Wide leg trousers', cat:'fashion', note:''},
+  {id:6, url:'', img:'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&q=80', label:'Leather tote', cat:'fashion', note:''},
+  {id:7, url:'', img:'https://images.unsplash.com/photo-1449247709967-d4461a6a6103?w=400&q=80', label:'Marble side table', cat:'home', note:''},
+  {id:8, url:'', img:'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&q=80', label:'Skincare routine', cat:'beauty', note:''},
 ];
-var curioFilter = 'all';
-var noteItemId = null;
+let curioFilter = 'all';
+let noteItemId = null;
 
 function renderCurio() {
-  var grid = document.getElementById('curioGrid');
-  if (!grid) return;
-  var filtered = curioFilter === 'all' ? curioItems : curioItems.filter(function(i) { return i.cat === curioFilter; });
+  const grid = document.getElementById('curioGrid');
+  const filtered = curioFilter === 'all' ? curioItems : curioItems.filter(i => i.cat === curioFilter);
   if (filtered.length === 0) {
-    grid.innerHTML = '<div class="curio-empty"><p>Nothing saved yet.</p><span>Paste a URL above to save your first item.</span></div>';
+    grid.innerHTML = `<div class="curio-empty"><p>Nothing saved yet.</p><span>Paste a URL above to save your first item.</span></div>`;
     return;
   }
-  grid.innerHTML = filtered.map(function(item) {
-    return '<div class="curio-item" onclick="openNote(' + item.id + ')">' +
-      '<div class="curio-img">' +
-      (item.img ? '<img src="' + item.img + '" onerror="this.style.display=\'none\'">' : '<div class="curio-img-placeholder">' + item.label + '</div>') +
-      '<button class="curio-item-del" onclick="event.stopPropagation();deleteCurio(' + item.id + ')">x</button>' +
-      '</div>' +
-      '<div class="curio-item-info">' +
-      '<div class="curio-item-cat">' + item.cat + '</div>' +
-      '<div class="curio-item-name">' + item.label + '</div>' +
-      (item.note ? '<div style="font-size:10px;color:var(--g500);margin-top:3px;font-style:italic">"' + item.note.substring(0,40) + (item.note.length>40?'...':'') + '"</div>' : '') +
-      '</div></div>';
-  }).join('');
+  grid.innerHTML = filtered.map(item => `
+    <div class="curio-item" onclick="openNote(${item.id})">
+      <div class="curio-img">
+        ${item.img ? `<img src="${item.img}" onerror="this.style.display='none'">` : `<div class="curio-img-placeholder">${item.label}</div>`}
+        <button class="curio-item-del" onclick="event.stopPropagation();deleteCurio(${item.id})">×</button>
+      </div>
+      <div class="curio-item-info">
+        <div class="curio-item-cat">${item.cat}</div>
+        <div class="curio-item-name">${item.label}</div>
+        ${item.note ? `<div style="font-size:10px;color:var(--g500);margin-top:3px;font-style:italic">"${item.note.substring(0,40)}${item.note.length>40?'...':''}"</div>` : ''}
+      </div>
+    </div>`).join('');
 }
 
 function filterCurio(cat, btn) {
   curioFilter = cat;
-  document.querySelectorAll('.cat-btn').forEach(function(b) { b.classList.remove('on'); });
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('on'));
   btn.classList.add('on');
   renderCurio();
 }
 
 function deleteCurio(id) {
-  curioItems = curioItems.filter(function(i) { return i.id !== id; });
+  curioItems = curioItems.filter(i => i.id !== id);
   renderCurio();
 }
 
 function openNote(id) {
   noteItemId = id;
-  var item = curioItems.find(function(i) { return i.id === id; });
+  const item = curioItems.find(i => i.id === id);
   document.getElementById('noteItemName').textContent = item.label;
   document.getElementById('noteText').value = item.note || '';
-  var imgEl = document.getElementById('noteItemImg');
+  const imgEl = document.getElementById('noteItemImg');
   if (item.img) {
-    imgEl.innerHTML = '<img src="' + item.img + '" style="width:100%;height:100%;object-fit:cover">';
+    imgEl.innerHTML = `<img src="${item.img}" style="width:100%;height:100%;object-fit:cover">`;
   } else {
     imgEl.textContent = item.label;
   }
@@ -1206,94 +1241,103 @@ function openNote(id) {
 function closeNote() { document.getElementById('noteOverlay').classList.remove('on'); }
 
 function saveNote() {
-  var item = curioItems.find(function(i) { return i.id === noteItemId; });
+  const item = curioItems.find(i => i.id === noteItemId);
   if (item) item.note = document.getElementById('noteText').value;
   closeNote();
   renderCurio();
 }
 
+// ── CURIO SAVE ──
 async function curioSave() {
-  var raw = document.getElementById('curioUrl').value.trim();
+  const raw = document.getElementById('curioUrl').value.trim();
   if (!raw) return;
-  var status = document.getElementById('curioStatus');
-  var btn = document.querySelector('#page-curio .save-btn');
-  if (btn) btn.disabled = true;
-  var cats = {
-    fashion:['ssense','net-a-porter','zara','asos','revolve','shopbop','farfetch','cos','hm','uniqlo','mango'],
+  const status = document.getElementById('curioStatus');
+  const btn = document.querySelector('#page-curio .save-btn');
+  btn.disabled = true;
+
+  // Detect category from URL
+  const cats = {fashion:['ssense','net-a-porter','zara','asos','revolve','shopbop','farfetch','cos','hm','uniqlo','mango'],
     home:['arhaus','wayfair','cb2','westelm','crateandbarrel','potterybarn','ikea','restoration'],
     beauty:['glossier','sephora','ulta','space-nk','kiehls'],
-    travel:['airbnb','booking','tripadvisor','hotels','expedia']
-  };
-  var detectedCat = 'fashion';
-  for (var cat in cats) {
-    if (cats[cat].some(function(d) { return raw.toLowerCase().includes(d); })) { detectedCat = cat; break; }
+    travel:['airbnb','booking','tripadvisor','hotels','expedia']};
+  let detectedCat = 'fashion';
+  for (const [cat, domains] of Object.entries(cats)) {
+    if (domains.some(d => raw.toLowerCase().includes(d))) { detectedCat = cat; break; }
   }
+
   if (/\.(jpg|jpeg|png|webp|gif)(\?.*)?$/i.test(raw)) {
-    curioItems.unshift({id:Date.now(), url:raw, img:raw, label:'Saved item', cat:detectedCat, note:''});
+    curioItems.unshift({id: Date.now(), url: raw, img: raw, label: 'Saved item', cat: detectedCat, note: ''});
     document.getElementById('curioUrl').value = '';
     status.textContent = 'Saved!';
     renderCurio();
-    if (btn) btn.disabled = false;
+    btn.disabled = false;
     return;
   }
+
   status.textContent = 'Saving...';
-  var html = await fetchPage(raw);
+  const html = await fetchPage(raw);
   if (html) {
-    var meta = parseMeta(html);
-    curioItems.unshift({id:Date.now(), url:raw, img:meta.img||'', label:meta.title, cat:detectedCat, note:''});
-    status.textContent = meta.img ? 'Saved: ' + meta.title : 'Saved: ' + meta.title + ' - right-click image, Copy image address for photo';
+    const {img, title} = parseMeta(html);
+    curioItems.unshift({id: Date.now(), url: raw, img: img || '', label: title, cat: detectedCat, note: ''});
+    status.textContent = img ? `Saved: ${title}` : `Saved: ${title} — right-click product image → Copy image address for the photo`;
     document.getElementById('curioUrl').value = '';
   } else {
-    status.textContent = 'Site blocked. Right-click product image, Copy image address, paste here.';
+    status.textContent = 'Site blocked. Right-click the product image → "Copy image address" and paste that here.';
   }
   renderCurio();
-  if (btn) btn.disabled = false;
+  btn.disabled = false;
 }
 
-var heroCount = 2;
+// ── HERO SAVE ──
+let heroCount = 2;
 async function heroSave() {
-  var raw = document.getElementById('heroUrl').value.trim();
+  const raw = document.getElementById('heroUrl').value.trim();
   if (!raw) return;
-  var status = document.getElementById('heroStatus');
+  const status = document.getElementById('heroStatus');
   status.textContent = 'Saving...';
-  var html = await fetchPage(raw);
-  var label = 'Saved item';
-  var img = '';
-  if (html) { var m = parseMeta(html); label = m.title; img = m.img; }
+  const html = await fetchPage(raw);
+  let label = 'Saved item';
+  let img = '';
+  if (html) { const m = parseMeta(html); label = m.title; img = m.img; }
   heroCount++;
   document.getElementById('heroCount').textContent = heroCount + ' items saved';
   document.getElementById('heroUrl').value = '';
-  status.textContent = img ? 'Saved: ' + label : 'Saved! Paste image URL for the photo.';
+  status.textContent = img ? `Saved: ${label}` : 'Saved! (paste image URL for the photo)';
 }
 
-var genCurrentTab = 'caption';
-var genData = {caption:'', hashtags:[], hook:''};
+// ── CONTENT GENERATOR ──
+let genCurrentTab = 'caption';
+let genData = {caption: '', hashtags: [], hook: ''};
+
+const captions = {
+  'Editorial — authoritative and sparse': (desc) => `The edit.\n\n${desc.includes('linen') ? 'Linen, silk, and the kind of restraint that takes years to develop.' : 'Pieces chosen for what they do, not what they say.'}\n\nAll linked.`,
+  'Warm — personal and conversational': (desc) => `Ok but this look is everything right now 🤍\n\n${desc.includes('minimal') ? 'Going through a major minimal moment and honestly it feels like the most me I've ever dressed.' : 'Found these pieces and couldn\'t stop thinking about them together.'}\n\nLinks are in bio — let me know if you want more details on sizing!`,
+  'Direct — just the facts and links': (desc) => `This week's edit.\n\nEverything linked in bio. Affiliate links used — thank you for supporting the work.`,
+  'Aspirational — lifestyle and feeling': (desc) => `There's a certain kind of dressing that feels like armor. Quiet, considered, completely intentional.\n\n${desc.includes('spring') ? 'This is how I'm entering spring.' : 'This is the energy.'}\n\nEvery piece linked.`,
+};
+
+const hashtagSets = {
+  'Instagram': ['#quietluxury','#editorialfashion','#minimalstyle','#slowfashion','#fashionedit','#ootd','#styleinspo','#fashionblogger','#wardrobeessentials','#investmentpiece','#therow','#toteme','#avantgarde','#womensstyle','#fashionminimalist'],
+  'TikTok': ['#quietluxury','#fashiontok','#ootd','#styletok','#fashioninspo','#minimalfashion','#outfitcheck','#fashionblogger','#stylecheck','#fashionadvice','#grwm','#whatiwore'],
+  'Pinterest': ['#quietluxury','#minimalistfashion','#editorialstyle','#capsulewardrobe','#fashionmoodboard','#styleinspo','#womensfashion','#luxuryfashion'],
+  'LinkedIn': ['#fashionbusiness','#creatorseconomy','#fashionmarketing','#contentcreator','#fashionindustry'],
+};
 
 function generateContent() {
-  var desc = document.getElementById('genDesc').value || 'Minimal spring look with neutral tones';
-  var tone = document.getElementById('genTone').value;
-  var platform = document.getElementById('genPlatform').value;
+  const desc = document.getElementById('genDesc').value || 'Minimal spring look with neutral tones';
+  const tone = document.getElementById('genTone').value;
+  const platform = document.getElementById('genPlatform').value;
+
   document.getElementById('genPlaceholder').style.display = 'none';
   document.getElementById('genResult').style.display = 'none';
   document.getElementById('genLoading').style.display = 'flex';
-  setTimeout(function() {
-    if (tone.indexOf('Editorial') > -1) {
-      genData.caption = 'The edit.\n\nPieces chosen for what they do, not what they say.\n\nAll linked.';
-    } else if (tone.indexOf('Warm') > -1) {
-      genData.caption = 'Ok but this look is everything right now.\n\nFound these pieces and could not stop thinking about them together.\n\nLinks are in bio!';
-    } else if (tone.indexOf('Direct') > -1) {
-      genData.caption = 'This weeks edit.\n\nEverything linked in bio. Affiliate links used - thank you for supporting the work.';
-    } else {
-      genData.caption = 'There is a certain kind of dressing that feels like armor. Quiet, considered, completely intentional.\n\nEvery piece linked.';
-    }
-    var hashtagSets = {
-      'Instagram': ['#quietluxury','#editorialfashion','#minimalstyle','#slowfashion','#fashionedit','#ootd','#styleinspo','#fashionblogger','#wardrobeessentials','#investmentpiece','#therow','#toteme'],
-      'TikTok': ['#quietluxury','#fashiontok','#ootd','#styletok','#fashioninspo','#minimalfashion','#outfitcheck','#fashionblogger','#stylecheck','#fashionadvice'],
-      'Pinterest': ['#quietluxury','#minimalistfashion','#editorialstyle','#capsulewardrobe','#fashionmoodboard','#styleinspo'],
-      'LinkedIn': ['#fashionbusiness','#creatorseconomy','#fashionmarketing','#contentcreator','#fashionindustry'],
-    };
+
+  setTimeout(() => {
+    const captionFn = captions[tone] || captions['Editorial — authoritative and sparse'];
+    genData.caption = captionFn(desc.toLowerCase());
     genData.hashtags = (hashtagSets[platform] || hashtagSets['Instagram']).slice(0, 12);
-    genData.hook = 'The most considered look of the season. Every piece linked.';
+    genData.hook = `"${desc.includes('minimal') ? 'The most minimal look I've worn all season — and the most compliments I've received.' : 'This is the edit I keep coming back to.'}"`;
+
     document.getElementById('genLoading').style.display = 'none';
     document.getElementById('genResult').style.display = 'block';
     switchGenTab(genCurrentTab, null);
@@ -1302,39 +1346,42 @@ function generateContent() {
 
 function switchGenTab(tab, btn) {
   genCurrentTab = tab;
-  document.querySelectorAll('.gen-tab').forEach(function(t) { t.classList.remove('on'); });
+  document.querySelectorAll('.gen-tab').forEach(t => t.classList.remove('on'));
   if (btn) btn.classList.add('on');
+
   document.getElementById('genCaption').style.display = tab === 'caption' ? 'block' : 'none';
   document.getElementById('genHashtagsWrap').style.display = tab === 'hashtags' ? 'block' : 'none';
   document.getElementById('genHookWrap').style.display = tab === 'hook' ? 'block' : 'none';
+
   if (tab === 'caption') {
     document.getElementById('genCaption').textContent = genData.caption;
   } else if (tab === 'hashtags') {
-    document.getElementById('genHashtagsList').innerHTML = genData.hashtags.map(function(h) { return '<span class="gen-hashtag">' + h + '</span>'; }).join('');
+    document.getElementById('genHashtagsList').innerHTML = genData.hashtags.map(h => `<span class="gen-hashtag">${h}</span>`).join('');
   } else if (tab === 'hook') {
     document.getElementById('genHookText').textContent = genData.hook;
   }
 }
 
 function copyContent() {
-  var text = '';
+  let text = '';
   if (genCurrentTab === 'caption') text = genData.caption;
   else if (genCurrentTab === 'hashtags') text = genData.hashtags.join(' ');
   else text = genData.hook;
-  navigator.clipboard.writeText(text).then(function() {
-    var btn = event.target;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = event.target;
     btn.textContent = 'Copied!';
-    setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+    setTimeout(() => btn.textContent = 'Copy', 1500);
   });
 }
 
 function generateFromBoard() {
   showPanel('content-gen', document.getElementById('si-content-gen'));
-  var names = boardItems.map(function(b) { return b.label; }).join(', ');
+  const names = boardItems.map(b => b.label).join(', ');
   if (names) document.getElementById('genDesc').value = names;
 }
 
-var hashtagDB = {
+// ── HASHTAG TOOL ──
+const hashtagDB = {
   'quiet luxury': ['#quietluxury','#therow','#toteme','#lemaire','#minimalistfashion','#oldmoney','#luxuryfashion','#editorialstyle','#slowfashion','#investmentpieces','#capsulewardrobe','#timelessstyle'],
   'streetwear': ['#streetwear','#streetstyle','#hypebeast','#streetfashion','#urbanfashion','#sneakers','#drip','#outfitoftheday','#ootd','#fashion','#style','#hype'],
   'coastal grandmother': ['#coastalgrandmother','#coastalstyle','#summerstyle','#linen','#beachstyle','#cozyfashion','#effortlessstyle','#casualluxury','#beachwear','#summeroutfit'],
@@ -1343,60 +1390,64 @@ var hashtagDB = {
 };
 
 function generateHashtags() {
-  var input = document.getElementById('htInput').value.toLowerCase().trim();
-  var results = document.getElementById('htResults');
-  var tags = hashtagDB['default'];
-  for (var key in hashtagDB) {
-    if (input.indexOf(key) > -1 || key.indexOf(input) > -1) { tags = hashtagDB[key]; break; }
+  const input = document.getElementById('htInput').value.toLowerCase().trim();
+  const results = document.getElementById('htResults');
+  let tags = hashtagDB.default;
+  for (const [key, val] of Object.entries(hashtagDB)) {
+    if (input.includes(key) || key.includes(input)) { tags = val; break; }
   }
-  results.innerHTML = tags.map(function(t) { return '<span class="ht-tag" onclick="copyTag(this,\'' + t + '\')">' + t + '</span>'; }).join('');
+  results.innerHTML = tags.map(t => `<span class="ht-tag" onclick="copyTag(this,'${t}')">${t}</span>`).join('');
 }
 
 function copyTag(el, tag) {
   navigator.clipboard.writeText(tag);
   el.classList.add('copied');
   el.textContent = 'Copied!';
-  setTimeout(function() { el.classList.remove('copied'); el.textContent = tag; }, 1200);
+  setTimeout(() => { el.classList.remove('copied'); el.textContent = tag; }, 1200);
 }
 
-var plannerDays = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
-var plannerDates = [14,15,16,17,18,19,20];
-var defaultPosts = [
-  [{platform:'Instagram',text:'Quiet luxury edit - spring capsule'},{platform:'Pinterest',text:'Mood board: neutral tones'}],
+// ── WEEKLY PLANNER ──
+const days = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+const dates = [14,15,16,17,18,19,20];
+const defaultPosts = [
+  [{platform:'Instagram',text:'Quiet luxury edit — spring capsule'},{platform:'Pinterest',text:'Mood board: neutral tones'}],
   [],
-  [{platform:'TikTok',text:'Outfit check - 3 ways to wear a silk shirt'}],
+  [{platform:'TikTok',text:'Outfit check — 3 ways to wear a silk shirt'}],
   [{platform:'Instagram',text:'Creator worth watching this week'}],
   [],
-  [{platform:'Instagram',text:'Shop the edit - weekend picks'}],
+  [{platform:'Instagram',text:'Shop the edit — weekend picks'}],
   [],
 ];
 
 function renderPlanner(posts) {
-  var grid = document.getElementById('plannerGrid');
-  if (!grid) return;
-  grid.innerHTML = plannerDays.map(function(day, i) {
-    return '<div class="planner-day">' +
-      '<div class="planner-day-header"><div class="planner-day-name">' + day + '</div><div class="planner-day-date">Apr ' + plannerDates[i] + '</div></div>' +
-      '<div class="planner-day-body">' +
-      (posts[i]||[]).map(function(p) { return '<div class="planner-post"><div class="planner-post-platform">' + p.platform + '</div><div class="planner-post-text">' + p.text + '</div></div>'; }).join('') +
-      '<div class="planner-add" onclick="openModal()">+ Add post</div>' +
-      '</div></div>';
-  }).join('');
+  const grid = document.getElementById('plannerGrid');
+  grid.innerHTML = days.map((day, i) => `
+    <div class="planner-day">
+      <div class="planner-day-header">
+        <div class="planner-day-name">${day}</div>
+        <div class="planner-day-date">Apr ${dates[i]}</div>
+      </div>
+      <div class="planner-day-body">
+        ${(posts[i]||[]).map(p => `<div class="planner-post"><div class="planner-post-platform">${p.platform}</div><div class="planner-post-text">${p.text}</div></div>`).join('')}
+        <div class="planner-add" onclick="openModal()">+ Add post</div>
+      </div>
+    </div>`).join('');
 }
 
 function generateWeek() {
-  var suggestions = [
+  const suggestions = [
     [{platform:'Instagram',text:'The edit: spring capsule essentials'},{platform:'Pinterest',text:'Quiet luxury mood board 2026'}],
     [{platform:'TikTok',text:'5 pieces I wear on repeat'}],
-    [{platform:'Instagram Stories',text:'Behind the edit - what I almost bought'}],
-    [{platform:'Instagram',text:'Brand worth knowing this week'},{platform:'Newsletter',text:'The Avant Edit - issue 4'}],
+    [{platform:'Instagram Stories',text:'Behind the edit — what I almost bought'}],
+    [{platform:'Instagram',text:'Brand worth knowing this week'},{platform:'Newsletter',text:'The Avant Edit — issue 4'}],
     [{platform:'TikTok',text:'Outfit check: before and after the edit'}],
-    [{platform:'Instagram',text:'Weekend edit - what I actually wore'}],
+    [{platform:'Instagram',text:'Weekend edit — what I actually wore'}],
     [],
   ];
   renderPlanner(suggestions);
 }
 
+// ── MODAL ──
 function openModal() { document.getElementById('modalOverlay').classList.add('on'); document.body.style.overflow='hidden'; }
 function closeModal() { document.getElementById('modalOverlay').classList.remove('on'); document.body.style.overflow=''; }
 function modalSubmit() {
@@ -1405,13 +1456,15 @@ function modalSubmit() {
   setTimeout(closeModal, 2200);
 }
 
+// ── NEWSLETTER ──
 function editSubscribe() {
-  var v = document.getElementById('editEmail').value;
-  if (!v || v.indexOf('@') === -1) return;
+  const v = document.getElementById('editEmail').value;
+  if (!v || !v.includes('@')) return;
   document.getElementById('editForm').style.display = 'none';
   document.getElementById('editOk').style.display = 'block';
 }
 
+// ── INIT ──
 renderBoard();
 renderSampleMini();
 renderCurio();
